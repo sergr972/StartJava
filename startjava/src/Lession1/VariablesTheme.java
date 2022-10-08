@@ -55,22 +55,31 @@ class VariablesTheme {
         int num2 = 5;
         int num3;
         System.out.println("i. с помощью третьей переменной");
-        System.out.println("исходные значения переменных num1 = " + num1 + " num2 = " + num2);
+        System.out.println("исходные значения переменных num1 = " + num1 + " ,num2 = " + num2);
         num3 = num1;
         num1 = num2;
         num2 = num3;
-        System.out.println("новые значения переменных num1 = " + num1 + " num2 = " + num2);
+        System.out.println("новые значения переменных num1 = " + num1 + ", num2 = " + num2);
         System.out.println("ii. с помощью арифметических операций");
-        System.out.println("исходные значения переменных num1 = " + num1 + " num2 = " + num2);
-        num1 = num1 + num2;
+        System.out.println("исходные значения переменных num1 = " + num1 + ", num2 = " + num2);
+        num1 += num2;
         num2 = num1 - num2;
-        num1 = num1 - num2;
-        System.out.println("новые значения переменных num1 = " + num1 + " num2 = " + num2);
-        System.out.println("с помощью побитовой операции");
+        num1 -= num2;
+        System.out.println("новые значения переменных num1 = " + num1 + ", num2 = " + num2);
+        System.out.println("iii. с помощью побитовой операции");
+        System.out.println("исходные значения переменных num1 = " + num1 + ", num2 = " + num2);
         num1 = num1 ^ num2;
         num2 = num2 ^ num1;
         num1 = num1 ^ num2;
-        System.out.println("новые значения переменных num1 = " + num1 + " num2 = " + num2);
+        System.out.println("новые значения переменных num1 = " + num1 + ", num2 = " + num2);
+        System.out.println("\n6. Вывод символов и их кодов");
+        System.out.println("35 " + (char)35);
+        System.out.println("38 " + (char)38);
+        System.out.println("64 " + (char)64);
+        System.out.println("94 " + (char)94);
+        System.out.println("95 " + (char)95);
+
+
 
 
 
