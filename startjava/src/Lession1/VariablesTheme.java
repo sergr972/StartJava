@@ -106,5 +106,11 @@ class VariablesTheme {
         int mult = Num1 * Num2 * Num3;
         System.out.println("Сумма цифр числа " + N + " = " + summ);
         System.out.println("Произыведение цифр числа " + N + " = " + mult);
+        System.out.println("\n10. Преобразование секунд");
+        int taim = 86399;
+        int hour = taim / 3600;
+        int min = taim % 3600 / 60;
+        int sec = taim % 60;
+        System.out.println("в " + taim + " секундах: " + hour  + ":" + min + ":" + sec);
     }
 }
