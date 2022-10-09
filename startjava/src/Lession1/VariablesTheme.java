@@ -78,7 +78,7 @@ class VariablesTheme {
         System.out.println("64 " + (char)64);
         System.out.println("94 " + (char)94);
         System.out.println("95 " + (char)95);
-        System.out.println("\n7.Отображение количества сотен, десятков и единиц числа");
+        System.out.println("\n7. Отображение количества сотен, десятков и единиц числа");
         int N = 123;
         int X = N / 100;
         int Y = N % 100 / 10;
@@ -86,11 +86,17 @@ class VariablesTheme {
         System.out.println("Число " + N + " содержит сотен "+ X);
         System.out.println("Число " + N + " содержит десятков "+ Y);
         System.out.println("Число " + N + " содержит единиц "+ Z);
-
-
-
-
-
+        System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
+        char ch1 = '/';
+        char ch2 = '\\';
+        char ch3 = '_';
+        char ch4 = '(';
+        char ch5 = ')';
+        System.out.println("    " + ch1 + ch2);
+        System.out.println("   " + ch1 + "  " + ch2);
+        System.out.println("  " + ch1 + ch3 + ch4 + " " + ch5 + ch2);
+        System.out.println(" " + ch1 + "      " + ch2);
+        System.out.println("" + ch1 + ch3 + ch3 + ch3 + ch3 + ch1 + ch2 + ch3 + ch3 + ch2);
 
     }
 }
