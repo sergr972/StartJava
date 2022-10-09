@@ -79,13 +79,13 @@ class VariablesTheme {
         System.out.println("94 " + (char)94);
         System.out.println("95 " + (char)95);
         System.out.println("\n7. Отображение количества сотен, десятков и единиц числа");
-        int N = 123;
-        int X = N / 100;
-        int Y = N % 100 / 10;
-        int Z = N % 10;
-        System.out.println("Число " + N + " содержит сотен "+ X);
-        System.out.println("Число " + N + " содержит десятков "+ Y);
-        System.out.println("Число " + N + " содержит единиц "+ Z);
+        int Num = 123;
+        int X = Num / 100;
+        int Y = Num % 100 / 10;
+        int Z = Num % 10;
+        System.out.println("Число " + Num + " содержит сотен "+ X);
+        System.out.println("Число " + Num + " содержит десятков "+ Y);
+        System.out.println("Число " + Num + " содержит единиц "+ Z);
         System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
         char ch1 = '/';
         char ch2 = '\\';
@@ -97,6 +97,14 @@ class VariablesTheme {
         System.out.println("  " + ch1 + ch3 + ch4 + " " + ch5 + ch2);
         System.out.println(" " + ch1 + "      " + ch2);
         System.out.println("" + ch1 + ch3 + ch3 + ch3 + ch3 + ch1 + ch2 + ch3 + ch3 + ch2);
-
+        System.out.println("\n9. Произведение и сумма цифр числа");
+        int N = 345;
+        int Num1 = N / 100;
+        int Num2 = N % 100 / 10;
+        int Num3 = N % 10;
+        int summ = Num1 + Num2 + Num3;
+        int mult = Num1 * Num2 * Num3;
+        System.out.println("Сумма цифр числа " + N + " = " + summ);
+        System.out.println("Произыведение цифр числа " + N + " = " + mult);
     }
 }
