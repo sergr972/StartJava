@@ -32,6 +32,17 @@ public class IfElseStatementTheme {
 //            System.out.println("Oleg");
 //        }
         System.out.println("\n2. Поиск max и min числа");
-
+        int num1 = 5, num2 = 5;
+        if (num2 > num1) {
+            System.out.println("число max = " + num2 + "; число min = " + num1);
+        }
+        else if (num1 > num2) {
+            System.out.println("число max = " + num1 + "; число min = " + num2);
+        }
+        else {
+            System.out.println("числа равны");
+        }
+        System.out.println("\n3. Работа с числом");    
+        
     }
 }
