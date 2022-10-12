@@ -2,12 +2,12 @@ package Lession1;
 
 public class IfElseStatementTheme {
     public static void main(String[] args) {
-//        System.out.println("1. Перевод псевдокода на язык Java");
+//        System.out.println("1. РџРµСЂРµРІРѕРґ РїСЃРµРІРґРѕРєРѕРґР° РЅР° СЏР·С‹Рє Java");
 
 //        if (age > 20) {
-//            System.out.println("кандидат подходит по возрасту");
+//            System.out.println("РєР°РЅРґРёРґР°С‚ РїРѕРґС…РѕРґРёС‚ РїРѕ РІРѕР·СЂР°СЃС‚Сѓ");
 //        } else {
-//            System.out.println("не подходит");
+//            System.out.println("РЅРµ РїРѕРґС…РѕРґРёС‚");
 //        }
 //
 //        if (!men) {
@@ -17,9 +17,9 @@ public class IfElseStatementTheme {
 //        }
 //
 //        if (height < 1.80) {
-//            System.out.println("рост ниже 180");
+//            System.out.println("СЂРѕСЃС‚ РЅРёР¶Рµ 180");
 //        } else {
-//            System.out.println("кандидат подходит по росту");
+//            System.out.println("РєР°РЅРґРёРґР°С‚ РїРѕРґС…РѕРґРёС‚ РїРѕ СЂРѕСЃС‚Сѓ");
 //        }
 //
 //
@@ -31,30 +31,30 @@ public class IfElseStatementTheme {
 //        } else{
 //            System.out.println("Oleg");
 //        }
-//        System.out.println("\n2. Поиск max и min числа");
+//        System.out.println("\n2. РџРѕРёСЃРє max Рё min С‡РёСЃР»Р°");
 //        int num1 = 5, num2 = 5;
 //        if(num2 > num1) {
-//            System.out.println("число max = " + num2 + "; число min = " + num1);
+//            System.out.println("С‡РёСЃР»Рѕ max = " + num2 + "; С‡РёСЃР»Рѕ min = " + num1);
 //        }
 //        else if(num1 > num2) {
-//            System.out.println("число max = " + num1 + "; число min = " + num2);
+//            System.out.println("С‡РёСЃР»Рѕ max = " + num1 + "; С‡РёСЃР»Рѕ min = " + num2);
 //        }
 //        else{
-//            System.out.println("числа равны");
+//            System.out.println("С‡РёСЃР»Р° СЂР°РІРЅС‹");
 //        }
-//        System.out.println("\n3. Работа с числом");
+//        System.out.println("\n3. Р Р°Р±РѕС‚Р° СЃ С‡РёСЃР»РѕРј");
 //        int num3 = 0;
 //        if (num3 != 0) {
 //            if (num3 % 2 == 0)
-//                System.out.print("число " + num3 + " - четное");
+//                System.out.print("С‡РёСЃР»Рѕ " + num3 + " - С‡РµС‚РЅРѕРµ");
 //            else
-//                System.out.print("число " + num3 + " - нечетное");
+//                System.out.print("С‡РёСЃР»Рѕ " + num3 + " - РЅРµС‡РµС‚РЅРѕРµ");
 //            if (num3 < 0)
-//                System.out.print(", отрицательное");
+//                System.out.print(", РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ");
 //            else
-//                System.out.println(", положительное");
-//        } else System.out.print("число равно 0");
-//        System.out.println("\n4. Поиск одинаковых цифр в числах");
+//                System.out.println(", РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРµ");
+//        } else System.out.print("С‡РёСЃР»Рѕ СЂР°РІРЅРѕ 0");
+//        System.out.println("\n4. РџРѕРёСЃРє РѕРґРёРЅР°РєРѕРІС‹С… С†РёС„СЂ РІ С‡РёСЃР»Р°С…");
 //        int a = 123, b = 124;
 //        int a1 = a / 100;
 //        int b1 = b / 100;
@@ -62,24 +62,24 @@ public class IfElseStatementTheme {
 //        int b2 = b % 100 / 10;
 //        int a3 = a % 10;
 //        int b3 = b % 10;
-//        System.out.print("У чисел " + a + " и " + b + " одинаковые цифры ");
+//        System.out.print("РЈ С‡РёСЃРµР» " + a + " Рё " + b + " РѕРґРёРЅР°РєРѕРІС‹Рµ С†РёС„СЂС‹ ");
 //        if (a1 == b1)
-//            System.out.print(a1 + " и " + b1 + " в разряде сотен, ");
+//            System.out.print(a1 + " Рё " + b1 + " РІ СЂР°Р·СЂСЏРґРµ СЃРѕС‚РµРЅ, ");
 //        if (a2 == b2)
-//            System.out.println(a2 + " и " + b2 + " в разряде десятков, ");
+//            System.out.println(a2 + " Рё " + b2 + " РІ СЂР°Р·СЂСЏРґРµ РґРµСЃСЏС‚РєРѕРІ, ");
 //        if (a3 == b3)
-//            System.out.println(a3 + " и " + b3 + " в разряде единиц");
-//        else System.out.println("в соответствующих разрядах отсутствуют");
-        System.out.println("\n5. Определение буквы, числа или символа по их коду");
+//            System.out.println(a3 + " Рё " + b3 + " РІ СЂР°Р·СЂСЏРґРµ РµРґРёРЅРёС†");
+//        else System.out.println("РІ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёС… СЂР°Р·СЂСЏРґР°С… РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚");
+        System.out.println("\n5. РћРїСЂРµРґРµР»РµРЅРёРµ Р±СѓРєРІС‹, С‡РёСЃР»Р° РёР»Рё СЃРёРјРІРѕР»Р° РїРѕ РёС… РєРѕРґСѓ");
         char ch = '\u0057';
         if (Character.isDigit(ch))
-            System.out.println(ch + " число");
+            System.out.println(ch + " С‡РёСЃР»Рѕ");
         else if (Character.isUpperCase(ch))
-            System.out.println(ch + " буква большая");
+            System.out.println(ch + " Р±СѓРєРІР° Р±РѕР»СЊС€Р°СЏ");
         else if (Character.isLowerCase(ch))
-            System.out.println(ch + " буква маленькая");
+            System.out.println(ch + " Р±СѓРєРІР° РјР°Р»РµРЅСЊРєР°СЏ");
         else
-            System.out.println(ch + " не число и не буква");
+            System.out.println(ch + " РЅРµ С‡РёСЃР»Рѕ Рё РЅРµ Р±СѓРєРІР°");
     }
 }
 
