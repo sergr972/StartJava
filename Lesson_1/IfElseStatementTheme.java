@@ -1,4 +1,4 @@
-package Lession1;
+package Lesson_1;
 
 public class IfElseStatementTheme {
     public static void main(String[] args) {
