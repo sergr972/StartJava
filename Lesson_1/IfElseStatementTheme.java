@@ -3,25 +3,22 @@ package Lesson_1;
 public class IfElseStatementTheme {
     public static void main(String[] args) {
 //        System.out.println("1. Перевод псевдокода на язык Java");
-
 //        if (age > 20) {
 //            System.out.println("кандидат подходит по возрасту");
 //        } else {
 //            System.out.println("не подходит");
 //        }
-//
 //        if (!men) {
 //            System.out.println("women");
 //        } else {
 //            System.out.println("men");
 //        }
-//
-//        if (height < 1.80) {
+//        if(height < 1.80) {
 //            System.out.println("рост ниже 180");
-//        } else {
+//        }
+//        else{
 //            System.out.println("кандидат подходит по росту");
 //        }
-//
 //
 //        firstLetterName = "Name".charAt(0);
 //        if(firstLetterName == 'M') {
@@ -31,6 +28,7 @@ public class IfElseStatementTheme {
 //        } else{
 //            System.out.println("Oleg");
 //        }
+
 //        System.out.println("\n2. Поиск max и min числа");
 //        int num1 = 5, num2 = 5;
 //        if(num2 > num1) {
@@ -42,6 +40,7 @@ public class IfElseStatementTheme {
 //        else{
 //            System.out.println("числа равны");
 //        }
+
 //        System.out.println("\n3. Работа с числом");
 //        int num3 = 0;
 //        if (num3 != 0) {
@@ -54,6 +53,7 @@ public class IfElseStatementTheme {
 //            else
 //                System.out.println(", положительное");
 //        } else System.out.print("число равно 0");
+
 //        System.out.println("\n4. Поиск одинаковых цифр в числах");
 //        int a = 123, b = 124;
 //        int a1 = a / 100;
@@ -70,6 +70,7 @@ public class IfElseStatementTheme {
 //        if (a3 == b3)
 //            System.out.println(a3 + " и " + b3 + " в разряде единиц");
 //        else System.out.println("в соответствующих разрядах отсутствуют");
+
         System.out.println("\n5. Определение буквы, числа или символа по их коду");
         char ch = '\u0057';
         if (Character.isDigit(ch))
