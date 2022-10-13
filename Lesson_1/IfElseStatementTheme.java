@@ -13,7 +13,7 @@ public class IfElseStatementTheme {
 //        } else {
 //            System.out.println("men");
 //        }
-//        if(height < 1.80) {
+//        if (height < 1.80) {
 //            System.out.println("рост ниже 180");
 //        }
 //        else{
@@ -21,23 +21,23 @@ public class IfElseStatementTheme {
 //        }
 //
 //        firstLetterName = "Name".charAt(0);
-//        if(firstLetterName == 'M') {
+//        if (firstLetterName == 'M') {
 //            System.out.println("Maxim");
-//        } else if(firstLetterName == 'I') {
+//        } else if (firstLetterName == 'I') {
 //            System.out.println("Ivan");
-//        } else{
+//        } else {
 //            System.out.println("Oleg");
 //        }
 
 //        System.out.println("\n2. Поиск max и min числа");
 //        int num1 = 5, num2 = 5;
-//        if(num2 > num1) {
+//        if (num2 > num1) {
 //            System.out.println("число max = " + num2 + "; число min = " + num1);
 //        }
-//        else if(num1 > num2) {
+//        else if (num1 > num2) {
 //            System.out.println("число max = " + num1 + "; число min = " + num2);
 //        }
-//        else{
+//        else {
 //            System.out.println("числа равны");
 //        }
 
@@ -73,17 +73,26 @@ public class IfElseStatementTheme {
 
         System.out.println("\n5. Определение буквы, числа или символа по их коду");
         char ch = '\u0057';
-        if (Character.isDigit(ch))
-            System.out.println(ch + " число");
-        else if (Character.isUpperCase(ch))
-            System.out.println(ch + " буква большая");
-        else if (Character.isLowerCase(ch))
-            System.out.println(ch + " буква маленькая");
-        else
-            System.out.println(ch + " не число и не буква");
+        if (ch > 64 & ch < 91) {
+            System.out.println("char a = " + ch);
+        } else if (ch > 96 & ch < 123) {
+            System.out.println("char a = " + ch);
+        } else {
+            System.out.println("Это не буква Англиского алфавита!");
+        }
+//        if (Character.isDigit(ch))
+//            System.out.println(ch + " число");
+//        else if (Character.isUpperCase(ch))
+//            System.out.println(ch + " буква большая");
+//        else if (Character.isLowerCase(ch))
+//            System.out.println(ch + " буква маленькая");
+//        else
+//            System.out.println(ch + " не число и не буква");
+
+        System.out.println("\n6. ");
+
     }
 }
-
 
 
 
