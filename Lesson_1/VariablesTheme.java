@@ -85,12 +85,12 @@ class VariablesTheme {
 
         System.out.println("\n7. Отображение количества сотен, десятков и единиц числа");
         int num3 = 123;
-        int x = num3 / 100;
-        int y = num3 % 100 / 10;
-        int z = num3 % 10;
-        System.out.println("Число " + num3 + " содержит сотен "+ x);
-        System.out.println("Число " + num3 + " содержит десятков "+ y);
-        System.out.println("Число " + num3 + " содержит единиц "+ z);
+        int hundreds = num3 / 100;
+        int ten = num3 % 100 / 10;
+        int units = num3 % 10;
+        System.out.println("Число " + num3 + " содержит сотен "+ hundreds);
+        System.out.println("Число " + num3 + " содержит десятков "+ ten);
+        System.out.println("Число " + num3 + " содержит единиц "+ units);
 
         System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
         char slash = '/';
