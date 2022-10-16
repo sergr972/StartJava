@@ -29,68 +29,80 @@ public class IfElseStatementTheme {
 //            System.out.println("Oleg");
 //        }
 
-//        System.out.println("\n2. Поиск max и min числа");
-//        int num1 = 5, num2 = 5;
-//        if (num2 > num1) {
-//            System.out.println("число max = " + num2 + "; число min = " + num1);
-//        }
-//        else if (num1 > num2) {
-//            System.out.println("число max = " + num1 + "; число min = " + num2);
-//        }
-//        else {
-//            System.out.println("числа равны");
-//        }
+        System.out.println("\n2. Поиск max и min числа");
+        int num1 = 5, num2 = 5;
+        if (num2 > num1) {
+            System.out.println("число max = " + num2 + "; число min = " + num1);
+        }
+        else if (num1 > num2) {
+            System.out.println("число max = " + num1 + "; число min = " + num2);
+        }
+        else {
+            System.out.println("числа равны");
+        }
 
-//        System.out.println("\n3. Работа с числом");
-//        int num3 = 0;
-//        if (num3 != 0) {
-//            if (num3 % 2 == 0)
-//                System.out.print("число " + num3 + " - четное");
-//            else
-//                System.out.print("число " + num3 + " - нечетное");
-//            if (num3 < 0)
-//                System.out.print(", отрицательное");
-//            else
-//                System.out.println(", положительное");
-//        } else System.out.print("число равно 0");
+        System.out.println("\n3. Работа с числом");
+        int num3 = 57;
+        if (num3 != 0) {
+            if (num3 % 2 == 0)
+                System.out.print("число " + num3 + " - четное");
+            else
+                System.out.print("число " + num3 + " - нечетное");
+            if (num3 < 0)
+                System.out.print(", отрицательное");
+            else
+                System.out.println(", положительное");
+        }
+        else System.out.print("число равно 0");
 
-//        System.out.println("\n4. Поиск одинаковых цифр в числах");
-//        int a = 123, b = 124;
-//        int a1 = a / 100;
-//        int b1 = b / 100;
-//        int a2 = a % 100 / 10;
-//        int b2 = b % 100 / 10;
-//        int a3 = a % 10;
-//        int b3 = b % 10;
-//        System.out.print("У чисел " + a + " и " + b + " одинаковые цифры ");
-//        if (a1 == b1)
-//            System.out.print(a1 + " и " + b1 + " в разряде сотен, ");
-//        if (a2 == b2)
-//            System.out.println(a2 + " и " + b2 + " в разряде десятков, ");
-//        if (a3 == b3)
-//            System.out.println(a3 + " и " + b3 + " в разряде единиц");
-//        else System.out.println("в соответствующих разрядах отсутствуют");
+        System.out.println("\n4. Поиск одинаковых цифр в числах");
+            int num4 = 123, num5 = 456;
+        int digit1Num4 = num4 / 100;
+        int digit1Num5 = num5 / 100;
+        int digit2Num4 = num4 % 100 / 10;
+        int digit2Num5 = num5 % 100 / 10;
+        int digit3Num4 = num4 % 10;
+        int digit3Num5 = num5 % 10;
+        System.out.print("У чисел " + num4 + " и " + num5 + " одинаковые цифры ");
+        if (digit1Num4 != digit1Num5 && digit2Num4 != digit2Num5 && digit3Num4 != digit2Num5)
+            System.out.println("в соответствующих разрядах отсутствуют");
+        else {if (digit1Num4 == digit1Num5)
+                System.out.print(digit1Num4 + " и " + digit1Num5 + " в разряде 3, ");
+                if (digit2Num4 == digit2Num5)
+                System.out.println(digit2Num4 + " и " + digit2Num5 + " в разряде 2, ");
+                if (digit3Num4 == digit3Num5)
+                System.out.println(digit3Num4 + " и " + digit3Num5 + " в разряде 1");
+        }
 
         System.out.println("\n5. Определение буквы, числа или символа по их коду");
         char ch = '\u0057';
         if (ch > 64 & ch < 91) {
-            System.out.println("char a = " + ch);
-        } else if (ch > 96 & ch < 123) {
-            System.out.println("char a = " + ch);
-        } else {
-            System.out.println("Это не буква Англиского алфавита!");
+            System.out.println(ch + " буква большая");
+        } 
+        else if (ch > 96 & ch < 123) {
+            System.out.println(ch + " буква маленькая");
         }
-//        if (Character.isDigit(ch))
-//            System.out.println(ch + " число");
-//        else if (Character.isUpperCase(ch))
-//            System.out.println(ch + " буква большая");
-//        else if (Character.isLowerCase(ch))
-//            System.out.println(ch + " буква маленькая");
-//        else
-//            System.out.println(ch + " не число и не буква");
+        else if (ch > 47 & ch < 58 ) {
+            System.out.println(ch + " число");
+        }
+        else {
+            System.out.println(ch + " не число и не буква");
+        }
 
-        System.out.println("\n6. ");
+        System.out.println("\n6. Определение суммы вклада и начисленных банком %");
+        int num6 = 300000;
+        int procent = 0;
+        if (num6 < 100000)
+            procent = 5;
+        if (num6 >= 100000 & num6 <= 300000)
+            procent = 7;
+        if (num6 > 300000)
+            procent = 10;
+        double sumProcent = num6 / 100 * procent;
+            System.out.println("Сумма вклада = " + num6 + "\nНачисленный % = " + sumProcent +
+                    "\nИтоговая сумма с % = " + (num6 + sumProcent));
 
+            System.out.println("\n7. Определение оценки по предметам");
     }
 }
 
