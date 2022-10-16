@@ -56,7 +56,7 @@ public class IfElseStatementTheme {
         else System.out.print("число равно 0");
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-            int num4 = 123, num5 = 456;
+            int num4 = 123, num5 = 123;
         int digit1Num4 = num4 / 100;
         int digit1Num5 = num5 / 100;
         int digit2Num4 = num4 % 100 / 10;
@@ -91,18 +91,47 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Определение суммы вклада и начисленных банком %");
         int num6 = 300000;
-        int procent = 0;
-        if (num6 < 100000)
+        int procent;
+        if (num6 < 100000) {
             procent = 5;
-        if (num6 >= 100000 & num6 <= 300000)
+        } else if (num6 >= 100000 & num6 <= 300000) {
             procent = 7;
-        if (num6 > 300000)
+        } else {
             procent = 10;
+        }
         double sumProcent = num6 / 100 * procent;
             System.out.println("Сумма вклада = " + num6 + "\nНачисленный % = " + sumProcent +
                     "\nИтоговая сумма с % = " + (num6 + sumProcent));
 
-            System.out.println("\n7. Определение оценки по предметам");
+        System.out.println("\n7. Определение оценки по предметам");
+        int testscoreHistory = 59;
+        int testscoreProgram = 91;
+        int gradeHistory;
+        int gradeProgram;
+        if (testscoreHistory > 91) {
+            gradeHistory = 5;
+        } else if (testscoreHistory > 73) {
+            gradeHistory = 4;
+        } else if (testscoreHistory > 60) {
+            gradeHistory = 3;
+        } else {
+            gradeHistory = 2;
+        }
+        if (testscoreProgram > 91) {
+            gradeProgram = 5;
+        } else if (testscoreProgram > 73) {
+            gradeProgram = 4;
+        } else if (testscoreProgram > 60) {
+            gradeProgram = 3;
+        } else {
+            gradeProgram = 2;
+        }
+        int averageGrade = (gradeHistory + gradeProgram) / 2;
+        int averageScore = (testscoreHistory + testscoreProgram) / 2;
+        System.out.println(gradeHistory + " - история");
+        System.out.println(gradeProgram + " - программирование");
+        System.out.println("средний бал оценок - " + averageGrade);
+        System.out.println("средний % - " + averageScore);
     }
 }
 
