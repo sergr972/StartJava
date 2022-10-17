@@ -132,6 +132,18 @@ public class IfElseStatementTheme {
         System.out.println(gradeProgram + " - программирование");
         System.out.println("средний бал оценок - " + averageGrade);
         System.out.println("средний % - " + averageScore);
+
+        System.out.println("\n8.Расчет прибыли");
+        int rent = 5000;
+        int sale = 13000;
+        int costPrice = 9000;
+        int profit = (sale - costPrice - rent) * 12;
+        if (profit > 0) {
+            System.out.println("Прибыль за год: + " + profit);
+        }
+        else {
+            System.out.println("Прибыль за год: " + profit);
+        }
     }
 }
 
