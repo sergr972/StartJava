@@ -87,10 +87,10 @@ class VariablesTheme {
         int num3 = 123;
         int hundreds = num3 / 100;
         int ten = num3 % 100 / 10;
-        int units = num3 % 10;
+        int ones = num3 % 10;
         System.out.println("Число " + num3 + " содержит сотен "+ hundreds);
         System.out.println("Число " + num3 + " содержит десятков "+ ten);
-        System.out.println("Число " + num3 + " содержит единиц "+ units);
+        System.out.println("Число " + num3 + " содержит единиц "+ ones);
 
         System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
         char slash = '/';
