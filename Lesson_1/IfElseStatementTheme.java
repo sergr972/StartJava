@@ -154,29 +154,24 @@ public class IfElseStatementTheme {
         } else {
             c1 = a1;
         }
-//            c2 = (b1 - c1) * 10;
-        if (a2 >= b2) {
-                c2 = b2;
-        } else {
+        int tmp = sum - c1 * 100;
+        c2 = tmp / 10;
+        if (c2 >= a2) {
             c2 = a2;
-        }
-//        c3 = (b2 - c2) * 10;
-        if (a3 >= b3) {
-            c3 = b3;
         } else {
-            c3 = a3;
+            c2 = b2;
         }
-
-
-                System.out.println("банкнот номиналом 100 - " + c1);
-                System.out.println("банкнот номиналом 10 - " + c2);
-                System.out.println("банкнот номиналом 1 - " + c3);
-                System.out.println("исходная сумма - " + (c1 * 100 + c2 * 10 + c3 * 1));
-
+        tmp -= c2 * 10;
+        if (a3 >= tmp) {
+            c3 = tmp;
+            System.out.println("банкнот номиналом 100 - " + c1);
+            System.out.println("банкнот номиналом 10 - " + c2);
+            System.out.println("банкнот номиналом 1 - " + c3);
+            System.out.println("исходная сумма - " + (c1 * 100 + c2 * 10 + c3));
+        } else {
+            System.out.println("банкнот не хватает");
+        }
     }
-
-
-
 }
 
 
