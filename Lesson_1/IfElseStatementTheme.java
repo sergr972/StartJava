@@ -146,14 +146,17 @@ public class IfElseStatementTheme {
         int a3 = 50;
         int b1 = sum / 100;
         int b2 = sum % 100 / 10;
-        int b3 = sum % 10;
+//        int b3 = sum % 10;
         int c1 , c2 , c3;
 
-        if (a1 >= b1) {
-            c1 = b1;
-        } else {
-            c1 = a1;
-        }
+//        if (sum > 100 * a1 + 10 * a2 + a3) {
+//            System.out.println("банкнот не хватает");
+//        } else {
+            if (a1 >= b1) {
+                c1 = b1;
+            } else {
+                c1 = a1;
+            }
         int tmp = sum - c1 * 100;
         c2 = tmp / 10;
         if (c2 >= a2) {
@@ -171,6 +174,9 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("банкнот не хватает");
         }
+
+
+//        }
     }
 }
 
