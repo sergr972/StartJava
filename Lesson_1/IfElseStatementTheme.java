@@ -158,16 +158,15 @@ public class IfElseStatementTheme {
             } else {
                 count100Dolars = number100Dollars;
             }
-            int tmp1 = cashOut - count100Dolars * 100;
-            int tmp2 = tmp1 / 10;
-            if (tmp2 >= number10Dollars) {
+            cashOut -= count100Dolars * 100;
+            if (cashOut / 10 >= number10Dollars) {
                 count10Dollars = number10Dollars;
             } else {
-                count10Dollars = tmp2;
+                count10Dollars = cashOut / 10;
             }
-            tmp1 -= count10Dollars * 10;
-            if (number1Dollars >= tmp1) {
-                countDollars = tmp1;
+            cashOut -= count10Dollars * 10;
+            if (number1Dollars >= cashOut) {
+                countDollars = cashOut;
                 System.out.println("банкнот номиналом 100 - " + count100Dolars);
                 System.out.println("банкнот номиналом 10 - " + count10Dollars);
                 System.out.println("банкнот номиналом 1 - " + countDollars);
