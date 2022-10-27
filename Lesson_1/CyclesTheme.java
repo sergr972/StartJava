@@ -2,41 +2,40 @@ package Lesson_1;
 
 public class CyclesTheme {
     public static void main(String[] args) {
-        System.out.println("1. Подсчет суммы четных и нечетных чисел");
-        int X = 0;
-        int Y = 0;
-        int i = -10;
-        do {
-            if (i % 2 == 0) {
-                X += i;
-            } else {
-                Y += i;
-            }
-            i++;
-        } while (i <= 21);
-        System.out.println("в промежутке [-10, 21] сумма четных чисел = " + X + ", нечетных = " + Y);
-
-        System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
-        int num1 = -1, num2 = 5, num3 = 10;
-        int j;
-        for (j = num3 -1; j > num1; j--) {
-            if (j != num2)
-                System.out.print(j + " ");
-        }
-
-        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
-        int num4 = 1234;
-        int sum = 0;
-        System.out.print("исходное число в обратном порядке - ");
-        while (num4 > 0 ) {
-            System.out.print(num4 % 10);
-            sum += num4 % 10;
-            num4 = num4 / 10;
-        }
-        System.out.println("\nсумма цифр исходного числа - " + sum);
+//        System.out.println("1. Подсчет суммы четных и нечетных чисел");
+//        int X = 0;
+//        int Y = 0;
+//        int i = -10;
+//        do {
+//            if (i % 2 == 0) {
+//                X += i;
+//            } else {
+//                Y += i;
+//            }
+//            i++;
+//        } while (i <= 21);
+//        System.out.println("в промежутке [-10, 21] сумма четных чисел = " + X + ", нечетных = " + Y);
+//
+//        System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
+//        int num1 = -1, num2 = 5, num3 = 10;
+//        int j;
+//        for (j = num3 -1; j > num1; j--) {
+//            if (j != num2)
+//                System.out.print(j + " ");
+//        }
+//
+//        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
+//        int num4 = 1234;
+//        int sum = 0;
+//        System.out.print("исходное число в обратном порядке - ");
+//        while (num4 > 0 ) {
+//            System.out.print(num4 % 10);
+//            sum += num4 % 10;
+//            num4 = num4 / 10;
+//        }
+//        System.out.println("\nсумма цифр исходного числа - " + sum);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
-
         //выведите с помощью for на консоль числа в полуинтервале [1, 24)
         //шаг итерации 2
         //отображайте в каждой строке по 5 чисел
@@ -45,7 +44,10 @@ public class CyclesTheme {
         //выравнивайте числа в каждом столбце по правому краю, используя форматированный (1, 2) вывод с помощью printf
         //недостающее в последней строке до 5 количество чисел заполните нулями
         //число нулей определяйте программно. Не считайте их в уме и не пишите сами
-        //
+        for (int k = 1, h = 1;  k < 24; k += 2, h++) {
+            System.out.printf("%2d,%s", k, h % 5 != 0 ?" " : "\n");
+        }
+
         System.out.println("\n5. Проверка количества единиц на четность");
 
         //дано число 3141591
