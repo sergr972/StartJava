@@ -76,15 +76,15 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n5. Определение буквы, числа или символа по их коду");
-        char someChar = '\u0057';
-        if (someChar >= 'A' & someChar < 'Z') {
-            System.out.println(someChar + " - большая буква");
-        } else if (someChar >= 'a' & someChar <= 'z') {
-            System.out.println(someChar + " - маленькая буква");
-        } else if (someChar >= '0' & someChar <= '9') {
-            System.out.println(someChar + " - число");
+        char сhar = '\u0057';
+        if (сhar >= 'A' & сhar < 'Z') {
+            System.out.println(сhar + " - большая буква");
+        } else if (сhar >= 'a' & сhar <= 'z') {
+            System.out.println(сhar + " - маленькая буква");
+        } else if (сhar >= '0' & сhar <= '9') {
+            System.out.println(сhar + " - число");
         } else {
-            System.out.println(someChar + " - не число и не буква");
+            System.out.println(сhar + " - не число и не буква");
         }
 
         System.out.println("\n6. Определение суммы вклада и начисленных банком %");
