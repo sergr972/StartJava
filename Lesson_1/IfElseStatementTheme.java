@@ -68,23 +68,23 @@ public class IfElseStatementTheme {
             System.out.println("в соответствующих разрядах отсутствуют");
         else {
             if (hundredNum4 == hundredNum5)
-                System.out.println("\n" + hundredNum4 + " в разряде 3, ");
+                System.out.println("\n" + hundredNum4 + " в разряде 3 ");
             if (tenNum4 == tenNum5)
-                System.out.println(tenNum4 + " в разряде 2, ");
+                System.out.println(tenNum4 + " в разряде 2 ");
             if (onceNum4 == onceNum5)
                 System.out.println(onceNum4 + " в разряде 1");
         }
 
         System.out.println("\n5. Определение буквы, числа или символа по их коду");
-        char ch = 'W';
-        if (ch > 64 & ch < 91) {
-            System.out.println(ch + " - большая буква");
-        } else if (ch > 96 & ch < 123) {
-            System.out.println(ch + " - маленькая буква");
-        } else if (ch > 47 & ch < 58) {
-            System.out.println(ch + " - число");
+        char someChar = '\u0057';
+        if (someChar >= 'A' & someChar < 'Z') {
+            System.out.println(someChar + " - большая буква");
+        } else if (someChar >= 'a' & someChar <= 'z') {
+            System.out.println(someChar + " - маленькая буква");
+        } else if (someChar >= '0' & someChar <= '9') {
+            System.out.println(someChar + " - число");
         } else {
-            System.out.println(ch + " - не число и не буква");
+            System.out.println(someChar + " - не число и не буква");
         }
 
         System.out.println("\n6. Определение суммы вклада и начисленных банком %");
@@ -140,33 +140,31 @@ public class IfElseStatementTheme {
 
         System.out.println("\n9. Подсчет количества банкнот");
         int cashOut = 567;
-        int dollars100 = 100;
-        int dollars10 = 10;
-        int number100Dollars = 10;
-        int number10Dollars = 5;
-        int number1Dollars = 50;
-        int count100Dolars , count10Dollars , count1Dollars;
-        if (cashOut > number100Dollars * dollars100 + number10Dollars * dollars10 + number1Dollars) {
+        int banknote100 = 10;
+        int banknote10 = 5;
+        int banknote1 = 50;
+        int count100, count10, count1;
+        if (cashOut > banknote100 * 100 + banknote10 * 10 + banknote1) {
             System.out.println("банкнот не хватает");
         } else {
-            if (number100Dollars >= cashOut / 100) {
-                count100Dolars = cashOut / 100;
+            if (banknote100 >= cashOut / 100) {
+                count100 = cashOut / 100;
             } else {
-                count100Dolars = number100Dollars;
+                count100 = banknote100;
             }
-            cashOut -= count100Dolars * 100;
-            if (cashOut / 10 >= number10Dollars) {
-                count10Dollars = number10Dollars;
+            cashOut -= count100 * 100;
+            if (cashOut / 10 >= banknote10) {
+                count10 = banknote10;
             } else {
-                count10Dollars = cashOut / 10;
+                count10 = cashOut / 10;
             }
-            cashOut -= count10Dollars * 10;
-            if (number1Dollars >= cashOut) {
-                count1Dollars = cashOut;
-                System.out.println("банкнот номиналом 100 - " + count100Dolars);
-                System.out.println("банкнот номиналом 10 - " + count10Dollars);
-                System.out.println("банкнот номиналом 1 - " + count1Dollars);
-                System.out.println("исходная сумма - " + (count100Dolars * dollars100 + count10Dollars * dollars10 + count1Dollars));
+            cashOut -= count10 * 10;
+            if (banknote1 >= cashOut) {
+                count1 = cashOut;
+                System.out.println("банкнот номиналом 100 - " + count100);
+                System.out.println("банкнот номиналом 10 - " + count10);
+                System.out.println("банкнот номиналом 1 - " + count1);
+                System.out.println("исходная сумма - " + (count100 * 100 + count10 * 10 + count1));
             } else {
                 System.out.println("банкнот не хватает");
             }
