@@ -97,12 +97,47 @@ public class CyclesTheme {
         //**********    ###      $$$
         //**********    ##       $$
         //**********    #        $
-        for (int g = 0; g < 5; g++) {
-            for (int w = 0; w < 10; w++) {
-                System.out.print("*");
+//        for (int i = 0; i < 5; i++) {
+//            for (int j = 0; j < 10; j++) {
+//                System.out.print("*");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println();
+//        int i = 0;
+//        do {
+//            int j = i;
+//            do {
+//                System.out.print("#");
+//                j++;
+//            } while (j < 5);
+//            System.out.println();
+//            i++;
+//        } while (i < 5);
+//        System.out.println();
+
+        int i = 1;
+        while (i < 3) {
+            int j = 0;
+            while (j < i) {
+                System.out.print ('$');
+                j ++;
+            }
+            System.out.println ();
+            i ++;
+        }
+        int k = 0;
+        while (k < 3) {
+            int h = k;
+            while (h < 3 ) {
+                System.out.print("$");
+                h++;
             }
             System.out.println();
+            k++;
         }
+
+
 
 
 
