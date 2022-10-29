@@ -2,89 +2,75 @@ package Lesson_1;
 
 public class CyclesTheme {
     public static void main(String[] args) {
-//        System.out.println("1. Подсчет суммы четных и нечетных чисел");
-//        int X = 0;
-//        int Y = 0;
-//        int i = -10;
-//        do {
-//            if (i % 2 == 0) {
-//                X += i;
-//            } else {
-//                Y += i;
-//            }
-//            i++;
-//        } while (i <= 21);
-//        System.out.println("в промежутке [-10, 21] сумма четных чисел = " + X + ", нечетных = " + Y);
+        System.out.println("1. Подсчет суммы четных и нечетных чисел");
+        int sum1 = 0;
+        int sum2 = 0;
+        int num1 = -10;
+        do {
+            if (num1 % 2 == 0) {
+                sum1 += num1;
+            } else {
+                sum2 += num1;
+            }
+            num1++;
+        } while (num1 <= 21);
+        System.out.println("в промежутке [-10, 21] сумма четных чисел = " + sum1 + ", нечетных = " + sum2);
 
-//        System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
-//        int num1 = -1, num2 = 5, num3 = 10;
-//        int j;
-//        for (j = num3 -1; j > num1; j--) {
-//            if (j != num2)
-//                System.out.print(j + " ");
-//        }
+        System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
+        int num2 = -1, num3 = 5, num4 = 10;
+        int j;
+        for (j = num4 - 1; j > num2; j--) {
+            if (j != num3)
+                System.out.print(j + " ");
+        }
+        System.out.println();
 
-//        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
-//        int num4 = 1234;
-//        int sum = 0;
-//        System.out.print("исходное число в обратном порядке - ");
-//        while (num4 > 0 ) {
-//            System.out.print(num4 % 10);
-//            sum += num4 % 10;
-//            num4 = num4 / 10;
-//        }
-//        System.out.println("\nсумма цифр исходного числа - " + sum);
+        System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
+        int num5 = 1234;
+        int sumReverse = 0;
+        System.out.print("исходное число в обратном порядке - ");
+        while (num5 > 0 ) {
+            System.out.print(num5 % 10);
+            sumReverse += num5 % 10;
+            num5 = num5 / 10;
+        }
+        System.out.println("\nсумма цифр исходного числа - " + sumReverse);
 
-//        System.out.println("\n4. Вывод чисел на консоль в несколько строк");
-        //выведите с помощью for на консоль числа в полуинтервале [1, 24)
-        //шаг итерации 2
-        //отображайте в каждой строке по 5 чисел
-        //отделяйте их друг от друга необходимым количеством пробелов
-        //не указывайте впереди числа нули
-        //выравнивайте числа в каждом столбце по правому краю, используя форматированный (1, 2) вывод с помощью printf
-        //недостающее в последней строке до 5 количество чисел заполните нулями
-        //число нулей определяйте программно. Не считайте их в уме и не пишите сами
-//        for (int k = 1, h = 1;  k < 24; k += 2, h++) {
-////            if (k < 24) {
-//                System.out.printf("%2d,%s", k, h % 5 != 0 ? " " : "\n");
-////            } else {
-////                System.out.printf("%4d", 0);
-////            }
-//        }
+        System.out.println("\n4. Вывод чисел на консоль в несколько строк");
 
-//        for (int k = 1; k < 24; k+= 2) {
-//            for (int h = 0; h < 5; h++) {
-//                if (k < 24) {
-//                    System.out.printf("%4d", k);
-//                    } else {
-//                    System.out.printf("%4d", 0);
-//                    }
-//                k += 2;
-//                }
-//            k -=2;
-//            System.out.println();
-//            }
+        for (int k = 1; k < 24; k+= 2) {
+            for (int h = 0; h < 5; h++) {
+                if (k < 24) {
+                    System.out.printf("%4d", k);
+                    } else {
+                    System.out.printf("%4d", 0);
+                    }
+                k += 2;
+                }
+            k -=2;
+            System.out.println();
+            }
 
         System.out.println("\n5. Проверка количества единиц на четность");
         //дано число 3141591
         //проверьте в цикле while, является ли количество цифр 1 четным
 //        //отобразите результат:
 //        //число X содержит N (четное/нечетное) количество единиц
-//        int X = 3141591;
-//        int N = 0;
-//        int tmp = X;
-//        while (tmp > 0) {
-//            if (tmp % 10 == 1) {
-//              N++;
-//            }
-//            tmp = tmp /10;
-//        }
-//        System.out.printf("число %d содержит %d%s количество единиц" , X, N, N % 2 == 0 ? " - четное" : " - нечетное");
-////        if (N % 2 == 0) {
-////            System.out.println("число " + X + " содержит " + N + " - четное количество единиц");
-////        } else {
-////            System.out.println("число " + X + " содержит " + N + " - нечетное количество единиц");
-////        }
+        int num6 = 3141591;
+        int sumOnce = 0;
+        int tmp = num6;
+        while (tmp > 0) {
+            if (tmp % 10 == 1) {
+              sumOnce++;
+            }
+            tmp = tmp /10;
+        }
+        if (sumOnce % 2 == 0) {
+            System.out.println("число " + num6 + " содержит " + sumOnce + " - четное количество единиц");
+        } else {
+            System.out.println("число " + num6 + " содержит " + sumOnce + " - нечетное количество единиц");
+        }
+//        System.out.printf("число %d содержит %d%s количество единиц" , num6, sumOnce, sumOnce % 2 == 0 ? " - четное" : " - нечетное");
 
         System.out.println("\n6. Отображение фигур в консоли");
         //отобразите геометрические фигуры, используя:
@@ -97,28 +83,28 @@ public class CyclesTheme {
         //**********    ###      $$$
         //**********    ##       $$
         //**********    #        $
-//        for (int i = 0; i < 5; i++) {
-//            for (int j = 0; j < 10; j++) {
-//                System.out.print("*");
-//            }
-//            System.out.println();
-//        }
-//        System.out.println();
-//        int i = 0;
-//        do {
-//            int j = i;
-//            do {
-//                System.out.print("#");
-//                j++;
-//            } while (j < 5);
-//            System.out.println();
-//            i++;
-//        } while (i < 5);
-//        System.out.println();
+        for (int i = 0; i < 5; i++) {
+            for (j = 0; j < 10; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        int i = 0;
+        do {
+            j = i;
+            do {
+                System.out.print("#");
+                j++;
+            } while (j < 5);
+            System.out.println();
+            i++;
+        } while (i < 5);
+        System.out.println();
 
-        int i = 1;
-        while (i < 3) {
-            int j = 0;
+        i = 1;
+        while (i <= 3) {
+            j = 0;
             while (j < i) {
                 System.out.print ('$');
                 j ++;
@@ -127,15 +113,17 @@ public class CyclesTheme {
             i ++;
         }
         int k = 0;
-        while (k < 3) {
+        while (k < 2) {
             int h = k;
-            while (h < 3 ) {
+            while (h < 2 ) {
                 System.out.print("$");
                 h++;
             }
             System.out.println();
             k++;
         }
+
+
 
 
 
