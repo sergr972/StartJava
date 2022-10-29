@@ -18,10 +18,9 @@ public class CyclesTheme {
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int num2 = -1, num3 = 5, num4 = 10;
-        int j;
-        for (j = num4 - 1; j > num2; j--) {
-            if (j != num3)
-                System.out.print(j + " ");
+        for (int i = num4 - 1; i > num2; i--) {
+            if (i != num3)
+                System.out.print(i + " ");
         }
         System.out.println();
 
@@ -38,24 +37,21 @@ public class CyclesTheme {
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
 
-        for (int k = 1; k < 24; k+= 2) {
-            for (int h = 0; h < 5; h++) {
-                if (k < 24) {
-                    System.out.printf("%4d", k);
+        for (int i = 1; i < 24; i += 2) {
+            for (int j = 0; j < 5; j++) {
+                if (i < 24) {
+                    System.out.printf("%4d", i);
                     } else {
                     System.out.printf("%4d", 0);
                     }
-                k += 2;
+                i += 2;
                 }
-            k -=2;
+            i -=2;
             System.out.println();
             }
 
         System.out.println("\n5. Проверка количества единиц на четность");
-        //дано число 3141591
-        //проверьте в цикле while, является ли количество цифр 1 четным
-//        //отобразите результат:
-//        //число X содержит N (четное/нечетное) количество единиц
+
         int num6 = 3141591;
         int sumOnce = 0;
         int tmp = num6;
@@ -73,18 +69,9 @@ public class CyclesTheme {
 //        System.out.printf("число %d содержит %d%s количество единиц" , num6, sumOnce, sumOnce % 2 == 0 ? " - четное" : " - нечетное");
 
         System.out.println("\n6. Отображение фигур в консоли");
-        //отобразите геометрические фигуры, используя:
-        //для прямоугольника только for
-        //для прямоугольного треугольника только while
-        //для второго треугольника только do-while
-        //каждую фигуру выводите на новой строке
-        //**********    #####    $
-        //**********    ####     $$
-        //**********    ###      $$$
-        //**********    ##       $$
-        //**********    #        $
+
         for (int i = 0; i < 5; i++) {
-            for (j = 0; j < 10; j++) {
+            for (int j = 0; j < 10; j++) {
                 System.out.print("*");
             }
             System.out.println();
@@ -92,7 +79,7 @@ public class CyclesTheme {
         System.out.println();
         int i = 0;
         do {
-            j = i;
+            int j = i;
             do {
                 System.out.print("#");
                 j++;
@@ -104,7 +91,7 @@ public class CyclesTheme {
 
         i = 1;
         while (i <= 3) {
-            j = 0;
+            int j = 0;
             while (j < i) {
                 System.out.print ('$');
                 j ++;
@@ -123,20 +110,18 @@ public class CyclesTheme {
             k++;
         }
 
+        System.out.println("\n7. Отображение ASCII-символов");
 
-
-
-
-
-
-
-        //
         //Отображение ASCII-символов
         //отобразите, используя for, данные столбцов Dec и Char (и названия столбцов) из таблицы
         //выведите на консоль:
         //символы, идущие до цифр и имеющие нечетные коды
         //маленькие английские буквы, имеющие четные коды
         //данные каждого столбца должны быть выровнены по правому краю
+
+
+
+
         //
         //Проверка, является ли число палиндромом
         //дано число 1234321
