@@ -28,7 +28,7 @@ public class CyclesTheme {
         int num5 = 1234;
         int sumReverse = 0;
         System.out.print("исходное число в обратном порядке - ");
-        while (num5 > 0 ) {
+        while (num5 > 0) {
             System.out.print(num5 % 10);
             sumReverse += num5 % 10;
             num5 = num5 / 10;
@@ -41,14 +41,14 @@ public class CyclesTheme {
             for (int j = 0; j < 5; j++) {
                 if (i < 24) {
                     System.out.printf("%4d", i);
-                    } else {
+                } else {
                     System.out.printf("%4d", 0);
-                    }
-                i += 2;
                 }
-            i -=2;
-            System.out.println();
+                i += 2;
             }
+            i -= 2;
+            System.out.println();
+        }
 
         System.out.println("\n5. Проверка количества единиц на четность");
 
@@ -57,9 +57,9 @@ public class CyclesTheme {
         int tmp1 = num6;
         while (tmp1 > 0) {
             if (tmp1 % 10 == 1) {
-              sumOnce++;
+                sumOnce++;
             }
-            tmp1 = tmp1 /10;
+            tmp1 = tmp1 / 10;
         }
         if (sumOnce % 2 == 0) {
             System.out.println("число " + num6 + " содержит " + sumOnce + " - четное количество единиц");
@@ -89,36 +89,34 @@ public class CyclesTheme {
         } while (i < 5);
         System.out.println();
 
-        i = 1;
+        i = 0;
         while (i <= 3) {
             int j = 0;
             while (j < i) {
-                System.out.print ('$');
-                j ++;
+                System.out.print('$');
+                j++;
             }
-            System.out.println ();
-            i ++;
+            System.out.println();
+            i++;
         }
         i = 0;
         while (i < 2) {
             int j = i;
-            while (j < 2 ) {
+            while (j < 2) {
                 System.out.print("$");
                 j++;
-
             }
             System.out.println();
             i++;
         }
 
         System.out.println("\n7. Отображение ASCII-символов");
-
-        //Отображение ASCII-символов
-        //отобразите, используя for, данные столбцов Dec и Char (и названия столбцов) из таблицы
-        //выведите на консоль:
-        //символы, идущие до цифр и имеющие нечетные коды
-        //маленькие английские буквы, имеющие четные коды
-        //данные каждого столбца должны быть выровнены по правому краю
+//        //Отображение ASCII-символов
+//        //отобразите, используя for, данные столбцов Dec и Char (и названия столбцов) из таблицы
+//        //выведите на консоль:
+//        //символы, идущие до цифр и имеющие нечетные коды
+//        //маленькие английские буквы, имеющие четные коды
+//        //данные каждого столбца должны быть выровнены по правому краю
 
 
 
@@ -142,21 +140,35 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым");
 
-        //счастливым называется число, сумма первых трех цифр которого равна сумме последних
-        //возьмите любое шестизначное число
-        //подсчитайте сумму каждой тройки его цифр
-        //отобразите в консоли:
-        //каждую тройку цифр в формате “Сумма цифр abc = sum”
-        //является число счастливым или нет
-        //
+        int num8 = 345543;
+        int abc = 0;
+        int def = 0;
+        while (num8 > 0) {
+            for (i = 0; i < 3; i++) {
+                def += num8 % 10;
+                num8 = num8 / 10;
+            }
+            for (i = 0; i < 3; i++) {
+                abc += num8 % 10;
+                num8 = num8 / 10;
+            }
+        }
+        if (abc == def) {
+            System.out.println("Сумма цифр abc = " + abc + "\nСумма цифр def = " + def);
+            System.out.println("Число счастливое") ;
+        } else{
+            System.out.println("Сумма цифр abc = " + abc + "\nСумма цифр def = " + def);
+            System.out.println("Число несчастливое") ;
+        }
+
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
 
         System.out.println("     ТАБЛИЦА ПИФАГОРА");
         System.out.print("   |");
-        for(i=2; i<10; i++) {
+        for( i=2; i<10; i++) {
             System.out.printf("%2d ", i);
         }
-        System.out.print("\n---|-------------------------\n");
+        System.out.print("\n---|------------------------\n");
         for(i=2; i<10; i++) {
             System.out.printf("%2d |", i);
             for(int j=2; j<10; j++) {
@@ -165,5 +177,7 @@ public class CyclesTheme {
             System.out.println();
         }
 
+
     }
 }
+
