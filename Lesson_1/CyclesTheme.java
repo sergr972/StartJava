@@ -54,12 +54,12 @@ public class CyclesTheme {
 
         int num6 = 3141591;
         int sumOnce = 0;
-        int tmp = num6;
-        while (tmp > 0) {
-            if (tmp % 10 == 1) {
+        int tmp1 = num6;
+        while (tmp1 > 0) {
+            if (tmp1 % 10 == 1) {
               sumOnce++;
             }
-            tmp = tmp /10;
+            tmp1 = tmp1 /10;
         }
         if (sumOnce % 2 == 0) {
             System.out.println("число " + num6 + " содержит " + sumOnce + " - четное количество единиц");
@@ -99,15 +99,16 @@ public class CyclesTheme {
             System.out.println ();
             i ++;
         }
-        int k = 0;
-        while (k < 2) {
-            int h = k;
-            while (h < 2 ) {
+        i = 0;
+        while (i < 2) {
+            int j = i;
+            while (j < 2 ) {
                 System.out.print("$");
-                h++;
+                j++;
+
             }
             System.out.println();
-            k++;
+            i++;
         }
 
         System.out.println("\n7. Отображение ASCII-символов");
@@ -122,15 +123,25 @@ public class CyclesTheme {
 
 
 
-        //
-        //Проверка, является ли число палиндромом
-        //дано число 1234321
-        //проверьте, является ли оно палиндромом (читается одинаково с любой стороны)
-        //использовать Math.pow нельзя
-        //отобразите в консоли:
-        //число X является палиндромом
-        //
-        //Определение, является ли число счастливым
+        System.out.println("\n8. Проверка, является ли число палиндромом");
+
+        int num7 = 1234321;
+        int tmp2 = num7;
+        int reverse = 0;
+        while (tmp2 > 0) {
+            reverse += tmp2 % 10;
+            tmp2 = tmp2 / 10;
+            if (tmp2 > 0) reverse *= 10;
+        }
+        System.out.print(num7);
+        if (num7 == reverse) {
+            System.out.println(" - палиндром");
+        } else {
+            System.out.println(" - не палиндром");
+        }
+
+        System.out.println("\n9. Определение, является ли число счастливым");
+
         //счастливым называется число, сумма первых трех цифр которого равна сумме последних
         //возьмите любое шестизначное число
         //подсчитайте сумму каждой тройки его цифр
@@ -138,9 +149,21 @@ public class CyclesTheme {
         //каждую тройку цифр в формате “Сумма цифр abc = sum”
         //является число счастливым или нет
         //
-        //Вывод таблицы умножения Пифагора
-        //отобразите таблицу умножения в точности, как в образце, включая горизонтальные и вертикальные линии
-        //не добавляйте между строками и столбцами лишние пустоты
-        //используйте цикл for
+        System.out.println("\n10. Вывод таблицы умножения Пифагора");
+
+        System.out.println("     ТАБЛИЦА ПИФАГОРА");
+        System.out.print("   |");
+        for(i=2; i<10; i++) {
+            System.out.printf("%2d ", i);
+        }
+        System.out.print("\n---|-------------------------\n");
+        for(i=2; i<10; i++) {
+            System.out.printf("%2d |", i);
+            for(int j=2; j<10; j++) {
+                System.out.printf("%2d ", i * j);
+            }
+            System.out.println();
+        }
+
     }
 }
