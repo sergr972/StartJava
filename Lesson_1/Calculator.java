@@ -5,7 +5,7 @@ public class Calculator {
         int a = 5;
         int b = 3;
         int result = 1;
-        // знаки операций +, -, *, /, ^, %
+        // Р·РЅР°РєРё РѕРїРµСЂР°С†РёР№ +, -, *, /, ^, %
         char sign = '^';
         if (sign == '+') {
             result = a + b;
