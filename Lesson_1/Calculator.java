@@ -2,11 +2,11 @@ package Lesson_1;
 
 public class Calculator {
     public static void main(String[] args) {
-
         int a = 5;
         int b = 3;
         int result = 1;
-        char sign = '^'; // +, -, *, /, ^, %
+        // знаки операций +, -, *, /, ^, %
+        char sign = '^';
         if (sign == '+') {
             result = a + b;
         } else if (sign == '-') {
