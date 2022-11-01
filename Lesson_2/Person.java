@@ -2,25 +2,25 @@ package Lesson_2;
 
 public class Person {
 
-    String genderMale = "Male";
-    String name = "Ivan";
-    double height = 1.85;
-    byte weight = 80;
-    byte age = 35;
+    private String genderMale = "Male";
+    private String name = "Ivan";
+    private double height = 1.85;
+    private byte weight = 80;
+    private byte age = 35;
 
-    void walk() {
-        System.out.println("walk");;
+    public void walk() {
+        System.out.println("Идёт");
     }
-    void sit() {
-        System.out.println("sit");
+    public void sit() {
+        System.out.println("Сидит");
     }
-    void run() {
-        System.out.println("run");
+    public void run() {
+        System.out.println("Бежит");
     }
-    void talk() {
-        System.out.println("talk");
+    public void talk() {
+        System.out.println("Говорит");
     }
-    void learnJava() {
-        System.out.println("learnJava");
+    public void learnJava() {
+        System.out.println("Учит Java");
     }
 }
