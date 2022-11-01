@@ -18,24 +18,38 @@ public class CyclesTheme {
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int num2 = -1, num3 = 5, num4 = 10;
-        for (int i = num4 - 1; i > num2; i--) {
-            if (i != num3)
-                System.out.print(i + " ");
+        int min = 0, max = 0;
+        if  (num2 < num3 && num2 < num4) {
+            min = num2;
+        } else if (num3 < num2 && num3 < num4) {
+            min = num3;
+        } else {
+            min = num4;
+        }
+        if  (num2 > num3 && num2 > num4) {
+            max = num2;
+        } else if (num3 > num2 && num3 > num4) {
+            max = num3;
+        } else {
+            max = num4;
+        }
+        System.out.println(min + " - минимальное число");
+        System.out.println(max + " - максимальное число");
+        for (int i = max - 1; i > min; i--) {
+            System.out.print(i + " ");
         }
 
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         int num5 = 1234;
-        int copyNum5 = num5;
         int sumDigits = 0;
         System.out.print("исходное число в обратном порядке - ");
-        while (copyNum5 > 0) {
-            int digit = 0;
-            digit = copyNum5 % 10;
+        while (num5 > 0) {
+            int digit = num5 % 10;
             System.out.print(digit);
             sumDigits += digit;
-            copyNum5 /= 10;
+            num5 /= 10;
         }
-        System.out.println("\nсумма цифр исходного числа - " + sumDigits);
+        System.out.println("\nсумма цифр числа - " + sumDigits);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         for (int i = 1; i < 24; i += 2) {
