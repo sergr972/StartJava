@@ -25,12 +25,15 @@ public class CyclesTheme {
 
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         int num5 = 1234;
+        int copyNum5 = num5;
         int sumDigits = 0;
         System.out.print("исходное число в обратном порядке - ");
-        while (num5 > 0) {
-            System.out.print(num5 % 10);
-            sumDigits += num5 % 10;
-            num5 /= 10;
+        while (copyNum5 > 0) {
+            int digit = 0;
+            digit = copyNum5 % 10;
+            System.out.print(digit);
+            sumDigits += digit;
+            copyNum5 /= 10;
         }
         System.out.println("\nсумма цифр исходного числа - " + sumDigits);
 
@@ -65,40 +68,42 @@ public class CyclesTheme {
         }
 
         System.out.println("\n6. Отображение фигур в консоли");
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 10; j++) {
+        int rows1 = 5;
+        int columns1 = 10;
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < columns1; j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
         System.out.println();
 
+        int rows2 = 5;
+        int columns2 = 5;
         int i = 0;
         do {
             int j = i;
             do {
                 System.out.print("#");
                 j++;
-            } while (j < 5);
+            } while (j < columns2);
             System.out.println();
             i++;
-        } while (i < 5);
+        } while (i < rows2);
+        System.out.println();
 
-        i = 0;
-        while (i <= 3) {
-            int j = 0;
-            while (j < i) {
-                System.out.print('$');
-                j++;
+        int columns3 = 0;
+        int rows3 = 5;
+        i = 1;
+        while (i <= rows3) {
+            if (i <= 3) {
+                columns3++;
+            } else {
+                columns3--;
             }
-            System.out.println();
-            i++;
-        }
-        i = 0;
-        while (i < 2) {
-            int j = i;
-            while (j < 2) {
-                System.out.print("$");
+            int j = 0;
+            while (j < columns3) {
+                System.out.print('$');
                 j++;
             }
             System.out.println();
@@ -108,7 +113,6 @@ public class CyclesTheme {
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%3s","Dec  Char");
         System.out.println();
-
         for (int dec = 0; dec <= 127; dec++) {
             char ch = (char)dec;
             if (((dec > 0 & dec <= 47) & (dec % 2 != 0)) || ((dec >= 97 & dec <= 122) & (dec % 2 ==0))) {
