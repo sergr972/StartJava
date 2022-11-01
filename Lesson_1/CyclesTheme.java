@@ -137,12 +137,12 @@ public class CyclesTheme {
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
         int num7 = 1234321;
-        int tmp2 = num7;
+        int copyNum7 = num7;
         int reverse = 0;
-        while (tmp2 > 0) {
-            reverse += tmp2 % 10;
-            tmp2 = tmp2 / 10;
-            if (tmp2 > 0) reverse *= 10;
+        while (copyNum7 > 0) {
+            reverse += copyNum7 % 10;
+            copyNum7 = copyNum7 / 10;
+            if (copyNum7 > 0) reverse *= 10;
         }
         System.out.print(num7);
         if (num7 == reverse) {
