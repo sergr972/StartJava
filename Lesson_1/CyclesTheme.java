@@ -50,8 +50,9 @@ public class CyclesTheme {
         System.out.println("\nсумма цифр числа - " + sumDigits);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
-        for (int i = 1; i < 24; i += 2) {
-            for (int j = 0; j < 5; j++) {
+        int i,j;
+        for (i = 1; i < 24; i += 2) {
+            for (j = 0; j < 5; j++) {
                 if (i < 24) {
                     System.out.printf("%4d", i);
                 } else {
@@ -82,8 +83,8 @@ public class CyclesTheme {
         System.out.println("\n6. Отображение фигур в консоли");
         int rows = 5;
         int columns = 10;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
+        for (i = 0; i < rows; i++) {
+            for (j = 0; j < columns; j++) {
                 System.out.print("*");
             }
             System.out.println();
@@ -92,9 +93,9 @@ public class CyclesTheme {
 
         rows = 5;
         columns = 5;
-        int i = 0;
+        i = 0;
         do {
-            int j = i;
+            j = i;
             do {
                 System.out.print("#");
                 j++;
@@ -113,7 +114,7 @@ public class CyclesTheme {
             } else {
                 columns--;
             }
-            int j = 0;
+            j = 0;
             while (j < columns) {
                 System.out.print('$');
                 j++;
@@ -125,9 +126,8 @@ public class CyclesTheme {
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%3s\n","Dec  Char");
         for (int dec = 0; dec <= 127; dec++) {
-            char ch = (char)dec;
-            if (((dec > 0 & dec <= 47) && (dec % 2 != 0)) || ((dec >= 97 && dec <= 122) & (dec % 2 == 0))) {
-                System.out.printf("%3d%4c\n", dec, ch);
+            if (((dec > 0 & dec <= 47) && (dec % 2 != 0)) || ((dec >= 97 && dec <= 122) && (dec % 2 == 0))) {
+                System.out.printf("%3d%4c\n", dec, dec);
             }
         }
 
@@ -136,9 +136,8 @@ public class CyclesTheme {
         int copyNum7 = num7;
         int reverse = 0;
         while (copyNum7 > 0) {
-            reverse += copyNum7 % 10;
+            reverse = reverse * 10 + copyNum7 % 10;
             copyNum7 /= 10;
-            if (copyNum7 > 0) reverse *= 10;
         }
         System.out.print(num7);
         if (num7 == reverse) {
@@ -152,7 +151,7 @@ public class CyclesTheme {
         int leftNum8 = num8 / 1000;
         int rightNum8 = num8 % 1000;
         int sumRightNum8 = 0, sumLeftNum8 = 0;
-        for (int j = 1, k = 6; j <= 3 && k >= 4; j++, k--) {
+        for (i = 1, j = 6; i <= 3 && j >= 4; i++, j--) {
             sumRightNum8 += rightNum8 % 10;
             rightNum8 /= 10;
             sumLeftNum8 += leftNum8 % 10;
@@ -171,7 +170,7 @@ public class CyclesTheme {
         System.out.print("\n---|------------------------\n");
         for(i = 2; i < 10; i++) {
             System.out.printf("%2d |", i);
-            for(int j = 2; j < 10; j++) {
+            for(j = 2; j < 10; j++) {
                 System.out.printf("%2d ", i * j);
             }
             System.out.println();
