@@ -2,30 +2,30 @@ package Lesson_2;
 
 public class Wolf {
 
-    private String sex;
+    public String sex;
     public String name;
     public String color;
     public double weight;
     public int age;
 
     public void walk() {
-        System.out.println("Идёт");
+        System.out.println("идти");
     }
 
     public void sit() {
-        System.out.println("Сидит");
+        System.out.println("сидеть");
     }
 
     public void run() {
-        System.out.println("Бежит");
+        System.out.println("бегать");
     }
 
     public void howl() {
-        System.out.println("Воет");
+        System.out.println("выть");
     }
 
     public void hunt() {
-        System.out.println("Охотиться");
+        System.out.println("охотиться");
     }
 }
 
