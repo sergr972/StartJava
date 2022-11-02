@@ -149,16 +149,16 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым");
         int num8 = 345543;
-        int rightNum8 = num8 % 1000;
         int leftNum8 = num8 / 1000;
+        int rightNum8 = num8 % 1000;
         int sumRightNum8 = 0, sumLeftNum8 = 0;
         for (int j = 1, k = 6; j <= 3 && k >= 4; j++, k--) {
-            sumLeftNum8 += rightNum8 % 10;
+            sumRightNum8 += rightNum8 % 10;
             rightNum8 /= 10;
-            sumRightNum8 += leftNum8 % 10;
+            sumLeftNum8 += leftNum8 % 10;
             leftNum8 /= 10;
         }
-        System.out.println("Сумма цифр abc = " + sumRightNum8 + "\nСумма цифр def = " + sumLeftNum8);
+        System.out.println("Сумма цифр abc = " + sumLeftNum8 + "\nСумма цифр def = " + sumRightNum8);
         System.out.println(sumRightNum8 == sumLeftNum8 ? "Число счастливое" : "Число несчастливое") ;
 
 
