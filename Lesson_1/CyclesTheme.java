@@ -5,33 +5,31 @@ public class CyclesTheme {
         System.out.println("1. Подсчет суммы четных и нечетных чисел");
         int sumEvenNum = 0;
         int sumOddNum = 0;
-        int num1 = -10;
+        int counter = -10;
         do {
-            if (num1 % 2 == 0) {
-                sumEvenNum += num1;
+            if (counter % 2 == 0) {
+                sumEvenNum += counter;
             } else {
-                sumOddNum += num1;
+                sumOddNum += counter;
             }
-            num1++;
-        } while (num1 <= 21);
+            counter++;
+        } while (counter <= 21);
         System.out.println("в промежутке [-10, 21] сумма четных чисел = " + sumEvenNum + ", нечетных = " + sumOddNum);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int num2 = -1, num3 = 5, num4 = 10;
-        int min = 0, max = 0;
-        if  (num2 < num3 && num2 < num4) {
-            min = num2;
-        } else if (num3 < num2 && num3 < num4) {
-            min = num3;
-        } else {
-            min = num4;
-        }
-        if  (num2 > num3 && num2 > num4) {
-            max = num2;
-        } else if (num3 > num2 && num3 > num4) {
+        int min = num2, max = num2;
+        if (num3 > max) {
             max = num3;
-        } else {
+        }
+        if (num4 > max) {
             max = num4;
+        }
+        if (num3 < min) {
+            min = num3;
+        }
+        if (num4 < min) {
+            min = num4;
         }
         System.out.println(min + " - минимальное число");
         System.out.println(max + " - максимальное число");
@@ -82,41 +80,41 @@ public class CyclesTheme {
         }
 
         System.out.println("\n6. Отображение фигур в консоли");
-        int rows1 = 5;
-        int columns1 = 10;
-        for (int i = 0; i < rows1; i++) {
-            for (int j = 0; j < columns1; j++) {
+        int rows = 5;
+        int columns = 10;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
         System.out.println();
 
-        int rows2 = 5;
-        int columns2 = 5;
+        rows = 5;
+        columns = 5;
         int i = 0;
         do {
             int j = i;
             do {
                 System.out.print("#");
                 j++;
-            } while (j < columns2);
+            } while (j < columns);
             System.out.println();
             i++;
-        } while (i < rows2);
+        } while (i < rows);
         System.out.println();
 
-        int columns3 = 0;
-        int rows3 = 5;
+        rows = 5;
+        columns = 0;
         i = 1;
-        while (i <= rows3) {
+        while (i <= rows) {
             if (i <= 3) {
-                columns3++;
+                columns++;
             } else {
-                columns3--;
+                columns--;
             }
             int j = 0;
-            while (j < columns3) {
+            while (j < columns) {
                 System.out.print('$');
                 j++;
             }
@@ -125,13 +123,11 @@ public class CyclesTheme {
         }
 
         System.out.println("\n7. Отображение ASCII-символов");
-        System.out.printf("%3s","Dec  Char");
-        System.out.println();
+        System.out.printf("%3s","Dec  Char\n");
         for (int dec = 0; dec <= 127; dec++) {
             char ch = (char)dec;
-            if (((dec > 0 & dec <= 47) & (dec % 2 != 0)) || ((dec >= 97 & dec <= 122) & (dec % 2 ==0))) {
-                System.out.printf("%3d%4c", dec, ch);
-                System.out.println();
+            if (((dec > 0 & dec <= 47) && (dec % 2 != 0)) || ((dec >= 97 && dec <= 122) & (dec % 2 == 0))) {
+                System.out.printf("%3d%4c\n", dec, ch);
             }
         }
 
@@ -141,7 +137,7 @@ public class CyclesTheme {
         int reverse = 0;
         while (copyNum7 > 0) {
             reverse += copyNum7 % 10;
-            copyNum7 = copyNum7 / 10;
+            copyNum7 /= 10;
             if (copyNum7 > 0) reverse *= 10;
         }
         System.out.print(num7);
@@ -176,13 +172,13 @@ public class CyclesTheme {
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.println("     ТАБЛИЦА ПИФАГОРА");
         System.out.print("   |");
-        for( i=2; i<10; i++) {
+        for( i = 2; i < 10; i++) {
             System.out.printf("%2d ", i);
         }
         System.out.print("\n---|------------------------\n");
-        for(i=2; i<10; i++) {
+        for(i = 2; i < 10; i++) {
             System.out.printf("%2d |", i);
-            for(int j=2; j<10; j++) {
+            for(int j = 2; j < 10; j++) {
                 System.out.printf("%2d ", i * j);
             }
             System.out.println();
