@@ -123,7 +123,7 @@ public class CyclesTheme {
         }
 
         System.out.println("\n7. Отображение ASCII-символов");
-        System.out.printf("%3s","Dec  Char\n");
+        System.out.printf("%3s\n","Dec  Char");
         for (int dec = 0; dec <= 127; dec++) {
             char ch = (char)dec;
             if (((dec > 0 & dec <= 47) && (dec % 2 != 0)) || ((dec >= 97 && dec <= 122) & (dec % 2 == 0))) {
