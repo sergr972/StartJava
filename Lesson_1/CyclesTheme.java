@@ -148,18 +148,17 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым");
         int num8 = 345543;
-        int leftNum8 = num8 / 1000;
-        int rightNum8 = num8 % 1000;
-        int sumRightNum8 = 0, sumLeftNum8 = 0;
-        for (i = 1, j = 6; i <= 3 && j >= 4; i++, j--) {
-            sumRightNum8 += rightNum8 % 10;
-            rightNum8 /= 10;
-            sumLeftNum8 += leftNum8 % 10;
-            leftNum8 /= 10;
+        int leftHalf = num8 / 1000;
+        int rightHalf = num8 % 1000;
+        int sumRight = 0, sumLeft = 0;
+        for (i = 0; i < 3; i++) {
+            sumLeft += leftHalf % 10;
+            sumRight += rightHalf % 10;
+            leftHalf /= 10;
+            rightHalf /= 10;
         }
-        System.out.println("Сумма цифр abc = " + sumLeftNum8 + "\nСумма цифр def = " + sumRightNum8);
-        System.out.println(sumRightNum8 == sumLeftNum8 ? "Число счастливое" : "Число несчастливое") ;
-
+        System.out.println("Сумма цифр abc = " + sumLeft + "\nСумма цифр def = " + sumRight);
+        System.out.println(sumRight == sumLeft ? "Число счастливое" : "Число несчастливое") ;
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.println("     ТАБЛИЦА ПИФАГОРА");
