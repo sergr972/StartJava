@@ -2,7 +2,7 @@ package Lesson_1;
 
 public class MyFirstGame {
     public static void main(String[] args) {
-        int playerNumber = 115;
+        int playerNumber = 15;
         int unknownNumber = 20;
         if (playerNumber > 0 && playerNumber <= 100) {
             while (playerNumber != unknownNumber) {
