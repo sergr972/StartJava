@@ -4,7 +4,7 @@ public class GuessNumber {
     public static void main(String[] args) {
         int playerNumber = 21;
         int unknownNumber = 20;
-        if (playerNumber > 0 & playerNumber <= 100) {
+        if (playerNumber > 0 && playerNumber <= 100) {
             if (playerNumber < unknownNumber) {
                 System.out.println("число " + playerNumber + " меньше того, что загадал компьютер");
             } else if (playerNumber > unknownNumber) {
@@ -13,6 +13,5 @@ public class GuessNumber {
                 System.out.println("Вы победили!");
             }
         }
-
     }
 }
