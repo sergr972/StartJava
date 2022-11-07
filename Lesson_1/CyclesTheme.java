@@ -14,7 +14,8 @@ public class CyclesTheme {
             }
             counter++;
         } while (counter <= 21);
-        System.out.println("в промежутке [-10, 21] сумма четных чисел = " + sumEvenNum + ", нечетных = " + sumOddNum);
+        System.out.println("в промежутке [-10, 21] сумма четных чисел = " + sumEvenNum +
+                ", нечетных = " + sumOddNum);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int num2 = -1, num3 = 5, num4 = 10;
@@ -50,9 +51,8 @@ public class CyclesTheme {
         System.out.println("\nсумма цифр числа - " + sumDigits);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
-        int i,j;
-        for (i = 1; i < 24; i += 2) {
-            for (j = 0; j < 5; j++) {
+        for (int i = 1; i < 24; i += 2) {
+            for (int j = 0; j < 5; j++) {
                 if (i < 24) {
                     System.out.printf("%4d", i);
                 } else {
@@ -83,8 +83,8 @@ public class CyclesTheme {
         System.out.println("\n6. Отображение фигур в консоли");
         int rows = 5;
         int columns = 10;
-        for (i = 0; i < rows; i++) {
-            for (j = 0; j < columns; j++) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 System.out.print("*");
             }
             System.out.println();
@@ -93,34 +93,34 @@ public class CyclesTheme {
 
         rows = 5;
         columns = 5;
-        i = 0;
+        int k = 0;
         do {
-            j = i;
+            int j = k;
             do {
                 System.out.print("#");
                 j++;
             } while (j < columns);
             System.out.println();
-            i++;
-        } while (i < rows);
+            k++;
+        } while (k < rows);
         System.out.println();
 
         rows = 5;
         columns = 0;
-        i = 1;
-        while (i <= rows) {
-            if (i <= 3) {
+        k = 1;
+        while (k <= rows) {
+            if (k <= 3) {
                 columns++;
             } else {
                 columns--;
             }
-            j = 0;
+            int j = 0;
             while (j < columns) {
                 System.out.print('$');
                 j++;
             }
             System.out.println();
-            i++;
+            k++;
         }
 
         System.out.println("\n7. Отображение ASCII-символов");
@@ -147,11 +147,11 @@ public class CyclesTheme {
         }
 
         System.out.println("\n9. Определение, является ли число счастливым");
-        int num8 = 345543;
+        int num8 = 345544;
         int leftHalf = num8 / 1000;
         int rightHalf = num8 % 1000;
         int sumRight = 0, sumLeft = 0;
-        for (i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             sumLeft += leftHalf % 10;
             sumRight += rightHalf % 10;
             leftHalf /= 10;
@@ -163,13 +163,13 @@ public class CyclesTheme {
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.println("     ТАБЛИЦА ПИФАГОРА");
         System.out.print("   |");
-        for( i = 2; i < 10; i++) {
+        for(int i = 2; i < 10; i++) {
             System.out.printf("%2d ", i);
         }
         System.out.print("\n---|------------------------\n");
-        for(i = 2; i < 10; i++) {
+        for(int i = 2; i < 10; i++) {
             System.out.printf("%2d |", i);
-            for(j = 2; j < 10; j++) {
+            for(int j = 2; j < 10; j++) {
                 System.out.printf("%2d ", i * j);
             }
             System.out.println();
