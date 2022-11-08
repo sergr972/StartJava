@@ -47,13 +47,13 @@ public class Wolf {
     public void setAge(int age) {
         if (age > 8) {
             System.out.println("Некорректный возраст");
-            throw new IllegalArgumentException();
+            return;
         }
-            this.age = age;
+        this.age = age;
     }
 
     public void walk() {
-        System.out.println("идти");
+        System.out.println("ходить");
     }
 
     public void sit() {
