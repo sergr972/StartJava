@@ -6,11 +6,24 @@ public class CalculatorTest {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int num1 = getInt();
-        int num2 = getInt();
-        char operation = getOperation();
-        int result = Calculator.calc(num1,num2,operation);
-        System.out.println("Результат операции: "+result);
+        Scanner scanner = null;
+        String reply = "yes";
+
+        while(reply.equals("yes")) {
+            int num1 = getInt();
+            int num2 = getInt();
+            char operation = getOperation();
+            int result = Calculator.calc(num1, num2, operation);
+            System.out.println("Результат операции: " + result);
+
+            while(reply.equals("yes") | reply.equals("no")) {
+                System.out.println("Хотите продолжить вычисления? [yes/no]");
+                scanner = new Scanner(System.in);
+                reply = scanner.nextLine();
+                break;
+            }
+        }
+        scanner.close();
     }
 
     public static int getInt(){
