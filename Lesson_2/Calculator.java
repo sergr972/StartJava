@@ -1,6 +1,6 @@
 package Lesson_2;
 
-public class Calc {
+public class Calculator {
 
     public static int calc(int num1, int num2, char operation){
         int result = 1;

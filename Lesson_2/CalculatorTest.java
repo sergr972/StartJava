@@ -9,7 +9,7 @@ public class CalculatorTest {
         int num1 = getInt();
         int num2 = getInt();
         char operation = getOperation();
-        int result = Calc.calc(num1,num2,operation);
+        int result = Calculator.calc(num1,num2,operation);
         System.out.println("Результат операции: "+result);
     }
 
