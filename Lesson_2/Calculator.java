@@ -2,29 +2,47 @@ package Lesson_2;
 
 public class Calculator {
 
-    public static int calc(int num1, int num2, char operation){
+    private int a;
+    private int b;
+    private char sign;
+
+//    public Calculator() {
+//        this.a = 0;
+//        this.b = 0;
+//        this.sign = ' ';
+//    }
+
+
+//    public Calculator() {
+//
+//        this.a = a;
+//        this.b = b;
+//        this.sign = sign;
+//    }
+
+    public static int calc(int a, int b, char sign){
         int result = 1;
-        switch (operation){
+        switch (sign) {
             case '+':
-                result = num1 + num2;
+                result = a + b;
                 break;
             case '-':
-                result = num1 - num2;
+                result = a - b;
                 break;
             case '*':
-                result = num1 * num2;
+                result = a * b;
                 break;
             case '/':
-                result = num1 / num2;
+                result = a / b;
                 break;
             case '^':
-                for (int i = 0; i < num2; i++) {
-                    result *= num1;
+                for (int i = 0; i < b; i++) {
+                    result *= a;
                 }
                 break;
             default:
                 System.out.println("Операция не распознана. Повторите ввод.");
-                result = calc(num1, num2, CalculatorTest.getOperation());
+                result = calc(a, b, CalculatorTest.getSign());
         }
         return result;
     }
