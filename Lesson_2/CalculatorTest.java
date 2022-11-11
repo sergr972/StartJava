@@ -16,7 +16,6 @@ public class CalculatorTest {
             char operation = scanner.next().charAt(0);
             System.out.println("Введите второе число: ");
             int num2 = scanner.nextInt();
-
             int result = calculator.ICalculator(num1, num2, operation);
             System.out.println("Результат операции: " + result);
             do {
