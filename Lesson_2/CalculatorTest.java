@@ -9,9 +9,7 @@ public class CalculatorTest {
         String answers;
         do {
             Scanner scanner = new Scanner(System.in);
-
             Calculator calculator = new Calculator();
-
             System.out.println("Введите первое число: ");
             int num1 = scanner.nextInt();
             System.out.println("Введите знак математической операции:");
