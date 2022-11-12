@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class CalculatorTest {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         String userAnswer;
         do {
@@ -16,7 +15,7 @@ public class CalculatorTest {
             char operation = scanner.next().charAt(0);
             System.out.println("Введите второе число: ");
             int num2 = scanner.nextInt();
-            int result = calculator.calculator(num1, num2, operation);
+            int result = calculator.calculate(num1, num2, operation);
             System.out.println("Результат операции: " + result);
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]");

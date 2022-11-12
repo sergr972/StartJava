@@ -6,7 +6,7 @@ public class Calculator {
     private int b;
     private char sign;
 
-    public int calculator(int a, int b, char sign) {
+    public int calculate(int a, int b, char sign) {
         this.a = a;
         this.b = b;
         this.sign = sign;
