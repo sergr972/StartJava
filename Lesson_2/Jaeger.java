@@ -2,27 +2,46 @@ package Lesson_2;
 
 public class Jaeger {
 
-    String modelName = "Bracer Phoenix";
-    String mark = "Mark-5";
-    String origin = "USA";
-    float height = 70.7f;
-    float weight = 2.1f;
-    int strehght = 8;
-    int armor = 9;
+        String modelName;
+        String mark;
+        float height;
+        float weight;
 
-    boolean drift() {
-        return true;
-    }
+        void  move() {
+                System.out.println("шагает");
+        }
 
-    void  move() {
-        System.out.println("moving");
-    }
+        void scanKaiju() {
+                System.out.println("сканирует");
+        }
 
-    String scanKaiju() {
-        return "scanning";
-    }
+        public void setModelName(String modelName) {
+                this.modelName = modelName;
+        }
 
-    void userVortexCannon() {
-        System.out.println("activated");
-    }
+        public void setMark(String mark) {
+                this.mark = mark;
+        }
+
+        public void setHeight(float height) {
+                this.height = height;
+        }
+
+        public void setWeight(float weight) {
+                this.weight = weight;
+        }
+
+        public Jaeger() {
+        }
+        public Jaeger(String modelName, String mark, float height, float weight) {
+                this.modelName = modelName;
+                this.mark = mark;
+                this.height = height;
+                this.weight = weight;
+        }
 }
+
+
+
+
+
