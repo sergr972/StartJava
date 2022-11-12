@@ -6,30 +6,25 @@ public class Calculator {
     private int b;
     private char sign;
 
-    public int ICalculator(int a, int b, char sign) {
-
+    public int calculator(int a, int b, char sign) {
         this.a = a;
         this.b = b;
         this.sign = sign;
-        int result = 1;
+        int result = 0;
         switch (sign) {
             case '+':
-                result = a + b;
-                break;
+                return a + b;
             case '-':
-                result = a - b;
-                break;
+                return a - b;
             case '*':
-                result = a * b;
-                break;
+                return a * b;
             case '/':
-                result = a / b;
-                break;
+                return a / b;
             case '^':
+                result = 1;
                 for (int i = 0; i < b; i++) {
                     result *= a;
                 }
-                break;
         }
         return result;
     }
