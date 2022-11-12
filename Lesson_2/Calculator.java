@@ -13,6 +13,8 @@ public class Calculator {
                 return a * b;
             case '/':
                 return a / b;
+            case '%':
+                return a % b;
             case '^':
                 result = 1;
                 for (int i = 0; i < b; i++) {
