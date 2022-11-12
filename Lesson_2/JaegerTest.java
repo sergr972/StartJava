@@ -22,7 +22,6 @@ public class JaegerTest {
                 "\nвысота - " + jaegerTwo.height + "\nвес -" + jaegerTwo.weight);
         jaegerTwo.move();
         jaegerTwo.scanKaiju();
-
         jaegerOne.setModelName("Striker");
         jaegerOne.setMark("Mark-6");
         jaegerTwo = new Jaeger("Phoenix", "Mark-6", 70.91f, 2.128f);
