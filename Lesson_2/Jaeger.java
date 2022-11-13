@@ -23,6 +23,7 @@ public class Jaeger {
         public void setModelName(String modelName) {
                 this.modelName = modelName;
         }
+
         public String getMark() {
                 return mark;
         }
