@@ -2,14 +2,9 @@ package Lesson_2;
 
 public class Player {
     private String name;
-//    private int number;
+    private int number;
 
-//    public Player() {
-//    }
-
-    public Player(String name) {
-        this.name = name;
-//        this.number = number;
+    public Player(String name, int number) {
     }
 
     public String getName() {
@@ -19,11 +14,12 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
-//    public int getNumber() {
-//        return number;
-//    }
-//
-//    public void setNumber(int number) {
-//        this.number = number;
-//    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
 }
