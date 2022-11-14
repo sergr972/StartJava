@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class GuessNumberTest {
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         int unknownNumber = (int) (Math.random() * 100) + 1;
         System.out.println(unknownNumber);

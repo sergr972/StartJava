@@ -1,7 +1,6 @@
 package Lesson_2;
 
 public class GuessNumber {
-
     public static void play(String player, int playerNum, int unknownNum) {
         if (playerNum == unknownNum) {
             System.out.println("Поздравляем!!! Победил игрок " + player + " Это было число  - "
