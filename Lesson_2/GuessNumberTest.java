@@ -6,24 +6,20 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int unknownNumber = (int) (Math.random() * 100) + 1;
-        System.out.println(unknownNumber);
         System.out.println("\nДобро пожаловать в игру \"Угадай число\".");
         System.out.println("Играют два игрока.");
-        System.out.println("Нужно вводить число в полуинтревале (0, 100], " +
+        System.out.println("Нужно вводить число в полуинтервале (0, 100], " +
                 "кто первый угадал тот и выиграл.");
-        String name = "";
-        int number = 0;
-        Player playerOne = new Player(name, number);
-        Player playerTwo = new Player(name, number);
+//        String name = "";
+//        int number = 0;
         System.out.println("Введите имя первого игрока : ");
-        playerOne.setName(scanner.next());
+        Player playerOne = new Player(scanner.next());
         System.out.println("Введите имя второго игрока : ");
-        playerTwo.setName(scanner.next());
+        Player playerTwo = new Player(scanner.next());
         do {
             System.out.println("введите число первого игрока: ");
             playerOne.setNumber(scanner.nextInt());
-            GuessNumber.play(playerOne.getName(), playerOne.getNumber(), unknownNumber);
+            GuessNumber.play(playerOne.getName(), playerOne.getNumber());
             if (playerOne.getNumber() != unknownNumber) {
                 System.out.println("введите число второго игрока: ");
                 playerTwo.setNumber(scanner.nextInt());
