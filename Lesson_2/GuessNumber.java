@@ -1,25 +1,27 @@
 package Lesson_2;
 
-import java.util.Scanner;
+import java.util.Random;
+
+import static java.lang.Math.*;
 
 public class GuessNumber {
 
-    public static void play(String player, int playerNum, int unknownNumber) {
-        unknownNumber = (int) (Math.random() * 100) + 1;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(unknownNumber);
-        System.out.println("введите число первого игрока: ");
+    static Random random = new Random();
+    static int unknownNum = random.nextInt(99) + 1;
 
-        if (playerNum == unknownNumber) {
+    public static void play(String player, int playerNum) {
+
+
+        if (playerNum == unknownNum) {
             System.out.println("Поздравляем!!! Победил игрок " + player + " Это было число  - "
-                    + unknownNumber);
+                    + unknownNum);
             } else {
             System.out.println("Игрок не угадал, ход переходит");
             System.out.println("Подсказка : ");
-            if (playerNum < unknownNumber) {
+            if (playerNum < unknownNum) {
                 System.out.println("число " + playerNum + " меньше того, что загадал компьютер");
             }
-            if (playerNum > unknownNumber) {
+            if (playerNum > unknownNum) {
                 System.out.println("число " + playerNum + " больше того, что загадал компьютер");
             }
         }
