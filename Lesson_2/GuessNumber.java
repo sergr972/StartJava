@@ -4,7 +4,14 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    public GuessNumber(Player playerOne, Player playerTwo) {
+    Player playerOne;
+    Player playerTwo;
+
+    public GuessNumber (Player playerOne, Player playerTwo) {
+
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
+
         Scanner scanner = new Scanner(System.in);
         int unknownNumber = (int) (Math.random() * 100) + 1;
         System.out.println(unknownNumber);
