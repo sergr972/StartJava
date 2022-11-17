@@ -4,13 +4,15 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    private Player playerOne;
-    private Player playerTwo;
+    private final Player playerOne;
+    private final Player playerTwo;
 
     public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
+    }
 
+    public static  void  guess(Player playerOne, Player playerTwo, int num1, int num2) {
         Scanner scanner = new Scanner(System.in);
         int secretNum = (int) (Math.random() * 100) + 1;
         System.out.println(secretNum);
@@ -24,7 +26,7 @@ public class GuessNumber {
         }
     }
 
-    private static void compareNumbers(String player, int number, int secretNum) {
+    private static boolean compareNumbers(String player, int number, int secretNum) {
         if (number == secretNum) {
             System.out.println("Поздравляем!!! Победил игрок " + player +
                     ". \nЭто было число  - " + secretNum);
@@ -38,6 +40,7 @@ public class GuessNumber {
                 System.out.println("число " + number + " больше того, что загадал компьютер");
             }
         }
+        return false;
     }
 }
 
