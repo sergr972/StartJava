@@ -4,41 +4,41 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    Player playerOne;
-    Player playerTwo;
+    private Player playerOne;
+    private Player playerTwo;
 
-    public GuessNumber (Player playerOne, Player playerTwo) {
-
+    public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
 
         Scanner scanner = new Scanner(System.in);
-        int unknownNumber = (int) (Math.random() * 100) + 1;
-        System.out.println(unknownNumber);
+        int secretNum = (int) (Math.random() * 100) + 1;
+        System.out.println(secretNum);
         System.out.println("Введите число первого игрока: ");
         playerOne.setNumber(scanner.nextInt());
-        compare(playerOne.getName(), playerOne.getNumber(), unknownNumber);
-        if (playerOne.getNumber() != unknownNumber) {
+        compareNumbers(playerOne.getName(), playerOne.getNumber(), secretNum);
+        if (playerOne.getNumber() != secretNum) {
             System.out.println("Введите число второго игрока: ");
             playerTwo.setNumber(scanner.nextInt());
-            compare(playerTwo.getName(), playerTwo.getNumber(), unknownNumber);
+            compareNumbers(playerTwo.getName(), playerTwo.getNumber(), secretNum);
         }
     }
 
-    private static void compare(String player, int number, int unknownNumber) {
-        if (number == unknownNumber) {
+    private static void compareNumbers(String player, int number, int secretNum) {
+        if (number == secretNum) {
             System.out.println("Поздравляем!!! Победил игрок " + player +
-                    ". \nЭто было число  - " + unknownNumber);
-            } else {
+                    ". \nЭто было число  - " + secretNum);
+        } else {
             System.out.println("Игрок " + player + " не угадал, ход переходит");
             System.out.println("Подсказка : ");
-            if (number < unknownNumber) {
+            if (number < secretNum) {
                 System.out.println("число " + number + " меньше того, что загадал компьютер");
             }
-            if (number > unknownNumber) {
+            if (number > secretNum) {
                 System.out.println("число " + number + " больше того, что загадал компьютер");
             }
         }
     }
 }
+
 
