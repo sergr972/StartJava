@@ -18,7 +18,7 @@ public class GuessNumberTest {
         Player playerTwo = new Player(scanner.next());
         String playerAnswer;
         do {
-            guess(playerOne, playerTwo, playerOne.getNumber(), playerTwo.getNumber());
+            guess(playerOne, playerTwo);
             do {
                 System.out.println("\nХотите продолжить вычисления? [yes/no]");
                 playerAnswer = scanner.next();

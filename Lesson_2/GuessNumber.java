@@ -12,35 +12,37 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public static  void  guess(Player playerOne, Player playerTwo, int num1, int num2) {
+    public static  void  guess(Player playerOne, Player playerTwo) {
         Scanner scanner = new Scanner(System.in);
         int secretNum = (int) (Math.random() * 100) + 1;
         System.out.println(secretNum);
         System.out.println("Введите число первого игрока: ");
         playerOne.setNumber(scanner.nextInt());
-        compareNumbers(playerOne.getName(), playerOne.getNumber(), secretNum);
-        if (playerOne.getNumber() != secretNum) {
+        if (!compareNumbers(playerOne, secretNum)) {
             System.out.println("Введите число второго игрока: ");
             playerTwo.setNumber(scanner.nextInt());
-            compareNumbers(playerTwo.getName(), playerTwo.getNumber(), secretNum);
+            compareNumbers(playerTwo, secretNum);
         }
     }
 
-    private static boolean compareNumbers(String player, int number, int secretNum) {
-        if (number == secretNum) {
-            System.out.println("Поздравляем!!! Победил игрок " + player +
+    private static boolean compareNumbers(Player player, int secretNum) {
+        if (player.getNumber() == secretNum) {
+            System.out.println("Поздравляем!!! Победил игрок " + player.getName() +
                     ". \nЭто было число  - " + secretNum);
+            return true;
         } else {
-            System.out.println("Игрок " + player + " не угадал, ход переходит");
+            System.out.println("Игрок " + player.getName() + " не угадал");
             System.out.println("Подсказка : ");
-            if (number < secretNum) {
-                System.out.println("число " + number + " меньше того, что загадал компьютер");
+            if (player.getNumber() < secretNum) {
+                System.out.println("число " + player.getName() +
+                        " меньше того, что загадал компьютер");
             }
-            if (number > secretNum) {
-                System.out.println("число " + number + " больше того, что загадал компьютер");
+            if (player.getNumber() > secretNum) {
+                System.out.println("число " + player.getName() +
+                        " больше того, что загадал компьютер");
             }
+            return false;
         }
-        return false;
     }
 }
 
