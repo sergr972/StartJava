@@ -12,7 +12,7 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public static  void  guess(Player playerOne, Player playerTwo) {
+    public static void guess(Player playerOne, Player playerTwo) {
         Scanner scanner = new Scanner(System.in);
         int secretNum = (int) (Math.random() * 100) + 1;
         System.out.println(secretNum);
