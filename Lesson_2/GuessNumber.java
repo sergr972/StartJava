@@ -21,8 +21,7 @@ public class GuessNumber {
         do {
             System.out.println("Введите число первого игрока: ");
             playerOne.setNumber(scanner.nextInt());
-            compareNumbers(playerOne, secretNum);
-            if (!result) {
+            if (!compareNumbers(playerOne, secretNum)) {
                 System.out.println("Введите число второго игрока: ");
                 playerTwo.setNumber(scanner.nextInt());
                 compareNumbers(playerTwo, secretNum);
@@ -31,23 +30,21 @@ public class GuessNumber {
     }
 
     private boolean compareNumbers(Player player, int secretNum) {
-        if (player.getNumber() < secretNum) {
-            System.out.println("Игрок " + player.getName() + " не угадал");
-            System.out.println("Подсказка : ");
-            System.out.println("число " + player.getNumber() +
-                    " меньше того, что загадал компьютер");
-        }
-        if (player.getNumber() > secretNum) {
-            System.out.println("Игрок " + player.getName() + " не угадал");
-            System.out.println("Подсказка : ");
-            System.out.println("число " + player.getNumber() +
-                    " больше того, что загадал компьютер");
-        }
         if (player.getNumber() == secretNum) {
             System.out.println("Поздравляем!!! Победил игрок " + player.getName() +
                     ". \nЭто было число  - " + secretNum);
             result = true;
         } else {
+            System.out.println("Игрок " + player.getName() + " не угадал");
+            System.out.println("Подсказка : ");
+            if (player.getNumber() < secretNum) {
+                System.out.println("число " + player.getNumber() +
+                        " меньше того, что загадал компьютер");
+            }
+            if (player.getNumber() > secretNum) {
+                System.out.println("число " + player.getNumber() +
+                        " больше того, что загадал компьютер");
+            }
             result = false;
         }
         return result;
