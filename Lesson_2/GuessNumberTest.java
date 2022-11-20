@@ -2,8 +2,6 @@ package Lesson_2;
 
 import java.util.Scanner;
 
-import static Lesson_2.GuessNumber.guess;
-
 public class GuessNumberTest {
 
     public static void main(String[] args) {
@@ -17,8 +15,10 @@ public class GuessNumberTest {
         System.out.println("Введите имя второго игрока : ");
         Player playerTwo = new Player(scanner.next());
         String playerAnswer;
+
         do {
-            guess(playerOne, playerTwo);
+            GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo);
+            guessNumber.start();
             do {
                 System.out.println("\nХотите продолжить вычисления? [yes/no]");
                 playerAnswer = scanner.next();
