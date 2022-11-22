@@ -22,6 +22,5 @@
 *.rar
 
 /.idea/
-/StartJava.iml
 /src/com/startjava/lesson_2_3/calculator/optionj
 /src/com/startjava/lesson_2_3/calculator/options
