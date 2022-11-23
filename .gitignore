@@ -55,3 +55,9 @@ fabric.properties
  
 # Editor-based Rest Client
 .idea/httpRequests".idea" 
+/src/com/startjava/lesson_2_3_4/calculator/options
+/src/com/startjava/lesson_2_3_4/calculator/optionj
+/.idea/modules.xml
+/StartJava.iml
+/.idea/vcs.xml
+/.idea/.gitignore
