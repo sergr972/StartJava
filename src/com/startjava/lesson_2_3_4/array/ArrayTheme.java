@@ -3,25 +3,25 @@ package com.startjava.lesson_2_3_4.array;
 public class ArrayTheme {
 
     public static void main(String[] args) {
-        System.out.println("1. Реверс значений массива");
-        /*
-        заполните массив числами вразнобой в промежутке [1, 7], используя сокращенную форму инициализации
-        переставьте значения в исходном массиве в обратном порядке
-        при этом берите значения для перезаписи из самого массива
-        не используйте сортировку
-        отобразите значения массива в две строки до модификации и после, отделяя числа друг от друга пробелом
-         */
-        int[] userArray = {1, 2, 3, 4, 5, 6, 7};
-        int[] newArray = new int[userArray.length];
-        System.out.println("массив до модификации");
-        for (int i = 0, j = userArray.length - 1; i < userArray.length; i++, j--) {
-            System.out.print(userArray[i] + " ");
-            newArray[i] = userArray[j];
-        }
-        System.out.println("\nмассив после модификации");
-        for (int i = 0; i < userArray.length; i++) {
-            System.out.print(newArray[i] + " ");
-        }
+//        System.out.println("1. Реверс значений массива");
+//        /*
+//        заполните массив числами вразнобой в промежутке [1, 7], используя сокращенную форму инициализации
+//        переставьте значения в исходном массиве в обратном порядке
+//        при этом берите значения для перезаписи из самого массива
+//        не используйте сортировку
+//        отобразите значения массива в две строки до модификации и после, отделяя числа друг от друга пробелом
+//         */
+//        int[] userArray = {1, 3, 2, 5, 4, 7, 6};
+//        int[] newArray = new int[userArray.length];
+//        System.out.println("массив до модификации");
+//        for (int i = 0, j = userArray.length - 1; i < userArray.length; i++, j--) {
+//            System.out.print(userArray[i] + " ");
+//            newArray[i] = userArray[j];
+//        }
+//        System.out.println("\nмассив после модификации");
+//        for (int i = 0; i < userArray.length; i++) {
+//            System.out.print(newArray[i] + " ");
+//        }
 
         System.out.println("\n2. Вывод произведения элементов массива");
         /*заполните массив в цикле цифрами в промежутке [0, 9]
@@ -38,6 +38,7 @@ public class ArrayTheme {
         int mult = 1;
         for (int i = 1; i < 9; i++) {
             mult *= nums1[i];
+            System.out.print(i < 8 ? nums1[i] + " * " : nums1[i] + " = ");
         }
         System.out.println(mult);
 
