@@ -75,15 +75,18 @@ public class ArrayTheme {
         System.out.println("исходный массив");
         printArray(doubleArr);
         double[] mutableArray = new double[15];
+        int countZero  = 0;
         for (int i = 0; i < doubleArr.length-1; i++) {
             if (doubleArr[i] > 0) {
                 mutableArray[i] = 0;
+                countZero++;
             } else {
                 mutableArray[i] = doubleArr[i];
             }
         }
-        System.out.println("измененный массив");
+        System.out.println("\nизмененный массив");
         printArray(mutableArray);
+        System.out.println("\nколичество обнуленных ячеек - " + countZero);
 
 
 //        System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
