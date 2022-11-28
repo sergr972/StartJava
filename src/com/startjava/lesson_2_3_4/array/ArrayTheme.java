@@ -68,7 +68,7 @@ public class ArrayTheme {
             System.out.println();
         }
 
-        System.out.println("\n\n5. Генерация уникальных чисел");
+        System.out.println("\n5. Генерация уникальных чисел");
         intArr = new int[30];
         length = intArr.length;
         for (int i = 0; i < length; ) {
@@ -95,6 +95,28 @@ public class ArrayTheme {
             i--;
             System.out.println();
         }
+
+        System.out.println("\n6.Сдвиг элементов массива");
+        String[] sourceArr = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        length = sourceArr.length;
+        System.out.println("Исходный массив : " + Arrays.toString(sourceArr));
+        int count = 0;
+        for (int i = 0; i < length; i++) {
+            if (!sourceArr[i].isBlank()) {
+                count++;
+            }
+        }
+        String[] destArr = new String[count];
+        int k = 0;
+        int len = 0;
+        for (int i = 0; i < length; i++) {
+            if (!sourceArr[i].isBlank()) {
+                len++;
+                System.arraycopy(sourceArr, i, destArr, k++, len);
+            }
+            len = 0;
+        }
+        System.out.println("Измененный массив : " + Arrays.toString(destArr));
     }
 
     private static void printIntArray(int[] array) {
