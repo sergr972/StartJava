@@ -1,125 +1,112 @@
 package com.startjava.lesson_2_3_4.array;
 
-import java.text.DecimalFormat;
 import java.util.Arrays;
-import java.util.Random;
 
 public class ArrayTheme {
-
     public static void main(String[] args) {
-//        System.out.println("1. Реверс значений массива");
-//        /*
-//        заполните массив числами вразнобой в промежутке [1, 7], используя сокращенную форму инициализации
-//        переставьте значения в исходном массиве в обратном порядке
-//        при этом берите значения для перезаписи из самого массива
-//        не используйте сортировку
-//        отобразите значения массива в две строки до модификации и после, отделяя числа друг от друга пробелом
-//         */
+        System.out.println("1. Реверс значений массива");
         int[] intArr;
-//        intArr = {1, 3, 2, 5, 4, 7, 6};
-//        int[] newArray = new int[intArr.length];
-//        System.out.println("массив до модификации");
-//        for (int i = 0, j = intArr.length - 1; i < intArr.length; i++, j--) {
-//            System.out.print(intArr[i] + " ");
-//            newArray[i] = intArr[j];
-//        }
-//        System.out.println("\nмассив после модификации");
-//        for (int numNewArray : newArray) {
-//            System.out.print(numNewArray + " ");
-//        }
+        int i, j;
+        intArr = new int[]{1, 3, 2, 5, 4, 7, 6};
+        int[] newArray = new int[intArr.length];
+        System.out.println("массив до модификации");
+        printArray1(intArr);
+        for (i = 0, j = intArr.length - 1; i < intArr.length; i++, j--) {
+            newArray[i] = intArr[j];
+        }
+        System.out.println("\nмассив после модификации");
+        printArray1(newArray);
 
-//        System.out.println("\n\n2. Вывод произведения элементов массива");
-        /*заполните массив в цикле цифрами в промежутке [0, 9]
-        подсчитайте их произведение (без учета 0 и 9). Числа берите из массива
-        отобразите:
-        в цикле числа и результат в формате 1 * … * 8 = X
-        0 и 9 (берите из массива) отдельной строкой, указав их индексы
-        для проверки выводимого результата используйте тернарный оператор вместо if
-        */
-//        intArr = new int[10];
-//        for (int i = 0; i < 10; i++) {
-//            intArr[i] = i;
-//        }
-//        int mult = 1;
-//        for (int i = 1; i < 9; i++) {
-//            mult *= intArr[i];
-//            System.out.print(i < 8 ? intArr[i] + " * " : intArr[i] + " = ");
-//        }
-//        System.out.println(mult);
-//        for (int i = 0; i < 10; i++) {
-//            System.out.print(intArr[i] == 0 ? "индекс числа " + intArr[i] + " равен " + i : "");
-//            System.out.print(intArr[i] == 9 ? "\nиндекс числа " + intArr[i] + " равен " + i : "");
-//        }
-//        //через метод
-//        System.out.println("\nиндекс числа 0 равен " + Arrays.binarySearch(intArr, 0));
-//        System.out.println("индекс числа 9 равен " + Arrays.binarySearch(intArr, 9));
+        System.out.println("\n\n2. Вывод произведения элементов массива");
+        intArr = new int[10];
+        for (i = 0; i < 10; i++) {
+            intArr[i] = i;
+        }
+        int mult = 1;
+        for (i = 1; i < 9; i++) {
+            mult *= intArr[i];
+            System.out.print(i < 8 ? intArr[i] + " * " : intArr[i] + " = ");
+        }
+        System.out.println(mult);
+        for (i = 0; i < 10; i++) {
+            System.out.print(intArr[i] == 0 ? "индекс числа " + intArr[i] + " равен " + i : "");
+            System.out.print(intArr[i] == 9 ? "\nиндекс числа " + intArr[i] + " равен " + i : "");
+        }
+        //через метод
+        System.out.println("\nиндекс числа 0 равен " + Arrays.binarySearch(intArr, 0));
+        System.out.println("индекс числа 9 равен " + Arrays.binarySearch(intArr, 9));
 
-//        System.out.println("\n3. Удаление элементов массива");
-//        заполните массив размерностью 15 случайными вещественными числами в полуинтервале [0, 1)
-//        вычислите индекс средней ячейки массива, а затем возьмите из нее число
-//        перезапишите в массиве 0 все числа, которые больше этого значения
-//        отобразите:
-//        исходный и измененный массив по 8 и 7 чисел в строке
-//        при этом после запятой отображайте только три знака
-//        выделяйте под каждое число с помощью форматирования одинаковое количество позиций, чтобы числа были выровнены в каждом столбце по правому краю
-//        количество обнуленных ячеек
-//        double[] doubleArr = new double[15];
-//        for (int i = 0; i < doubleArr.length - 1; i++) {
-//            doubleArr[i] = Math.random();
-//        }
-//        int averageIndex = doubleArr.length/2;
-//        double averageNum = doubleArr[averageIndex];
-//        System.out.println("индекс средней ячейки - " + averageIndex);
-//        System.out.printf("%s %.3f %s","число средней ячейки - ", averageNum, "\n\n");
-//
-//        System.out.println("исходный массив");
-//        printArray(doubleArr);
-//        double[] mutableArray = new double[15];
-//        int countZero  = 0;
-//        for (int i = 0; i < doubleArr.length-1; i++) {
-//            if (doubleArr[i] > 0) {
-//                mutableArray[i] = 0;
-//                countZero++;
-//            } else {
-//                mutableArray[i] = doubleArr[i];
-//            }
-//        }
-//        System.out.println("\nизмененный массив");
-//        printArray(mutableArray);
-//        System.out.println("\nколичество обнуленных ячеек - " + countZero);
+        System.out.println("\n3. Удаление элементов массива");
+        double[] doubleArr = new double[15];
+        for (i = 0; i < doubleArr.length - 1; i++) {
+            doubleArr[i] = Math.random();
+        }
+        int averageIndex = doubleArr.length / 2;
+        double averageNum = doubleArr[averageIndex];
+        System.out.println("индекс средней ячейки - " + averageIndex);
+        System.out.printf("%s %.3f %s", "число средней ячейки - ", averageNum, "\n\n");
+        System.out.println("исходный массив");
+        printArray2(doubleArr);
+        double[] mutableArray = new double[15];
+        int countZero = 0;
+        for (i = 0; i < doubleArr.length - 1; i++) {
+            if (doubleArr[i] > 0) {
+                mutableArray[i] = 0;
+                countZero++;
+            } else {
+                mutableArray[i] = doubleArr[i];
+            }
+        }
+        System.out.println("\nизмененный массив");
+        printArray2(mutableArray);
+        System.out.println("\nколичество обнуленных ячеек - " + countZero);
 
-//        System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
-//        char[] alfabet = new char[26];
-//        for (int i = 0; i < 26; i++) {
-//            alfabet[i] = (char) (i + 65);
-//        }
-//        for (int i = alfabet.length - 1; i >= 0; i--) {
-//            for (int j = alfabet.length - 1; j >= i; j--) {
-//                System.out.print(alfabet[j]);
-//            }
-//            System.out.println();
-//        }
-
-        System.out.println("\n5. Генерация уникальных чисел");
-//        создайте массив из 30 чисел, заполнив его в цикле случайными значениями в промежутке [60, 100)
-//        при этом числа повторяться не должны
-//        если число уже есть в массиве, сгенерите новое
-//        делайте это до тех пор, пока не сгенерится число, которого еще нет в массиве
-//        отобразите полученный массив по 10 чисел в строке, отсортировав его по возрастанию
-        intArr = new int[30];
-        for (int i = 0; i < 30; i++) {
-            intArr[i] = (int) (60 + Math.random() * 40);
+        System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
+        char[] alfabet = new char[26];
+        for (i = 0; i < 26; i++) {
+            alfabet[i] = (char) (i + 65);
+        }
+        for (i = alfabet.length - 1; i >= 0; i--) {
+            for (j = alfabet.length - 1; j >= i; j--) {
+                System.out.print(alfabet[j]);
+            }
+            System.out.println();
         }
 
-
-
-
-
-//        System.out.println("\n6. Сдвиг элементов массива");
-
+        System.out.println("\n\n5. Генерация уникальных чисел");
+        intArr = new int[30];
+        for (i = 0; i < 30; ) {
+            int randomNumber = (int) (Math.random() * 40 + 60);
+            for (j = 0; j < i; j++) {
+                if (intArr[j] == randomNumber) {
+                    break;
+                }
+            }
+            if (j == i) {
+                intArr[i] = randomNumber;
+                i++;
+            }
+        }
+        Arrays.sort(intArr);
+        for (i = 0; i < intArr.length - 1; i++) {
+            for (j = 0; j < 10; j++) {
+                if (i < intArr.length) {
+                    System.out.printf("%2d %s", intArr[i], " ");
+                }
+                i++;
+            }
+            i--;
+            System.out.println();
+        }
     }
 
-    private static void printArray(double[] array) {
+    private static void printArray1(int[] array) {
+        for (int numArray : array) {
+            System.out.print(numArray + " ");
+        }
+    }
+
+    private static void printArray2(double[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < 8; j++) {
                 if (i < array.length) {
