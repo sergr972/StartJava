@@ -57,11 +57,12 @@ public class ArrayTheme {
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
         char[] alfabet = new char[26];
-        for (int i = 0; i < 26; i++) {
+        length = alfabet.length;
+        for (int i = 0; i < length; i++) {
             alfabet[i] = (char) (i + 65);
         }
-        for (int i = alfabet.length - 1; i >= 0; i--) {
-            for (int j = alfabet.length - 1; j >= i; j--) {
+        for (int i = length - 1; i >= 0; i--) {
+            for (int j = length - 1; j >= i; j--) {
                 System.out.print(alfabet[j]);
             }
             System.out.println();
@@ -69,7 +70,8 @@ public class ArrayTheme {
 
         System.out.println("\n\n5. Генерация уникальных чисел");
         intArr = new int[30];
-        for (int i = 0; i < 30; ) {
+        length = intArr.length;
+        for (int i = 0; i < length; ) {
             int randomNumber = (int) (Math.random() * 40 + 60);
             int j;
             for (j = 0; j < i; j++) {
@@ -83,9 +85,9 @@ public class ArrayTheme {
             }
         }
         Arrays.sort(intArr);
-        for (int i = 0; i < intArr.length - 1; i++) {
+        for (int i = 0; i < length - 1; i++) {
             for (int j = 0; j < 10; j++) {
-                if (i < intArr.length) {
+                if (i < length) {
                     System.out.printf("%2d %s", intArr[i], " ");
                 }
                 i++;
