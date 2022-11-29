@@ -9,10 +9,10 @@ public class ArrayTheme {
         int length = intArr.length;
         System.out.println("массив до модификации");
         printIntArray(intArr);
-        for (int i = 0, j = length - 1; i < length / 2; i++, j--) {
+        for (int i = 0; i < length / 2; i++) {
             int tmp = intArr[i];
-            intArr[i] = intArr[j];
-            intArr[j] = tmp;
+            intArr[i] = intArr[length - 1 - i];
+            intArr[length - 1 - i] = tmp;
         }
         System.out.println("\nмассив после модификации");
         printIntArray(intArr);
@@ -26,7 +26,7 @@ public class ArrayTheme {
         int mult = 1;
         for (int i = 1; i < length - 1; i++) {
             mult *= intArr[i];
-            System.out.print(i < 8 ? intArr[i] + " * " : intArr[i] + " = ");
+            System.out.print(intArr[i] + (i < 8 ? " * " : " = "));
         }
         System.out.println(mult);
         System.out.print("значение массива с индексом 0 равно " + intArr[0]);
@@ -56,14 +56,14 @@ public class ArrayTheme {
         System.out.println("\nколичество обнуленных ячеек - " + countZero);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
-        char[] alfabet = new char[26];
-        length = alfabet.length;
+        char[] alphabet = new char[26];
+        length = alphabet.length;
         for (int i = 0; i < length; i++) {
-            alfabet[i] = (char) (i + 65);
+            alphabet[i] = (char) (i + 'A');
         }
         for (int i = length - 1; i >= 0; i--) {
             for (int j = length - 1; j >= i; j--) {
-                System.out.print(alfabet[j]);
+                System.out.print(alphabet[j]);
             }
             System.out.println();
         }
@@ -119,9 +119,9 @@ public class ArrayTheme {
         System.out.println("Измененный массив : " + Arrays.toString(destArr));
     }
 
-    private static void printIntArray(int[] array) {
-        for (int numArray : array) {
-            System.out.print(numArray + " ");
+    private static void printIntArray(int[] nums) {
+        for (int num : nums) {
+            System.out.print(num + " ");
         }
     }
 
