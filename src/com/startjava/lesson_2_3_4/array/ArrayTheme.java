@@ -71,18 +71,21 @@ public class ArrayTheme {
         System.out.println("\n5. Генерация уникальных чисел");
         intArr = new int[30];
         length = intArr.length;
-        for (int i = 0; i < length; ) {
-            int randomNumber = (int) (Math.random() * 40 + 60);
-            int j;
-            for (j = 0; j < i; j++) {
-                if (intArr[j] == randomNumber) {
-                    break;
+        boolean inArr;
+        int randomNum;
+        for (int i = 0; i < length; i++) {
+            do {
+                inArr = false;
+                randomNum = (int) (Math.random() * 40 + 60);
+                int j;
+                for (j = 0; j < i; j++) {
+                    if (intArr[j] == randomNum) {
+                        inArr = true;
+                        break;
+                    }
                 }
-            }
-            if (j == i) {
-                intArr[i] = randomNumber;
-                i++;
-            }
+            } while (inArr);
+            intArr[i] = randomNum;
         }
         Arrays.sort(intArr);
         for (int i = 0; i < length - 1; i++) {
