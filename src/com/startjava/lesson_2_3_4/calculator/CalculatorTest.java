@@ -9,12 +9,13 @@ public class CalculatorTest {
         String userAnswer;
         do {
             Calculator calculator = new Calculator();
-            System.out.println("Введите первое число: ");
-            int num1 = scanner.nextInt();
-            System.out.println("Введите знак математической операции:");
-            char operation = scanner.next().charAt(0);
-            System.out.println("Введите второе число: ");
-            int num2 = scanner.nextInt();
+            System.out.println("Введите математическое выражение в формате:");
+            String str = scanner.next();
+            String[] strings = str.split(" ", 3);
+            int num1 = Integer.parseInt(strings[0]);
+            int num2 = Integer.parseInt(strings[2]);
+            char operation = strings.charAt();
+
             int result = calculator.calculate(num1, num2, operation);
             System.out.println("Результат операции: " + result);
             do {
