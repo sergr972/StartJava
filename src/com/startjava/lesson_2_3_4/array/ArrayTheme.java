@@ -87,6 +87,20 @@ public class ArrayTheme {
             } while (inArr);
             intArr[i] = randomNum;
         }
+        // второй вариант решения
+//        for (int i = 0; i < length; i++) {
+//            int randomNum = (int) (Math.random() * 40 + 60);
+//            if (i == 0) {
+//                intArr[i] = randomNum;
+//            }
+//            for (int j = 0; j < i; j++) {
+//                if (intArr[j] == randomNum) {
+//                    i--;
+//                    break;
+//                }
+//                intArr[i] = randomNum;
+//            }
+//        }
         Arrays.sort(intArr);
         for (int i = 0; i < length - 1; i++) {
             for (int j = 0; j < 10; j++) {
