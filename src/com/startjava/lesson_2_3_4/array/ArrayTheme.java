@@ -124,14 +124,17 @@ public class ArrayTheme {
             }
         }
         String[] destArr = new String[count];
-        int k = 0;
+        int srcPos, destPos = 0;
         int len = 0;
         for (int i = 0; i < length; i++) {
             if (!sourceArr[i].isBlank()) {
                 len++;
-                System.arraycopy(sourceArr, i, destArr, k++, len);
+            } else if (len != 0) {
+                srcPos = i - len;
+                System.arraycopy(sourceArr, srcPos, destArr, destPos, len);
+                destPos += len;
+                len = 0;
             }
-            len = 0;
         }
         System.out.println("Измененный массив : " + Arrays.toString(destArr));
     }
