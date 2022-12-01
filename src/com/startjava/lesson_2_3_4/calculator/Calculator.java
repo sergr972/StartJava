@@ -1,26 +1,47 @@
 package com.startjava.lesson_2_3_4.calculator;
 
+import static java.lang.Math.floorDiv;
+
 public class Calculator {
 
-    public int calculate(int a, int b, char sign) {
-        int result = 0;
-        switch (sign) {
+    private int firstNumber;
+    private char mathOperation;
+    private int secondtNumber;
+
+    public void setFirstNumber(int firstNumber) {
+        this.firstNumber = firstNumber;
+    }
+
+    public void setMathOperation(char mathOperation) {
+        this.mathOperation = mathOperation;
+    }
+
+    public void setSecondtNumber(int secondtNumber) {
+        this.secondtNumber = secondtNumber;
+    }
+
+    public void calculate() {
+        switch (mathOperation) {
             case '+':
-                return a + b;
+                System.out.println(firstNumber + secondtNumber);
+                break;
             case '-':
-                return a - b;
+                System.out.println(firstNumber - secondtNumber);
+                break;
             case '*':
-                return a * b;
+                System.out.println(Math.multiplyExact(firstNumber, secondtNumber));
+                break;
             case '/':
-                return a / b;
+                System.out.println(floorDiv(firstNumber, secondtNumber));
+                break;
             case '%':
-                return a % b;
+                System.out.println(firstNumber % secondtNumber);
+                break;
             case '^':
-                result = 1;
-                for (int i = 0; i < b; i++) {
-                    result *= a;
-                }
+                System.out.println((int) Math.pow(firstNumber, secondtNumber));
+                break;
+            default:
+                System.out.println("Ощибка!!!");
         }
-        return result;
     }
 }
