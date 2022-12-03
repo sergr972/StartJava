@@ -71,20 +71,19 @@ public class ArrayTheme {
         System.out.println("\n5. Генерация уникальных чисел");
         intArr = new int[30];
         length = intArr.length;
-        boolean inArr;
+        boolean notUnique;
         int randomNum;
         for (int i = 0; i < length; i++) {
             do {
-                inArr = false;
+                notUnique = false;
                 randomNum = (int) (Math.random() * 40 + 60);
-                int j;
-                for (j = 0; j < i; j++) {
+                for (int j = 0; j < i; j++) {
                     if (intArr[j] == randomNum) {
-                        inArr = true;
+                        notUnique = true;
                         break;
                     }
                 }
-            } while (inArr);
+            } while (notUnique);
             intArr[i] = randomNum;
         }
         // второй вариант решения
@@ -114,12 +113,12 @@ public class ArrayTheme {
         }
 
         System.out.println("\n6.Сдвиг элементов массива");
-        String[] sourceArr = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
-        length = sourceArr.length;
-        System.out.println("Исходный массив : " + Arrays.toString(sourceArr));
+        String[] srcArr = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        length = srcArr.length;
+        System.out.println("Исходный массив : " + Arrays.toString(srcArr));
         int count = 0;
         for (int i = 0; i < length; i++) {
-            if (!sourceArr[i].isBlank()) {
+            if (!srcArr[i].isBlank()) {
                 count++;
             }
         }
@@ -127,11 +126,11 @@ public class ArrayTheme {
         int srcPos, destPos = 0;
         int len = 0;
         for (int i = 0; i < length; i++) {
-            if (!sourceArr[i].isBlank()) {
+            if (!srcArr[i].isBlank()) {
                 len++;
             } else if (len != 0) {
                 srcPos = i - len;
-                System.arraycopy(sourceArr, srcPos, destArr, destPos, len);
+                System.arraycopy(srcArr, srcPos, destArr, destPos, len);
                 destPos += len;
                 len = 0;
             }
