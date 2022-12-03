@@ -10,19 +10,21 @@ public class GuessNumberTest {
         System.out.println("Играют два игрока.");
         System.out.println("Нужно вводить число в полуинтервале (0, 100], " +
                 "кто первый угадал тот и выиграл.");
-        System.out.println("Введите имя первого игрока : ");
-        Player playerOne = new Player(scanner.next());
-        System.out.println("Введите имя второго игрока : ");
-        Player playerTwo = new Player(scanner.next());
-        String playerAnswer;
+        System.out.print("Введите имя первого игрока: ");
+        Player pl1 = new Player(scanner.nextLine());
+
+        System.out.print("Введите имя второго игрока: ");
+        Player pl2 = new Player(scanner.nextLine());
+
+        GuessNumber game = new GuessNumber(pl1, pl2);
+        String answer = "yes";
 
         do {
-            GuessNumber game = new GuessNumber(playerOne, playerTwo);
-            game.start();
-            do {
-                System.out.println("\nХотите продолжить вычисления? [yes/no]");
-                playerAnswer = scanner.next();
-            } while (!playerAnswer.equals("no") && !playerAnswer.equals("yes"));
-        } while (playerAnswer.equals("yes"));
+            if ("yes".equals(answer)) {
+                game.start();
+            }
+            System.out.print("\nХотите продолжить вычисления? [yes/no]");
+            answer = scanner.nextLine();
+        } while (!"no".equals(answer));
     }
 }
