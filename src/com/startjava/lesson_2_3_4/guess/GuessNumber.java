@@ -18,12 +18,12 @@ public class GuessNumber {
         System.out.println(secretNum);
 
         while (true) {
-            System.out.println(pl1.getName() + ", введите число: ");
+            System.out.print(pl1.getName() + ", введите число: ");
             pl1.setNumber(scanner.nextInt());
             if (compareNumbers(pl1, secretNum)) {
                 break;
             }
-            System.out.println(pl2.getName() + ",введите число: ");
+            System.out.print(pl2.getName() + ",введите число: ");
             pl2.setNumber(scanner.nextInt());
             if (compareNumbers(pl2, secretNum)) {
                 break;
