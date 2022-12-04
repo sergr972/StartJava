@@ -4,20 +4,31 @@ import static java.lang.Math.floorDiv;
 
 public class Calculator {
 
-    private String input;
+    private String[] input;
     private int firstNumber;
     private char mathOperation;
     private int secondNumber;
 
-    public void setInput(String input) {
+    public void setInput(String[] input) {
         this.input = input;
     }
 
+    public void setFirstNumber(int firstNumber) {
+        this.firstNumber = firstNumber;
+    }
+
+    public void setMathOperation(char mathOperation) {
+        this.mathOperation = mathOperation;
+    }
+
+    public void setSecondNumber(int secondNumber) {
+        this.secondNumber = secondNumber;
+    }
+
     public void readline() {
-        String[] parseLine = input.split(" ", 3);
-        firstNumber = Integer.parseInt(parseLine[0]);
-        mathOperation = parseLine[1].charAt(0);
-        secondNumber = Integer.parseInt(parseLine[2]);
+        setFirstNumber(Integer.parseInt(input[0]));
+        setMathOperation(input[1].charAt(0));
+        setSecondNumber(Integer.parseInt(input[2]));
     }
 
     public void calculate() {

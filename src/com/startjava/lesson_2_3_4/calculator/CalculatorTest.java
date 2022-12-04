@@ -14,13 +14,13 @@ public class CalculatorTest {
                 System.out.println("Введите математическое выражение в формате:");
                 System.out.println("число действие число. Пробелы обязательны: ");
                 String input = scanner.nextLine();
-                calc.setInput(input);
+                calc.setInput(input.split(" ", 3));
                 calc.readline();
                 calc.calculate();
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]");
             answer = scanner.nextLine();
         } while (!"no".equals(answer));
-        System.out.println("Работа завершена!");
+        System.out.println("Работа калькулятора завершена!");
     }
 }
