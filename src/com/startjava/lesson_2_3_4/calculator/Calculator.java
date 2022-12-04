@@ -4,42 +4,54 @@ import static java.lang.Math.floorDiv;
 
 public class Calculator {
 
-    private String[] input;
-    private int firstNumber;
+    int result;
+    private String input;
+    private String[] strings;
+    private int num1;
     private char mathOperation;
-    private int secondNumber;
+    private int num2;
 
-    public void setInput(String[] input) {
+    public String getInput() {
+        return input;
+    }
+
+    public void setInput(String input) {
         this.input = input;
     }
 
-    public void setFirstNumber(int firstNumber) {
-        this.firstNumber = firstNumber;
+    public void setStrings(String[] strings) {
+        this.strings = strings;
+    }
+
+    public void setNum1(int num1) {
+        this.num1 = num1;
     }
 
     public void setMathOperation(char mathOperation) {
         this.mathOperation = mathOperation;
     }
 
-    public void setSecondNumber(int secondNumber) {
-        this.secondNumber = secondNumber;
+    public void setNum2(int num2) {
+        this.num2 = num2;
     }
 
     public void readline() {
-        setFirstNumber(Integer.parseInt(input[0]));
-        setMathOperation(input[1].charAt(0));
-        setSecondNumber(Integer.parseInt(input[2]));
+        setStrings(getInput().split(" ", 3));
+        setNum1(Integer.parseInt(strings[0]));
+        setMathOperation(strings[1].charAt(0));
+        setNum2(Integer.parseInt(strings[2]));
     }
 
-    public void calculate() {
+    public int calculate() {
+        readline();
         switch (mathOperation) {
-            case '+' -> System.out.println(firstNumber + secondNumber);
-            case '-' -> System.out.println(firstNumber - secondNumber);
-            case '*' -> System.out.println(Math.multiplyExact(firstNumber, secondNumber));
-            case '/' -> System.out.println(floorDiv(firstNumber, secondNumber));
-            case '%' -> System.out.println(firstNumber % secondNumber);
-            case '^' -> System.out.println((int) Math.pow(firstNumber, secondNumber));
-            default -> System.out.println("Ощибка!!!");
+            case '+' -> result = num1 + num2;
+            case '-' -> result = num1 - num2;
+            case '*' -> result = Math.multiplyExact(num1, num2);
+            case '/' -> result = floorDiv(num1, num2);
+            case '%' -> result = num1 % num2;
+            case '^' -> result = (int) Math.pow(num1, num2);
         }
+        return result;
     }
 }

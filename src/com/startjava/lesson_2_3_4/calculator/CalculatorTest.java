@@ -11,16 +11,15 @@ public class CalculatorTest {
             if ("yes".equals(answer)) {
                 Calculator calc = new Calculator();
                 System.out.println("Калькулятор запущен.");
-                System.out.println("Введите математическое выражение в формате:");
+                System.out.println("Введите математическое выражениев формате:");
                 System.out.println("число действие число. Пробелы обязательны: ");
                 String input = scanner.nextLine();
-                calc.setInput(input.split(" ", 3));
-                calc.readline();
-                calc.calculate();
+                calc.setInput(input);
+                System.out.println("Результат операции: " + calc.calculate());
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]");
             answer = scanner.nextLine();
         } while (!"no".equals(answer));
-        System.out.println("Работа калькулятора завершена!");
+        System.out.println("Работа завершена!");
     }
 }
