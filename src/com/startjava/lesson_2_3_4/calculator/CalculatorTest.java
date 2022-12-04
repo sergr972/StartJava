@@ -11,17 +11,11 @@ public class CalculatorTest {
             if ("yes".equals(answer)) {
                 Calculator calc = new Calculator();
                 System.out.println("Калькулятор запущен.");
-                System.out.println("Введите математическое выражениев формате 2 ^ 10.");
-                System.out.print("Пробелы обязательны: ");
-            String str = scanner.nextLine();
-                String[] strings = str.split(" ", 3);
-                int firstNumber = Integer.parseInt(strings[0]);
-                calc.setFirstNumber(firstNumber);
-                char mathOperation = strings[1].charAt(0);
-                calc.setMathOperation(mathOperation);
-                int secondNumber = Integer.parseInt(strings[2]);
-                calc.setSecondtNumber(secondNumber);
-
+                System.out.println("Введите математическое выражение в формате:");
+                System.out.println("число действие число. Пробелы обязательны: ");
+                String input = scanner.nextLine();
+                calc.setInput(input);
+                calc.readline();
                 calc.calculate();
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]");
