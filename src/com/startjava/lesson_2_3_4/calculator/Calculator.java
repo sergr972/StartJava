@@ -1,23 +1,11 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-import static java.lang.Math.floorDiv;
-
 public class Calculator {
 
-    int result;
-    private String input;
     private String[] string;
     private int num1;
     private char mathOperation;
     private int num2;
-
-    public String getInput() {
-        return input;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
-    }
 
     public void setString(String[] string) {
         this.string = string;
@@ -35,23 +23,20 @@ public class Calculator {
         this.num2 = num2;
     }
 
-    public int calculate() {
-        readline();
-        switch (mathOperation) {
-            case '+' -> result = num1 + num2;
-            case '-' -> result = num1 - num2;
-            case '*' -> result = Math.multiplyExact(num1, num2);
-            case '/' -> result = floorDiv(num1, num2);
-            case '%' -> result = num1 % num2;
-            case '^' -> result = (int) Math.pow(num1, num2);
-        }
-        return result;
-    }
-
-    public void readline() {
-        setString(getInput().split(" ", 3));
+    public int calculate(String input) {
+        setString(input.split(" ", 3));
         setNum1(Integer.parseInt(string[0]));
-        setMathOperation(string[1].charAt(0));
         setNum2(Integer.parseInt(string[2]));
+        setMathOperation(string[1].charAt(0));
+
+        return switch (mathOperation) {
+            case '+' -> num1 + num2;
+            case '-' -> num1 - num2;
+            case '*' -> Math.multiplyExact(num1, num2);
+            case '/' -> Math.floorDiv(num1, num2);
+            case '%' -> num1 % num2;
+            case '^' -> (int) Math.pow(num1, num2);
+            default -> throw new IllegalStateException("Unexpected value: " + mathOperation);
+        };
     }
 }

@@ -11,11 +11,11 @@ public class CalculatorTest {
             if ("yes".equals(answer)) {
                 Calculator calc = new Calculator();
                 System.out.println("Калькулятор запущен.");
-                System.out.println("Введите математическое выражениев формате:");
+                System.out.println("Введите математическое выражение в формате:");
                 System.out.println("число действие число. Пробелы обязательны: ");
                 String input = scanner.nextLine();
-                calc.setInput(input);
-                System.out.println("Результат операции: " + calc.calculate());
+//                calc.calculate(input);
+                System.out.println("Результат операции: " + calc.calculate(input));
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]");
             answer = scanner.nextLine();
