@@ -38,25 +38,12 @@ public class Calculator {
     public int calculate() {
         readline();
         switch (mathOperation) {
-            case '+':
-                result = num1 + num2;
-            break;
-            case '-':
-                result = num1 - num2;
-            break;
-            case '*':
-                result = Math.multiplyExact(num1, num2);
-            break;
-            case '/':
-                result = floorDiv(num1, num2);
-            break;
-            case '%':
-                result = num1 % num2;
-            break;
-            case '^':
-                return (int) Math.pow(num1, num2);
-            default:
-                break;
+            case '+' -> result = num1 + num2;
+            case '-' -> result = num1 - num2;
+            case '*' -> result = Math.multiplyExact(num1, num2);
+            case '/' -> result = floorDiv(num1, num2);
+            case '%' -> result = num1 % num2;
+            case '^' -> result = (int) Math.pow(num1, num2);
         }
         return result;
     }
