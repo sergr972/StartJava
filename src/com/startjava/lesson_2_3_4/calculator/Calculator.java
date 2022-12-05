@@ -6,7 +6,7 @@ public class Calculator {
 
     int result;
     private String input;
-    private String[] strings;
+    private String[] string;
     private int num1;
     private char mathOperation;
     private int num2;
@@ -19,8 +19,8 @@ public class Calculator {
         this.input = input;
     }
 
-    public void setStrings(String[] strings) {
-        this.strings = strings;
+    public void setString(String[] string) {
+        this.string = string;
     }
 
     public void setNum1(int num1) {
@@ -36,21 +36,34 @@ public class Calculator {
     }
 
     public void readline() {
-        setStrings(getInput().split(" ", 3));
-        setNum1(Integer.parseInt(strings[0]));
-        setMathOperation(strings[1].charAt(0));
-        setNum2(Integer.parseInt(strings[2]));
+        setString(getInput().split(" ", 3));
+        setNum1(Integer.parseInt(string[0]));
+        setMathOperation(string[1].charAt(0));
+        setNum2(Integer.parseInt(string[2]));
     }
 
     public int calculate() {
         readline();
         switch (mathOperation) {
-            case '+' -> result = num1 + num2;
-            case '-' -> result = num1 - num2;
-            case '*' -> result = Math.multiplyExact(num1, num2);
-            case '/' -> result = floorDiv(num1, num2);
-            case '%' -> result = num1 % num2;
-            case '^' -> result = (int) Math.pow(num1, num2);
+            case '+':
+                result = num1 + num2;
+            break;
+            case '-':
+                result = num1 - num2;
+            break;
+            case '*':
+                result = Math.multiplyExact(num1, num2);
+            break;
+            case '/':
+                result = floorDiv(num1, num2);
+            break;
+            case '%':
+                result = num1 % num2;
+            break;
+            case '^':
+                return (int) Math.pow(num1, num2);
+            default: 
+                break;
         }
         return result;
     }
