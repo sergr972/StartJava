@@ -10,12 +10,11 @@ public class GuessNumberTest {
         System.out.println("Играют два игрока.");
         System.out.println("Нужно вводить число в полуинтервале (0, 100], " +
                 "кто первый угадал тот и выиграл.");
+        System.out.println("У каждого игрока 10 попыток");
         System.out.print("Введите имя первого игрока: ");
-//        Player pl1 = new Player("max");
         Player pl1 = new Player(scanner.nextLine());
 
         System.out.print("Введите имя второго игрока: ");
-//        Player pl2 = new Player("xam");
         Player pl2 = new Player(scanner.nextLine());
 
         GuessNumber game = new GuessNumber(pl1, pl2);
