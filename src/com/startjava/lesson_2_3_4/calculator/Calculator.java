@@ -35,13 +35,6 @@ public class Calculator {
         this.num2 = num2;
     }
 
-    public void readline() {
-        setString(getInput().split(" ", 3));
-        setNum1(Integer.parseInt(string[0]));
-        setMathOperation(string[1].charAt(0));
-        setNum2(Integer.parseInt(string[2]));
-    }
-
     public int calculate() {
         readline();
         switch (mathOperation) {
@@ -62,9 +55,16 @@ public class Calculator {
             break;
             case '^':
                 return (int) Math.pow(num1, num2);
-            default: 
+            default:
                 break;
         }
         return result;
+    }
+
+    public void readline() {
+        setString(getInput().split(" ", 3));
+        setNum1(Integer.parseInt(string[0]));
+        setMathOperation(string[1].charAt(0));
+        setNum2(Integer.parseInt(string[2]));
     }
 }
