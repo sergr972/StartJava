@@ -6,6 +6,7 @@ public class GuessNumber {
 
     private final Player pl1;
     private final Player pl2;
+    int len = 10;
 
     public GuessNumber(Player pl1, Player pl2) {
         this.pl1 = pl1;
@@ -13,11 +14,12 @@ public class GuessNumber {
     }
 
     public void start() {
+
         Scanner scanner = new Scanner(System.in);
         int secretNum = (int) (Math.random() * 100) + 1;
         System.out.println(secretNum);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < len; i++) {
             System.out.print(pl1.getName() + ", введите число: ");
             pl1.setIndex(i);
             pl1.setNumber(scanner.nextInt());
@@ -40,6 +42,7 @@ public class GuessNumber {
                     " угадал число " + secretNum + " с " + " попытки " + (index + 1));
             return true;
         }
+
         System.out.println("Игрок " + player.getName() + " не угадал");
         System.out.println("Подсказка : ");
         if (player.getNumbers()[index] < secretNum) {
@@ -49,6 +52,10 @@ public class GuessNumber {
         if (player.getNumbers()[index] > secretNum) {
             System.out.println("число " + player.getNumbers()[index] +
                     " больше того, что загадал компьютер");
+
+        }
+        if (index == len - 1) {
+            System.out.println("У " + player.getName() + " закончились попытки.");
         }
         return false;
     }

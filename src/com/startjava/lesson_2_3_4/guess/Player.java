@@ -5,12 +5,12 @@ public class Player {
     private final int[] numbers = new int[10];
     private int index;
 
-    public Player(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public Player(String name) {
+        this.name = name;
     }
 
     public int[] getNumbers() {
