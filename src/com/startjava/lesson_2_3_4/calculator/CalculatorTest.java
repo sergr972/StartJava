@@ -14,10 +14,11 @@ public class CalculatorTest {
                 System.out.println("число действие число. Пробелы обязательны: ");
                 String input = scanner.nextLine();
                 System.out.println("Результат операции: " + Calculator.calculate(input));
+                }
+                System.out.println("Хотите продолжить вычисления? [yes/no]");
+                answer = scanner.nextLine();
             }
-            System.out.println("Хотите продолжить вычисления? [yes/no]");
-            answer = scanner.nextLine();
-        } while (!"no".equals(answer));
-        System.out.println("Работа завершена!");
+            while (!"no".equals(answer)) ;
+            System.out.println("Работа завершена!");
+        }
     }
-}
