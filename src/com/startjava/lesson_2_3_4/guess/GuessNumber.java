@@ -35,21 +35,21 @@ public class GuessNumber {
 
     private boolean compareNumbers(Player player, int index, int secretNum) {
 
-//        if (player.getNumbers(index) == secretNum) {
-//            System.out.println("Поздравляем!!! Игрок " + player.getName() +
-//                    "угадал число " + secretNum + " с " + " попытки");
-//            return true;
-//        }
-//        System.out.println("Игрок " + player.getName() + " не угадал");
-//        System.out.println("Подсказка : ");
-//        if (player.getNumbers() < secretNum) {
-//            System.out.println("число " + player.getNumbers() +
-//                    " меньше того, что загадал компьютер");
-//        }
-//        if (player.getNumbers() > secretNum) {
-//            System.out.println("число " + player.getNumbers() +
-//                    " больше того, что загадал компьютер");
-//        }
+        if (player.getNumbers()[index] == secretNum) {
+            System.out.println("Поздравляем!!! Игрок " + player.getName() +
+                    " угадал число " + secretNum + " с " + " попытки " + (index + 1));
+            return true;
+        }
+        System.out.println("Игрок " + player.getName() + " не угадал");
+        System.out.println("Подсказка : ");
+        if (player.getNumbers()[index] < secretNum) {
+            System.out.println("число " + player.getNumbers()[index] +
+                    " меньше того, что загадал компьютер");
+        }
+        if (player.getNumbers()[index] > secretNum) {
+            System.out.println("число " + player.getNumbers()[index] +
+                    " больше того, что загадал компьютер");
+        }
         return false;
     }
 }
