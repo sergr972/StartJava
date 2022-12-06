@@ -2,32 +2,11 @@ package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    private String[] string;
-    private int num1;
-    private char mathOperation;
-    private int num2;
-
-    public void setString(String[] string) {
-        this.string = string;
-    }
-
-    public void setNum1(int num1) {
-        this.num1 = num1;
-    }
-
-    public void setMathOperation(char mathOperation) {
-        this.mathOperation = mathOperation;
-    }
-
-    public void setNum2(int num2) {
-        this.num2 = num2;
-    }
-
-    public int calculate(String input) {
-        setString(input.split(" ", 3));
-        setNum1(Integer.parseInt(string[0]));
-        setNum2(Integer.parseInt(string[2]));
-        setMathOperation(string[1].charAt(0));
+    public static int calculate(String input) {
+        String[] mathExpression = input.split(" ", 3);
+        int num1 = Integer.parseInt(mathExpression[0]);
+        int num2 = Integer.parseInt(mathExpression[2]);
+        char mathOperation = mathExpression[1].charAt(0);
 
         return switch (mathOperation) {
             case '+' -> num1 + num2;
