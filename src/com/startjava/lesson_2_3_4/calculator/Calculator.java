@@ -10,8 +10,7 @@ public class Calculator {
             int num2 = Integer.parseInt(mathExpression[2]);
 
             if (num1 <= 0 || num2 <= 0) {
-                System.out.println("Ошибка! Числа должны быть положительными!");
-                return -1;
+                throw new RuntimeException("Ошибка! Числа должны быть положительными!");
             }
             return switch (mathOperation) {
                 case '+' -> num1 + num2;
@@ -20,11 +19,10 @@ public class Calculator {
                 case '/' -> Math.floorDiv(num1, num2);
                 case '%' -> num1 % num2;
                 case '^' -> (int) Math.pow(num1, num2);
-                default -> throw new IllegalArgumentException("Неверный знак операции");
+                default -> throw new RuntimeException("Неверный знак операции");
             };
         } catch (NumberFormatException e) {
-            System.out.println("Ошибка! Числа должны быть целыми!");
-            return -1;
+            throw new RuntimeException("Ошибка! Числа должны быть целыми");
         }
     }
 }
