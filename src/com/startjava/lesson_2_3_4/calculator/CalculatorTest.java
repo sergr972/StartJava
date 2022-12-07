@@ -18,12 +18,12 @@ public class CalculatorTest {
                     String input = scanner.nextLine();
                     result = Calculator.calculate(input);
                 } while (result == -1);
-                    System.out.println("Результат операции: " + result);
+                System.out.println("Результат операции: " + result);
             }
-                System.out.println("Хотите продолжить вычисления? [yes/no]");
-                answer = scanner.nextLine();
-            }
-            while (!"no".equals(answer)) ;
-            System.out.println("Работа завершена!");
+            System.out.println("Хотите продолжить вычисления? [yes/no]");
+            answer = scanner.nextLine();
         }
+        while (!"no".equals(answer));
+        System.out.println("Работа завершена!");
     }
+}
