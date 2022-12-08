@@ -7,7 +7,6 @@ public class GuessNumber {
 
     private final Player pl1;
     private final Player pl2;
-    int len = 10;
 
     public GuessNumber(Player pl1, Player pl2) {
 
@@ -23,18 +22,25 @@ public class GuessNumber {
         Arrays.fill(pl1.getNumbers(), 0, pl1.getIndex() + 1, 0);
         Arrays.fill(pl2.getNumbers(), 0, pl2.getIndex() + 1, 0);
 
-        for (int i = 0; i < len; i++) {
+        final int ARR_LEN = 10;
+        for (int i = 0; i < ARR_LEN; i++) {
             System.out.print(pl1.getName() + ", введите число: ");
             pl1.setIndex(i);
             pl1.setNumber(scanner.nextInt());
             if (compareNumbers(pl1, i, secretNum)) {
                 break;
             }
+            if (i == ARR_LEN - 1) {
+                System.out.println("У " + pl1.getName() + " закончились попытки.\n");
+            }
             System.out.print(pl2.getName() + ",введите число: ");
             pl2.setIndex(i);
             pl2.setNumber(scanner.nextInt());
             if (compareNumbers(pl2, i, secretNum)) {
                 break;
+            }
+            if (i == ARR_LEN - 1) {
+                System.out.println("У " + pl2.getName() + " закончились попытки.\n");
             }
         }
         System.out.print("Числа игрока " + pl1.getName() + " ");
@@ -54,10 +60,6 @@ public class GuessNumber {
         System.out.print("Подсказка: число " + player.getNumbers()[index]);
         System.out.print(player.getNumbers()[index] < secretNum ? " меньше " : " больше ");
         System.out.println("того, что загадал компьютер\n");
-
-        if (index == len - 1) {
-            System.out.println("У " + player.getName() + " закончились попытки.");
-        }
         return false;
     }
 
