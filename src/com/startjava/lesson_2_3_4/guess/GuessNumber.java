@@ -8,17 +8,20 @@ public class GuessNumber {
     private final Player pl1;
     private final Player pl2;
 
-
     public GuessNumber(Player pl1, Player pl2) {
         this.pl1 = pl1;
         this.pl2 = pl2;
     }
-    int len = 2;
-    public void start() {
 
+    int len = 10;
+
+    public void start() {
         Scanner scanner = new Scanner(System.in);
         int secretNum = (int) (Math.random() * 100) + 1;
         System.out.println(secretNum);
+
+        Arrays.fill(pl1.getNumbers(), 0, pl1.getIndex() + 1, 0);
+        Arrays.fill(pl2.getNumbers(), 0, pl2.getIndex() + 1, 0);
 
         for (int i = 0; i < len; i++) {
             System.out.print(pl1.getName() + ", введите число: ");
@@ -34,15 +37,12 @@ public class GuessNumber {
                 break;
             }
         }
-        int[]newArrPl1 = Arrays.copyOf (pl1.getNumbers(), pl1.getIndex() + 1);
-        System.out.print("Числа " + pl1.getName() + " ");
 
-        int[]newArrPl2 = Arrays.copyOf (pl2.getNumbers(), pl2.getIndex() + 1);
-        System.out.print("\nЧисла " + pl2.getName() + " ");
+        System.out.print("Числа игрока " + pl1.getName() + " ");
+        printIntArray(Arrays.copyOf (pl1.getNumbers(), pl1.getIndex() + 1));
 
-        printIntArray(newArrPl1);
-
-        printIntArray(newArrPl2);
+        System.out.print("\nЧисла игрока " + pl2.getName() + " ");
+        printIntArray(Arrays.copyOf (pl2.getNumbers(), pl2.getIndex() + 1));
     }
 
     private boolean compareNumbers(Player player, int index, int secretNum) {
@@ -71,7 +71,7 @@ public class GuessNumber {
     }
     private static void printIntArray(int[] nums) {
         for (int num : nums) {
-            System.out.print(num + " ");
+            System.out.printf("%3d %s", num, " ");
         }
     }
 }

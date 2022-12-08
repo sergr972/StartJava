@@ -24,7 +24,6 @@ public class GuessNumberTest {
             if ("yes".equals(answer)) {
                 game.start();
             }
-//            System.out.println("Числа игрока " + pl1.getName() +  );
             System.out.print("\nХотите продолжить вычисления? [yes/no]");
             answer = scanner.nextLine();
         } while (!"no".equals(answer));
