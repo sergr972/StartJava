@@ -1,18 +1,19 @@
 package com.startjava.lesson_2_3_4.guess;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
 
     private final Player pl1;
     private final Player pl2;
-    int len = 10;
+
 
     public GuessNumber(Player pl1, Player pl2) {
         this.pl1 = pl1;
         this.pl2 = pl2;
     }
-
+    int len = 2;
     public void start() {
 
         Scanner scanner = new Scanner(System.in);
@@ -33,6 +34,10 @@ public class GuessNumber {
                 break;
             }
         }
+        int[]newArrPl1 = Arrays.copyOfRange (pl1.getNumbers(), 0, pl1.getIndex() + 1);
+        System.out.println("Числа " + pl1.getName() + Arrays.toString(newArrPl1));
+        int[]newArrPl2 = Arrays.copyOfRange (pl2.getNumbers(), 0, pl2.getIndex() + 1);
+        System.out.println("Числа " + pl2.getName() + Arrays.toString(newArrPl2));
     }
 
     private boolean compareNumbers(Player player, int index, int secretNum) {
