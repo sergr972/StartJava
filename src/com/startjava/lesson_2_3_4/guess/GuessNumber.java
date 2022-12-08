@@ -34,9 +34,9 @@ public class GuessNumber {
                 break;
             }
         }
-        int[]newArrPl1 = Arrays.copyOfRange (pl1.getNumbers(), 0, pl1.getIndex() + 1);
+        int[]newArrPl1 = Arrays.copyOf (pl1.getNumbers(), pl1.getIndex() + 1);
         System.out.println("Числа " + pl1.getName() + Arrays.toString(newArrPl1));
-        int[]newArrPl2 = Arrays.copyOfRange (pl2.getNumbers(), 0, pl2.getIndex() + 1);
+        int[]newArrPl2 = Arrays.copyOf (pl2.getNumbers(), pl2.getIndex() + 1);
         System.out.println("Числа " + pl2.getName() + Arrays.toString(newArrPl2));
     }
 
