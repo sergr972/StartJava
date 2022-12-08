@@ -22,8 +22,7 @@ public class CalculatorTest {
                     System.out.println(e.getMessage());
                 }
             }
-        }
-        while (!"no".equals(answer));
+        } while (!"no".equals(answer));
         System.out.println("Работа завершена!");
     }
 }
