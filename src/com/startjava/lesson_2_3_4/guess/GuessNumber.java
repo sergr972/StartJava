@@ -7,13 +7,18 @@ public class GuessNumber {
 
     private final Player pl1;
     private final Player pl2;
+    int len = 10;
 
     public GuessNumber(Player pl1, Player pl2) {
         this.pl1 = pl1;
         this.pl2 = pl2;
     }
 
-    int len = 10;
+    private static void printIntArray(int[] nums) {
+        for (int num : nums) {
+            System.out.printf("%3d %s", num, " ");
+        }
+    }
 
     public void start() {
         Scanner scanner = new Scanner(System.in);
@@ -39,10 +44,10 @@ public class GuessNumber {
         }
 
         System.out.print("Числа игрока " + pl1.getName() + " ");
-        printIntArray(Arrays.copyOf (pl1.getNumbers(), pl1.getIndex() + 1));
+        printIntArray(Arrays.copyOf(pl1.getNumbers(), pl1.getIndex() + 1));
 
         System.out.print("\nЧисла игрока " + pl2.getName() + " ");
-        printIntArray(Arrays.copyOf (pl2.getNumbers(), pl2.getIndex() + 1));
+        printIntArray(Arrays.copyOf(pl2.getNumbers(), pl2.getIndex() + 1));
     }
 
     private boolean compareNumbers(Player player, int index, int secretNum) {
@@ -68,10 +73,5 @@ public class GuessNumber {
             System.out.println("У " + player.getName() + " закончились попытки.");
         }
         return false;
-    }
-    private static void printIntArray(int[] nums) {
-        for (int num : nums) {
-            System.out.printf("%3d %s", num, " ");
-        }
     }
 }
