@@ -10,14 +10,9 @@ public class GuessNumber {
     int len = 10;
 
     public GuessNumber(Player pl1, Player pl2) {
+
         this.pl1 = pl1;
         this.pl2 = pl2;
-    }
-
-    private static void printIntArray(int[] nums) {
-        for (int num : nums) {
-            System.out.printf("%3d %s", num, " ");
-        }
     }
 
     public void start() {
@@ -42,7 +37,6 @@ public class GuessNumber {
                 break;
             }
         }
-
         System.out.print("Числа игрока " + pl1.getName() + " ");
         printIntArray(Arrays.copyOf(pl1.getNumbers(), pl1.getIndex() + 1));
 
@@ -51,27 +45,25 @@ public class GuessNumber {
     }
 
     private boolean compareNumbers(Player player, int index, int secretNum) {
-
         if (player.getNumbers()[index] == secretNum) {
             System.out.println("Поздравляем!!! Игрок " + player.getName() +
                     " угадал число " + secretNum + " с " + " попытки " + (index + 1));
             return true;
         }
+        System.out.println("\nИгрок " + player.getName() + " не угадал");
+        System.out.print("Подсказка: число " + player.getNumbers()[index]);
+        System.out.print(player.getNumbers()[index] < secretNum ? " меньше " : " больше ");
+        System.out.println("того, что загадал компьютер\n");
 
-        System.out.println("Игрок " + player.getName() + " не угадал");
-        System.out.println("Подсказка : ");
-        if (player.getNumbers()[index] < secretNum) {
-            System.out.println("число " + player.getNumbers()[index] +
-                    " меньше того, что загадал компьютер");
-        }
-        if (player.getNumbers()[index] > secretNum) {
-            System.out.println("число " + player.getNumbers()[index] +
-                    " больше того, что загадал компьютер");
-
-        }
         if (index == len - 1) {
             System.out.println("У " + player.getName() + " закончились попытки.");
         }
         return false;
+    }
+
+    private static void printIntArray(int[] nums) {
+        for (int num : nums) {
+            System.out.printf("%3d %s", num, " ");
+        }
     }
 }
