@@ -22,7 +22,7 @@ public class Calculator {
                 default -> throw new RuntimeException("Неверный знак операции");
             };
         } catch (NumberFormatException e) {
-            throw new RuntimeException("Ошибка! Числа должны быть целыми");
+            throw new NumberFormatException("Ошибка! Числа должны быть целыми");
         }
     }
 }
