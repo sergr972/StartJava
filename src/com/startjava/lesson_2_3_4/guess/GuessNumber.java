@@ -35,9 +35,14 @@ public class GuessNumber {
             }
         }
         int[]newArrPl1 = Arrays.copyOf (pl1.getNumbers(), pl1.getIndex() + 1);
-        System.out.println("Числа " + pl1.getName() + Arrays.toString(newArrPl1));
+        System.out.print("Числа " + pl1.getName() + " ");
+
         int[]newArrPl2 = Arrays.copyOf (pl2.getNumbers(), pl2.getIndex() + 1);
-        System.out.println("Числа " + pl2.getName() + Arrays.toString(newArrPl2));
+        System.out.print("\nЧисла " + pl2.getName() + " ");
+
+        printIntArray(newArrPl1);
+
+        printIntArray(newArrPl2);
     }
 
     private boolean compareNumbers(Player player, int index, int secretNum) {
@@ -63,5 +68,10 @@ public class GuessNumber {
             System.out.println("У " + player.getName() + " закончились попытки.");
         }
         return false;
+    }
+    private static void printIntArray(int[] nums) {
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
     }
 }
