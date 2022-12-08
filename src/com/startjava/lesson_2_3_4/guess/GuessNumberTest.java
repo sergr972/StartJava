@@ -13,7 +13,6 @@ public class GuessNumberTest {
         System.out.println("У каждого игрока 10 попыток");
         System.out.print("Введите имя первого игрока: ");
         Player pl1 = new Player(scanner.nextLine());
-
         System.out.print("Введите имя второго игрока: ");
         Player pl2 = new Player(scanner.nextLine());
 
