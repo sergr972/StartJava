@@ -4,7 +4,7 @@ public class Player {
 
     private final String name;
     private final int[] numbers = new int[10];
-    private int index;
+    private int attempt;
 
     public String getName() {
         return name;
@@ -18,16 +18,16 @@ public class Player {
         return numbers;
     }
 
-    public void setNumber(int number) {
-        numbers[getIndex()] = number;
+    public void addNumber(int number) {
+        numbers[attempt] = number;
     }
 
-    public int getIndex() {
-        return index;
+    public int getAttempt() {
+        return attempt;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public void setAttempt(int attempt) {
+        this.attempt = attempt;
     }
 }
 
