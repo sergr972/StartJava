@@ -33,9 +33,9 @@ public class GuessNumber {
             }
         }
         System.out.print("\nЧисла игрока " + pl1.getName() + " ");
-        printNumbers(Arrays.copyOf(pl1.getNumbers(), pl1.getAttempt() + 1));
+        printNumbers(pl1.getNumbers());
         System.out.print("\nЧисла игрока " + pl2.getName() + " ");
-        printNumbers(Arrays.copyOf(pl2.getNumbers(), pl2.getAttempt() + 1));
+        printNumbers(pl2.getNumbers());
     }
 
     private void inputNumber(Player player, int index) {

@@ -1,5 +1,7 @@
 package com.startjava.lesson_2_3_4.guess;
 
+import java.util.Arrays;
+
 public class Player {
 
     private final String name;
@@ -15,7 +17,7 @@ public class Player {
     }
 
     public int[] getNumbers() {
-        return numbers;
+        return Arrays.copyOf(numbers, attempt + 1);
     }
 
     public void addNumber(int number) {
