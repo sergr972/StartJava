@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class Player {
 
+    private int attempt;
     private final String name;
     private static final int ATTEMPTS_LIMIT = 10;
     private final int[] numbers = new int[ATTEMPTS_LIMIT];
-    private int attempt;
 
     public String getName() {
         return name;
