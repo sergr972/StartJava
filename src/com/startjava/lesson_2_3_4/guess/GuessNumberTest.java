@@ -23,7 +23,7 @@ public class GuessNumberTest {
             if ("yes".equals(answer)) {
                 game.start();
             }
-            System.out.print("\n\nХотите продолжить вычисления? [yes/no]");
+            System.out.print("\n\nХотите продолжить игру? [yes/no]");
             answer = scanner.nextLine();
         } while (!"no".equals(answer));
         System.out.println("Игра окончена!");
