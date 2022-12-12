@@ -9,32 +9,28 @@ public class Player {
     private static final int ATTEMPTS_LIMIT = 10;
     private final int[] numbers = new int[ATTEMPTS_LIMIT];
 
-    public String getName() {
-        return name;
-    }
-
     public Player(String name) {
         this.name = name;
     }
 
-    public int[] getNumbers() {
-        return numbers;
+    public String getName() {
+        return name;
     }
 
-    public int[] getNumbersAttempt() {
+    public int[] getNumbers() {
         return Arrays.copyOf(numbers, attempt);
+
     }
 
     public void addNumber(int number) {
         numbers[attempt - 1] = number;
     }
 
-    public int getAttempt() {
-        return attempt;
-    }
-
     public void setAttempt(int attempt) {
         this.attempt = attempt;
     }
-}
 
+    public void clearAttempts() {
+        Arrays.fill(numbers, 0, attempt, 0);
+    }
+}

@@ -1,6 +1,5 @@
 package com.startjava.lesson_2_3_4.guess;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -16,12 +15,10 @@ public class GuessNumber {
     }
 
     public void start() {
+        pl1.clearAttempts();
+        pl2.clearAttempts();
         int secretNumber = (int) (Math.random() * 100) + 1;
-//        System.out.println(secretNumber);
-
-        Arrays.fill(pl1.getNumbers(), 0, pl1.getAttempt(), 0);
-        Arrays.fill(pl2.getNumbers(), 0, pl2.getAttempt(), 0);
-
+        System.out.println(secretNumber);
         for (int i = 0; i < ATTEMPTS_LIMIT; i++) {
             attempt = i + 1;
             inputNumber(pl1, attempt);
@@ -34,9 +31,9 @@ public class GuessNumber {
             }
         }
         System.out.print("\nЧисла игрока " + pl1.getName() + " ");
-        printNumbers(pl1.getNumbersAttempt());
+        printNumbers(pl1.getNumbers());
         System.out.print("\nЧисла игрока " + pl2.getName() + " ");
-        printNumbers(pl2.getNumbersAttempt());
+        printNumbers(pl2.getNumbers());
     }
 
     private void inputNumber(Player player, int attempt) {
