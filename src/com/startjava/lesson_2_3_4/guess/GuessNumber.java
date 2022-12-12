@@ -21,13 +21,17 @@ public class GuessNumber {
         System.out.println(secretNumber);
         for (int i = 0; i < ATTEMPTS_LIMIT; i++) {
             attempt = i + 1;
-            inputNumber(pl1, attempt);
-            if (compareNumbers(pl1, attempt, secretNumber)) {
-                break;
-            }
-            inputNumber(pl2, attempt);
-            if (compareNumbers(pl2, attempt, secretNumber)) {
-                break;
+            try {
+                inputNumber(pl1, attempt);
+                if (compareNumbers(pl1, attempt, secretNumber)) {
+                    break;
+                }
+                inputNumber(pl2, attempt);
+                if (compareNumbers(pl2, attempt, secretNumber)) {
+                    break;
+                }
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
             }
         }
         System.out.print("\nЧисла игрока " + pl1.getName() + " ");

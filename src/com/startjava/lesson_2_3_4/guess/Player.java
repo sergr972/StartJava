@@ -23,6 +23,13 @@ public class Player {
     }
 
     public void addNumber(int number) {
+        try {
+            if (number < 1 || number > 100) {
+                throw new RuntimeException();
+            }
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Ошибка! Нужно вводить число в полуинтервале (0, 100]");
+        }
         numbers[attempt - 1] = number;
     }
 
