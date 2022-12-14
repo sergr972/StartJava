@@ -38,9 +38,16 @@ public class GuessNumber {
 
     private void inputNumber(Player player, int attempt) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("\n" + player.getName() + ", введите число: ");
-        player.setAttempt(attempt);
-        player.addNumber(scanner.nextInt());
+        while (true) {
+            System.out.print("\n" + player.getName() + ", введите число: ");
+            player.setAttempt(attempt);
+            try {
+                player.addNumber(scanner.nextInt());
+                return;
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     private boolean compareNumbers(Player player, int attempt, int secretNumber) {
