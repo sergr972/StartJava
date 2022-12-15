@@ -51,6 +51,17 @@ public class GuessNumber {
         printNumbers(pl2.getNumbers());
         System.out.print("\nЧисла игрока " + pl3.getName() + " ");
         printNumbers(pl3.getNumbers());
+        System.out.println();
+
+        if (pl1.getCountWin() > pl2.getCountWin() && pl1.getCountWin() > pl3.getCountWin()) {
+            System.out.println("Победитель " + pl1.getName());
+        } else if (pl3.getCountWin() > pl2.getCountWin() && pl3.getCountWin() > pl1.getCountWin()) {
+            System.out.println("Победитель " + pl3.getName());
+        } else if (pl2.getCountWin() > pl1.getCountWin() && pl2.getCountWin() > pl3.getCountWin()) {
+            System.out.println("Победитель " + pl2.getName());
+        } else {
+            System.out.println("Ничья");
+        }
     }
 
     private void inputNumber(Player player, int attempt) {
@@ -72,7 +83,7 @@ public class GuessNumber {
         if (plNumber == secretNumber) {
             System.out.println("\nПоздравляем!!! Игрок " + player.getName() +
                     " угадал число " + secretNumber + " с " + " попытки " + (attempt));
-            player.adCountWin(+1);
+            player.adCountWin(player.getCountWin() + 1);
             return true;
         }
         System.out.println("\nИгрок " + player.getName() + " не угадал");

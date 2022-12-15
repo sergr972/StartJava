@@ -26,7 +26,7 @@ public class GuessNumberTest {
         do {
             if ("yes".equals(answer)) {
                 for (int i = 0; i < 3; i++) {
-                    System.out.println("\n\nРаунд " + (i + 1));
+                    System.out.println("\nРаунд " + (i + 1));
                     game.start();
                 }
             }
