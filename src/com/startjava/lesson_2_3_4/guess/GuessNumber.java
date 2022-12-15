@@ -1,5 +1,6 @@
 package com.startjava.lesson_2_3_4.guess;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -10,10 +11,17 @@ public class GuessNumber {
     private final Player pl3;
     private static final int ATTEMPTS_LIMIT = 10;
 
-    public GuessNumber(Player pl1, Player pl2, Player pl3) {
-        this.pl1 = pl1;
-        this.pl2 = pl2;
-        this.pl3 = pl3;
+    public GuessNumber(Player... players) {
+        Random rand = new Random();
+        for (int i = players.length - 1; i > 0; i--) {
+            int index = rand.nextInt(i + 1);
+            Player tmp = players[index];
+            players[index] = players[i];
+            players[i] = tmp;
+        }
+        pl1 = players[0];
+        pl2 = players[1];
+        pl3 = players[2];
     }
 
     public void start() {
@@ -64,6 +72,7 @@ public class GuessNumber {
         if (plNumber == secretNumber) {
             System.out.println("\nПоздравляем!!! Игрок " + player.getName() +
                     " угадал число " + secretNumber + " с " + " попытки " + (attempt));
+            player.adCountWin(+1);
             return true;
         }
         System.out.println("\nИгрок " + player.getName() + " не угадал");

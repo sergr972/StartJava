@@ -5,12 +5,17 @@ import java.util.Arrays;
 public class Player {
 
     private int attempt;
-    private final String name;
+    private int countWin;
+    private String name;
     private static final int ATTEMPTS_LIMIT = 10;
     private final int[] numbers = new int[ATTEMPTS_LIMIT];
 
     public Player(String name) {
         this.name = name;
+    }
+
+    public Player(int countWin) {
+        this.countWin = countWin;
     }
 
     public String getName() {
@@ -38,5 +43,13 @@ public class Player {
 
     public void clearAttempts() {
         Arrays.fill(numbers, 0, attempt, 0);
+    }
+
+    public int getCountWin() {
+        return countWin;
+    }
+
+    public void adCountWin(int countWin) {
+        this.countWin = countWin;
     }
 }
