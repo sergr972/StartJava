@@ -6,16 +6,12 @@ public class Player {
 
     private int attempt;
     private int countWin;
-    private String name;
+    private final String name;
     private static final int ATTEMPTS_LIMIT = 10;
     private final int[] numbers = new int[ATTEMPTS_LIMIT];
 
     public Player(String name) {
         this.name = name;
-    }
-
-    public Player(int countWin) {
-        this.countWin = countWin;
     }
 
     public String getName() {
