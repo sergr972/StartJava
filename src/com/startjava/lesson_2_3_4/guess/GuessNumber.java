@@ -7,16 +7,19 @@ public class GuessNumber {
     int attempt;
     private final Player pl1;
     private final Player pl2;
+    private final Player pl3;
     private static final int ATTEMPTS_LIMIT = 10;
 
-    public GuessNumber(Player pl1, Player pl2) {
+    public GuessNumber(Player pl1, Player pl2, Player pl3) {
         this.pl1 = pl1;
         this.pl2 = pl2;
+        this.pl3 = pl3;
     }
 
     public void start() {
         pl1.clearAttempts();
         pl2.clearAttempts();
+        pl3.clearAttempts();
         int secretNumber = (int) (Math.random() * 100) + 1;
         System.out.println(secretNumber);
         for (int i = 0; i < ATTEMPTS_LIMIT; i++) {
@@ -29,11 +32,17 @@ public class GuessNumber {
             if (compareNumbers(pl2, attempt, secretNumber)) {
                 break;
             }
+            inputNumber(pl3, attempt);
+            if (compareNumbers(pl3, attempt, secretNumber)) {
+                break;
+            }
         }
         System.out.print("\nЧисла игрока " + pl1.getName() + " ");
         printNumbers(pl1.getNumbers());
         System.out.print("\nЧисла игрока " + pl2.getName() + " ");
         printNumbers(pl2.getNumbers());
+        System.out.print("\nЧисла игрока " + pl3.getName() + " ");
+        printNumbers(pl3.getNumbers());
     }
 
     private void inputNumber(Player player, int attempt) {

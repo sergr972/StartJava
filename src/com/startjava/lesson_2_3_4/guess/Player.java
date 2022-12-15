@@ -6,6 +6,7 @@ public class Player {
 
     private int attempt;
     private final String name;
+
     private static final int ATTEMPTS_LIMIT = 10;
     private final int[] numbers = new int[ATTEMPTS_LIMIT];
 
@@ -19,7 +20,6 @@ public class Player {
 
     public int[] getNumbers() {
         return Arrays.copyOf(numbers, attempt);
-
     }
 
     public void addNumber(int number) {
