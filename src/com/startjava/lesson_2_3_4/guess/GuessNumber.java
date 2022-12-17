@@ -9,6 +9,7 @@ public class GuessNumber {
     private final Player pl1;
     private final Player pl2;
     private final Player pl3;
+    private static final int NUMBER_OF_ROUNDS = 3;
     private static final int ATTEMPTS_LIMIT = 10;
 
     public GuessNumber(Player... players) {
@@ -25,42 +26,48 @@ public class GuessNumber {
     }
 
     public void start() {
-        pl1.clearAttempts();
-        pl2.clearAttempts();
-        pl3.clearAttempts();
-        int secretNumber = (int) (Math.random() * 100) + 1;
-        System.out.println(secretNumber);
-        for (int i = 0; i < ATTEMPTS_LIMIT; i++) {
-            attempt = i + 1;
-            inputNumber(pl1, attempt);
-            if (compareNumbers(pl1, attempt, secretNumber)) {
-                break;
+        for (int j = 1; j <= NUMBER_OF_ROUNDS; j++) {
+            System.out.println("\nРаунд " + j);
+            pl1.clearAttempts();
+            pl2.clearAttempts();
+            pl3.clearAttempts();
+            int secretNumber = (int) (Math.random() * 100) + 1;
+            System.out.println(secretNumber);
+            for (int i = 0; i < ATTEMPTS_LIMIT; i++) {
+                attempt = i + 1;
+                inputNumber(pl1, attempt);
+                if (compareNumbers(pl1, attempt, secretNumber)) {
+                    break;
+                }
+                inputNumber(pl2, attempt);
+                if (compareNumbers(pl2, attempt, secretNumber)) {
+                    break;
+                }
+                inputNumber(pl3, attempt);
+                if (compareNumbers(pl3, attempt, secretNumber)) {
+                    break;
+                }
             }
-            inputNumber(pl2, attempt);
-            if (compareNumbers(pl2, attempt, secretNumber)) {
-                break;
-            }
-            inputNumber(pl3, attempt);
-            if (compareNumbers(pl3, attempt, secretNumber)) {
-                break;
-            }
+            System.out.print("\nЧисла игрока " + pl1.getName() + " ");
+            printNumbers(pl1.getNumbers());
+            System.out.print("\nЧисла игрока " + pl2.getName() + " ");
+            printNumbers(pl2.getNumbers());
+            System.out.print("\nЧисла игрока " + pl3.getName() + " ");
+            printNumbers(pl3.getNumbers());
+            System.out.println();
         }
-        System.out.print("\nЧисла игрока " + pl1.getName() + " ");
-        printNumbers(pl1.getNumbers());
-        System.out.print("\nЧисла игрока " + pl2.getName() + " ");
-        printNumbers(pl2.getNumbers());
-        System.out.print("\nЧисла игрока " + pl3.getName() + " ");
-        printNumbers(pl3.getNumbers());
-        System.out.println();
-
-        if (pl1.getCountWin() > pl2.getCountWin() && pl1.getCountWin() > pl3.getCountWin()) {
-            System.out.println("Победитель " + pl1.getName());
-        } else if (pl3.getCountWin() > pl2.getCountWin() && pl3.getCountWin() > pl1.getCountWin()) {
-            System.out.println("Победитель " + pl3.getName());
-        } else if (pl2.getCountWin() > pl1.getCountWin() && pl2.getCountWin() > pl3.getCountWin()) {
-            System.out.println("Победитель " + pl2.getName());
+        if (pl1.getCountWin() == pl2.getCountWin() && pl3.getCountWin() == pl2.getCountWin()) {
+            System.out.println("\nНичья");
         } else {
-            System.out.println("Ничья");
+            int max = pl1.getCountWin();
+            String win = pl1.getName();
+            if (pl2.getCountWin() > max) {
+                win = pl2.getName();
+            }
+            if (pl3.getCountWin() > max) {
+                win = pl3.getName();
+            }
+            System.out.println("\nПобедил игрок " + win);
         }
     }
 
@@ -72,7 +79,7 @@ public class GuessNumber {
             try {
                 player.addNumber(scanner.nextInt());
                 return;
-            } catch (RuntimeException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -83,7 +90,7 @@ public class GuessNumber {
         if (plNumber == secretNumber) {
             System.out.println("\nПоздравляем!!! Игрок " + player.getName() +
                     " угадал число " + secretNumber + " с " + " попытки " + (attempt));
-            player.adCountWin(player.getCountWin() + 1);
+            player.addCountWin(player.getCountWin() + 1);
             return true;
         }
         System.out.println("\nИгрок " + player.getName() + " не угадал");

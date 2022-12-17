@@ -14,25 +14,6 @@ public class Player {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int[] getNumbers() {
-        return Arrays.copyOf(numbers, attempt);
-    }
-
-    public void addNumber(int number) {
-        try {
-            if (number < 1 || number > 100) {
-                throw new RuntimeException();
-            }
-        } catch (RuntimeException e) {
-            throw new RuntimeException("Ошибка! Нужно вводить число в полуинтервале (0, 100]");
-        }
-        numbers[attempt - 1] = number;
-    }
-
     public void setAttempt(int attempt) {
         this.attempt = attempt;
     }
@@ -45,7 +26,22 @@ public class Player {
         return countWin;
     }
 
-    public void adCountWin(int countWin) {
+    public void addCountWin(int countWin) {
         this.countWin = countWin;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int[] getNumbers() {
+        return Arrays.copyOf(numbers, attempt);
+    }
+
+    public void addNumber(int number) {
+        if (number < 1 || number > 100) {
+            throw new IllegalArgumentException("Ошибка! Нужно вводить число в полуинтервале (0, 100]");
+        }
+        numbers[attempt - 1] = number;
     }
 }
