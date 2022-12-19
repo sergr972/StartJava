@@ -5,77 +5,64 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    int attempt;
-    private final Player pl1;
-    private final Player pl2;
-    private final Player pl3;
-    private static final int NUMBER_OF_ROUNDS = 3;
-    private static final int ATTEMPTS_LIMIT = 10;
+    private final Player[] player;
+    private static final int ROUNDS_LIMIT = 3;
+    private static final int ATTEMPTS_LIMIT = 4;
 
     public GuessNumber(Player... players) {
+        player = players;
         Random rand = new Random();
-        for (int i = players.length - 1; i > 0; i--) {
+        for (int i = player.length - 1; i > 0; i--) {
             int index = rand.nextInt(i + 1);
-            Player tmp = players[index];
-            players[index] = players[i];
-            players[i] = tmp;
+            Player tmp = player[index];
+            player[index] = player[i];
+            player[i] = tmp;
         }
-        pl1 = players[0];
-        pl2 = players[1];
-        pl3 = players[2];
     }
 
     public void start() {
-        for (int j = 1; j <= NUMBER_OF_ROUNDS; j++) {
-            System.out.println("\nРаунд " + j);
-            pl1.clearAttempts();
-            pl2.clearAttempts();
-            pl3.clearAttempts();
+        for (int i = 1; i <= ROUNDS_LIMIT; i++) {
+            System.out.println("\nРаунд " + i);
+            clear();
             int secretNumber = (int) (Math.random() * 100) + 1;
             System.out.println(secretNumber);
-            for (int i = 0; i < ATTEMPTS_LIMIT; i++) {
-                attempt = i + 1;
-                inputNumber(pl1, attempt);
-                if (compareNumbers(pl1, attempt, secretNumber)) {
-                    break;
-                }
-                inputNumber(pl2, attempt);
-                if (compareNumbers(pl2, attempt, secretNumber)) {
-                    break;
-                }
-                inputNumber(pl3, attempt);
-                if (compareNumbers(pl3, attempt, secretNumber)) {
-                    break;
+            for (int j = 1; j <= ATTEMPTS_LIMIT; j++) {
+                for (int k = 0; k < 3; k++) {
+                    inputNumber(player[k]);
+                    if (compareNumbers(player[k], j, secretNumber)) {
+                        break;
+                    }
                 }
             }
-            System.out.print("\nЧисла игрока " + pl1.getName() + " ");
-            printNumbers(pl1.getNumbers());
-            System.out.print("\nЧисла игрока " + pl2.getName() + " ");
-            printNumbers(pl2.getNumbers());
-            System.out.print("\nЧисла игрока " + pl3.getName() + " ");
-            printNumbers(pl3.getNumbers());
-            System.out.println();
+            printNumbers(player);
         }
-        if (pl1.getCountWin() == pl2.getCountWin() && pl3.getCountWin() == pl2.getCountWin()) {
+        if (player[0].getCountWin() == player[1].getCountWin() &&
+                player[2].getCountWin() == player[1].getCountWin()) {
             System.out.println("\nНичья");
         } else {
-            int max = pl1.getCountWin();
-            String win = pl1.getName();
-            if (pl2.getCountWin() > max) {
-                win = pl2.getName();
+            int max = player[0].getCountWin();
+            String win = player[0].getName();
+            if (player[1].getCountWin() > max) {
+                win = player[1].getName();
             }
-            if (pl3.getCountWin() > max) {
-                win = pl3.getName();
+            if (player[2].getCountWin() > max) {
+                win = player[2].getName();
             }
             System.out.println("\nПобедил игрок " + win);
         }
     }
 
-    private void inputNumber(Player player, int attempt) {
+    private void clear() {
+        for (int i = 0; i < 3; i++) {
+            player[i].clearAttempts();
+        }
+
+    }
+
+    private void inputNumber(Player player) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("\n" + player.getName() + ", введите число: ");
-            player.setAttempt(attempt);
             try {
                 player.addNumber(scanner.nextInt());
                 return;
@@ -102,9 +89,13 @@ public class GuessNumber {
         return false;
     }
 
-    private void printNumbers(int[] numbers) {
-        for (int number : numbers) {
-            System.out.printf("%4d %s", number, " ");
+    private void printNumbers(Player[] player) {
+        for (int i = 0; i < 3; i ++) {
+            System.out.print("\nЧисла игрока " + player[i].getName() + " ");
+            int[] numbers = player[i].getNumbers();
+            for (int number : numbers) {
+                System.out.printf("%4d %s", number, " ");
+            }
         }
     }
 }

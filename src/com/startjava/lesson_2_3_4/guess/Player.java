@@ -14,12 +14,9 @@ public class Player {
         this.name = name;
     }
 
-    public void setAttempt(int attempt) {
-        this.attempt = attempt;
-    }
-
     public void clearAttempts() {
         Arrays.fill(numbers, 0, attempt, 0);
+        attempt = 0;
     }
 
     public int getCountWin() {
@@ -42,6 +39,7 @@ public class Player {
         if (number < 1 || number > 100) {
             throw new IllegalArgumentException("Ошибка! Нужно вводить число в полуинтервале (0, 100]");
         }
-        numbers[attempt - 1] = number;
+        numbers[attempt] = number;
+        attempt++;
     }
 }

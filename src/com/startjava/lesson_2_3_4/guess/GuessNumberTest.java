@@ -16,7 +16,7 @@ public class GuessNumberTest {
                 У каждого игрока 10 попыток.
                 """);
         Player[] players = new Player[NUMBER_OF_PLAYERS];
-        addPlayer(players);
+        createPlayer(players);
         GuessNumber game = new GuessNumber(players);
         String answer = "yes";
 
@@ -30,7 +30,7 @@ public class GuessNumberTest {
         System.out.println("Игра окончена!");
     }
 
-    private static void addPlayer(Player[] players) {
+    private static void createPlayer(Player[] players) {
         for (int i = 0; i < players.length; i++) {
             System.out.print("\nВведите имя игрока номер " + (i + 1) + ": ");
             players[i] = new Player(scanner.nextLine());
