@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class GuessNumberTest {
 
     private static final int NUMBER_OF_PLAYERS = 3;
+    private static final Player[] players = new Player[NUMBER_OF_PLAYERS];
+
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -15,7 +17,7 @@ public class GuessNumberTest {
                 Победитель выявляется по результатам 3-х раундов
                 У каждого игрока 10 попыток.
                 """);
-        Player[] players = new Player[NUMBER_OF_PLAYERS];
+
         createPlayer(players);
         GuessNumber game = new GuessNumber(players);
         String answer = "yes";
