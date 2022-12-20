@@ -11,16 +11,10 @@ public class GuessNumber {
 
     public GuessNumber(Player... players) {
         this.players = players;
-        Random rand = new Random();
-        for (int i = players.length - 1; i > 0; i--) {
-            int index = rand.nextInt(i + 1);
-            Player tmp = players[index];
-            players[index] = players[i];
-            players[i] = tmp;
-        }
     }
 
     public void start() {
+        shuffle();
         out:
         for (int i = 1; i <= ROUNDS_LIMIT; i++) {
             System.out.println("\n\nРаунд " + i);
@@ -54,11 +48,20 @@ public class GuessNumber {
         }
     }
 
+    private void shuffle() {
+        Random rand = new Random();
+        for (int i = players.length - 1; i > 0; i--) {
+            int index = rand.nextInt(i + 1);
+            Player tmp = players[index];
+            players[index] = players[i];
+            players[i] = tmp;
+        }
+    }
+
     private void clear() {
         for (int i = 0; i < 3; i++) {
             players[i].clearAttempts();
         }
-
     }
 
     private void inputNumber(Player player) {
