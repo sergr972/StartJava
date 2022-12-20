@@ -5,18 +5,18 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    private final Player[] players;
+    private final Player[] player;
     private static final int ROUNDS_LIMIT = 3;
     private static final int ATTEMPTS_LIMIT = 10;
 
     public GuessNumber(Player... players) {
-        this.players = players;
+        player = players;
         Random rand = new Random();
-        for (int i = players.length - 1; i > 0; i--) {
+        for (int i = player.length - 1; i > 0; i--) {
             int index = rand.nextInt(i + 1);
-            Player tmp = players[index];
-            players[index] = players[i];
-            players[i] = tmp;
+            Player tmp = player[index];
+            player[index] = player[i];
+            player[i] = tmp;
         }
     }
 
@@ -27,27 +27,27 @@ public class GuessNumber {
             int secretNumber = (int) (Math.random() * 100) + 1;
             System.out.println(secretNumber);
             for (int j = 0; j < ATTEMPTS_LIMIT; j++) {
-                for (Player player : players) {
+                for (Player player : player) {
                     inputNumber(player);
                     if (compareNumbers(player, j + 1, secretNumber)) {
-                        printNumbers(players);
+                        printNumbers(this.player);
                         continue other;
                     }
                 }
             }
         }
         System.out.print("\n\nПо результатам 3-х раундов - ");
-        if (players[0].getCountWin() == players[1].getCountWin() &&
-                players[2].getCountWin() == players[1].getCountWin()) {
+        if (player[0].getCountWin() == player[1].getCountWin() &&
+                player[2].getCountWin() == player[1].getCountWin()) {
             System.out.println("ничья");
         } else {
-            int max = players[0].getCountWin();
-            String win = players[0].getName();
-            if (players[1].getCountWin() > max) {
-                win = players[1].getName();
+            int max = player[0].getCountWin();
+            String win = player[0].getName();
+            if (player[1].getCountWin() > max) {
+                win = player[1].getName();
             }
-            if (players[2].getCountWin() > max) {
-                win = players[2].getName();
+            if (player[2].getCountWin() > max) {
+                win = player[2].getName();
             }
             System.out.println("победил игрок " + win);
         }
@@ -55,7 +55,7 @@ public class GuessNumber {
 
     private void clear() {
         for (int i = 0; i < 3; i++) {
-            players[i].clearAttempts();
+            player[i].clearAttempts();
         }
 
     }
@@ -90,10 +90,10 @@ public class GuessNumber {
         return false;
     }
 
-    private void printNumbers(Player[] players) {
+    private void printNumbers(Player[] player) {
         for (int i = 0; i < 3; i++) {
-            System.out.print("\nЧисла игрока " + players[i].getName() + " ");
-            int[] numbers = players[i].getNumbers();
+            System.out.print("\nЧисла игрока " + player[i].getName() + " ");
+            int[] numbers = player[i].getNumbers();
             for (int number : numbers) {
                 System.out.printf("%4d %s", number, " ");
             }
