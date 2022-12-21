@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 
-    private static final int NUMBER_OF_PLAYERS = 3;
-    private static final Player[] players = new Player[NUMBER_OF_PLAYERS];
+    private static final int PLAYERS_LIMITS = 3;
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -18,10 +17,9 @@ public class GuessNumberTest {
                 У каждого игрока 10 попыток.
                 """);
 
-        createPlayer(players);
+        Player[] players = createPlayer();
         GuessNumber game = new GuessNumber(players);
         String answer = "yes";
-
         do {
             if ("yes".equals(answer)) {
                 game.start();
@@ -32,10 +30,12 @@ public class GuessNumberTest {
         System.out.println("Игра окончена!");
     }
 
-    private static void createPlayer(Player... players) {
+    private static Player[] createPlayer() {
+        Player[] players = new Player[PLAYERS_LIMITS];
         for (int i = 0; i < players.length; i++) {
             System.out.print("\nВведите имя игрока номер " + (i + 1) + ": ");
             players[i] = new Player(scanner.nextLine());
         }
+        return players;
     }
 }

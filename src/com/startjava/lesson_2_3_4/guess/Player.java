@@ -14,17 +14,8 @@ public class Player {
         this.name = name;
     }
 
-    public void clearAttempts() {
-        Arrays.fill(numbers, 0, attempt, 0);
-        attempt = 0;
-    }
-
     public int getCountWin() {
         return countWin;
-    }
-
-    public void addCountWin(int countWin) {
-        this.countWin = countWin;
     }
 
     public String getName() {
@@ -41,5 +32,14 @@ public class Player {
         }
         numbers[attempt] = number;
         attempt++;
+    }
+
+    public void clearAttempts() {
+        Arrays.fill(numbers, 0, attempt, 0);
+        attempt = 0;
+    }
+
+    public void incCountWin(int countWin) {
+        this.countWin = countWin;
     }
 }
