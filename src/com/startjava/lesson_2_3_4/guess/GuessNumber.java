@@ -18,7 +18,7 @@ public class GuessNumber {
         for (int i = 1; i <= ROUNDS_LIMIT; i++) {
             System.out.println("\n\nРаунд " + i);
             clear();
-            rounds();
+            playRound();
         }
         checkWinner();
     }
@@ -39,13 +39,13 @@ public class GuessNumber {
         }
     }
 
-    private void rounds() {
+    private void playRound() {
         int secretNumber = (int) (Math.random() * 100) + 1;
         System.out.println(secretNumber);
-        for (int j = 0; j < ATTEMPTS_LIMIT; j++) {
+        for (int i = 0; i < ATTEMPTS_LIMIT; i++) {
             for (Player player : players) {
                 inputNumber(player);
-                if (compareNumbers(player, j + 1, secretNumber)) {
+                if (compareNumbers(player, i + 1, secretNumber)) {
                     printNumbers(players);
                     return;
                 }

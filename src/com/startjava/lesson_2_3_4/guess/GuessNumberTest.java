@@ -17,8 +17,7 @@ public class GuessNumberTest {
                 У каждого игрока 10 попыток.
                 """);
 
-        Player[] players = createPlayer();
-        GuessNumber game = new GuessNumber(players);
+        GuessNumber game = new GuessNumber(createPlayer());
         String answer = "yes";
         do {
             if ("yes".equals(answer)) {
