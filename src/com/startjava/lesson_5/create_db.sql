@@ -12,3 +12,8 @@ CREATE TABLE Jaegers (
     launch      DATE,
     kaijuKill   INTEGER
 );
+
+psql \ir  'D:/JAVA/Startjava/src/com/startjava/lesson_5/init_db.sql'
+psql \ir  'D:/JAVA/Startjava/src/com/startjava/lesson_5/queries_db.sql'
+
+
