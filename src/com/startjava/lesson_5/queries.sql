@@ -28,7 +28,7 @@ SELECT *
 SELECT *
   FROM Jaegers
  WHERE launch =
-       (SELECT MAX(launch) FROM Jaegers);
+       (SELECT MIN(launch) FROM Jaegers);
 
 \qecho 'роботы, которые уничтожили больше всех kaiju'
 SELECT *
