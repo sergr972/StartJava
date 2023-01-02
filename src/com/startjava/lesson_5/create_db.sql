@@ -9,8 +9,8 @@ CREATE TABLE Jaegers (
 	weight    NUMERIC(4, 3),
 	status    TEXT,
 	origin    TEXT,
-    launch    DATE,
-    kaijuKill INTEGER
+	launch    DATE,
+	kaijuKill INTEGER
 );
 
 \ir  'init_db.sql'
