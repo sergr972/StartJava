@@ -1,7 +1,6 @@
 -- create database
 DROP DATABASE IF EXISTS Jaegers;
 CREATE DATABASE Jaegers;
-
 CREATE TABLE Jaegers (
 	id        SERIAL PRIMARY KEY,
 	modelName TEXT,
