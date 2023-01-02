@@ -1,19 +1,17 @@
 -- create database
 DROP DATABASE IF EXISTS Jaegers;
-DROP TABLE IF EXISTS Jaegers;
 CREATE DATABASE Jaegers;
 
 CREATE TABLE Jaegers (
-    PRIMARY KEY (id),
-	id          SERIAL,
-	modelName   TEXT,
-	mark        CHAR(6),
-	height      NUMERIC(4, 2),
-	weight      NUMERIC(4, 3),
-	status      TEXT,
-	origin      TEXT,
-    launch      DATE,
-    kaijuKill   INTEGER
+	id        SERIAL PRIMARY KEY,
+	modelName TEXT,
+	mark      CHAR(6),
+	height    NUMERIC(4, 2),
+	weight    NUMERIC(4, 3),
+	status    TEXT,
+	origin    TEXT,
+    launch    DATE,
+    kaijuKill INTEGER
 );
 
 \ir  'init_db.sql'
