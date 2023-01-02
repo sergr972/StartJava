@@ -1,29 +1,57 @@
---РІС‹РІРµРґРёС‚Рµ РІСЃСЋ С‚Р°Р±Р»РёС†Сѓ
-SELECT * FROM Jaegers;
+\qecho 'вывод всей таблицы'
+SELECT *
+  FROM Jaegers;
 
---РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ С‚РѕР»СЊРєРѕ РЅРµ СѓРЅРёС‡С‚РѕР¶РµРЅРЅС‹С… СЂРѕР±РѕС‚РѕРІ
-SELECT * FROM Jaegers WHERE status = 'active';
+\qecho 'отображение только не уничтоженных роботов'
+SELECT *
+  FROM Jaegers
+ WHERE status = 'active';
 
---РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СЂРѕР±РѕС‚РѕРІ СЃРµСЂРёР№: Mark-1 Рё Mark-4
-SELECT * FROM Jaegers WHERE mark IN ('Mark-1', 'Mark-4');
+\qecho 'отображение роботов серий: Mark-1 и Mark-4'
+SELECT *
+  FROM Jaegers
+ WHERE mark
+    IN ('Mark-1', 'Mark-4');
 
---РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РІСЃРµС… СЂРѕР±РѕС‚РѕРІ, РєСЂРѕРјРµ Mark-1 Рё Mark-4
-SELECT * FROM Jaegers WHERE mark NOT IN ('Mark-1', 'Mark-4');
+\qecho 'отображение всех роботов, кроме Mark-1 и Mark-4'
+SELECT *
+  FROM Jaegers
+ WHERE mark
+NOT IN ('Mark-1', 'Mark-4');
 
---СЃРѕСЂС‚РёСЂРѕРІРєР° С‚Р°Р±Р»РёС†С‹ РїРѕ СѓР±С‹РІР°РЅРёСЋ РїРѕ СЃС‚РѕР»Р±С†Сѓ mark
-SELECT * FROM Jaegers ORDER BY mark DESC;
+\qecho 'сортировка таблицы по убыванию по столбцу mark'
+SELECT *
+  FROM Jaegers
+ ORDER BY mark DESC;
 
---РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃР°РјРѕРј СЃС‚Р°СЂРѕРј СЂРѕР±РѕС‚Рµ
-SELECT * FROM Jaegers WHERE launch = (SELECT MAX(launch) FROM Jaegers);
+\qecho 'информация о самом старом роботе'
+SELECT *
+  FROM Jaegers
+ WHERE launch =
+       (SELECT MAX(launch) FROM Jaegers);
 
---СЂРѕР±РѕС‚С‹, РєРѕС‚РѕСЂС‹Рµ СѓРЅРёС‡С‚РѕР¶РёР»Рё Р±РѕР»СЊС€Рµ РІСЃРµС… kaiju
-SELECT * FROM Jaegers WHERE kaijuKill = (SELECT MAX(kaijuKill) FROM Jaegers);
+\qecho 'роботы, которые уничтожили больше всех kaiju'
+SELECT *
+  FROM Jaegers
+ WHERE kaijuKill = (SELECT MAX(kaijuKill) FROM Jaegers);
 
---СЃСЂРµРґРЅРёР№ РІРµСЃ СЂРѕР±РѕС‚РѕРІ
-SELECT AVG(weight) FROM Jaegers;
+\qecho 'средний вес роботов'
+SELECT AVG(weight) AS averageWeight
+  FROM Jaegers;
 
---СѓРІРµР»РёС‡РµРЅРёРµ РЅР° РµРґРёРЅРёС†Сѓ РєРѕР»РёС‡РµСЃС‚РІР° СѓРЅРёС‡С‚РѕР¶РµРЅРЅС‹С… kaiju Сѓ СЂРѕР±РѕС‚РѕРІ, РєРѕС‚РѕСЂС‹Рµ РґРѕ СЃРёС… РїРѕСЂ РЅРµ СЂР°Р·СЂСѓС€РµРЅС‹
-UPDATE Jaegers SET kaijuKill = (kaijuKill + 1) WHERE status = 'active';
+\qecho 'увеличение на единицу количества уничтоженных kaiju у роботов, которые до сих пор не разрушены'
+UPDATE Jaegers
+   SET kaijuKill = (kaijuKill + 1)
+ WHERE status = 'active';
 
---СѓРґР°Р»РµРЅРёРµ СѓРЅРёС‡С‚РѕР¶РµРЅРЅС‹С… СЂРѕР±РѕС‚РѕРІ
-DELETE FROM Jaegers WHERE status = 'destroyed';
+SELECT *
+  FROM Jaegers
+ WHERE status = 'active';
+
+\qecho 'удаление уничтоженных роботов'
+DELETE FROM Jaegers
+ WHERE status = 'destroyed';
+
+SELECT *
+  FROM Jaegers;
+

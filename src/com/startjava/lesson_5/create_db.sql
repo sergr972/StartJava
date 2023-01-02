@@ -1,8 +1,11 @@
 -- create database
+DROP DATABASE IF EXISTS Jaegers;
 DROP TABLE IF EXISTS Jaegers;
+CREATE DATABASE Jaegers;
 
 CREATE TABLE Jaegers (
-	id          SERIAL PRIMARY KEY,
+    PRIMARY KEY (id),
+	id          SERIAL,
 	modelName   TEXT,
 	mark        CHAR(6),
 	height      NUMERIC(4, 2),
@@ -13,7 +16,8 @@ CREATE TABLE Jaegers (
     kaijuKill   INTEGER
 );
 
-psql \ir  'D:/JAVA/Startjava/src/com/startjava/lesson_5/init_db.sql'
-psql \ir  'D:/JAVA/Startjava/src/com/startjava/lesson_5/queries_db.sql'
+\ir  'init_db.sql'
+\ir  'queries.sql'
+
 
 
