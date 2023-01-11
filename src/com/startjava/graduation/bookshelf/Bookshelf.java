@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class Bookshelf {
 
-    private int numberBook;
+    Scanner scanner = new Scanner(System.in);
+
+    private static int numberBook;
     private static final int BOOKS_LIMIT = 10;
-    private final Book[] books = new Book[BOOKS_LIMIT];
+    private static final Book[] books = new Book[BOOKS_LIMIT];
 
     //добавить книгу
-
     void addBook() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите книгу в формате author, title, publishYear: ");
         String[] strings = scanner.nextLine().split(", ", 3);
         books[numberBook] = new Book(strings[0], strings[1], Integer.parseInt(strings[2]));
@@ -21,7 +21,11 @@ public class Bookshelf {
 
     //найти книгу
     void find() {
-
+        System.out.println("Введите название книги: ");
+        String string = scanner.next();
+        if (string.equals(books[1])) {
+            toString();
+        }
     }
 
     //удалить книгу
@@ -35,7 +39,7 @@ public class Bookshelf {
     }
 
     //получить все книги (только для визуализации шкафа)
-    Book[] getAll() {
+    static Book[] getAll() {
         return Arrays.copyOf(books, numberBook);
     }
 
