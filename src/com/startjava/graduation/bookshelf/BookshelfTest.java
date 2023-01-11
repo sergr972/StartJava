@@ -35,7 +35,7 @@ public class BookshelfTest {
             System.out.println("Empty");
         } else {
             for (Book book : all) {
-                System.out.println(book);
+                System.out.println();
             }
         }
         System.out.println("----------------------------");
