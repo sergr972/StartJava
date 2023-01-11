@@ -9,7 +9,6 @@ public class Bookshelf {
     private static final int BOOKS_LIMIT = 10;
     private final Book[] books = new Book[BOOKS_LIMIT];
 
-
     //добавить книгу
 
     void addBook() {

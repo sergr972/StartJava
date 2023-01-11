@@ -7,6 +7,8 @@ public class BookshelfTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Bookshelf bs = new Bookshelf();
+        System.out.println("В шкафу " +  bs.getNumberBooks() + " книг и свободно "
+                + bs.getFreeShelves() + " полок");
         bs.getAll();
         System.out.println("""
                 1. Добавить книгу <author>, <title>, <publishYear>
