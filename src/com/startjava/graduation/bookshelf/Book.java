@@ -2,17 +2,17 @@ package com.startjava.graduation.bookshelf;
 
 public class Book {
 
-    private final String title;
     private final String author;
+    private final String title;
     private final int publishYear;
 
-    public Book(String title, String author, int publishYear) {
-        this.title = title;
+    public Book(String author, String title, int publishYear) {
         this.author = author;
+        this.title = title;
         this.publishYear = publishYear;
     }
 
     public String toString() {
-        return "Book [author =" + author + ", publishYear=" + publishYear + ", title=" + title + "]";
+        return "Book [author = " + author + ", publishYear = " + publishYear + ", title = " + title + "]";
     }
 }

@@ -1,36 +1,39 @@
 package com.startjava.graduation.bookshelf;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Bookshelf {
-
-    Scanner scanner = new Scanner(System.in);
 
     private static int numberBook;
     private static final int BOOKS_LIMIT = 10;
     private static final Book[] books = new Book[BOOKS_LIMIT];
 
     //добавить книгу
-    void addBook() {
-        System.out.print("Введите книгу в формате author, title, publishYear: ");
-        String[] strings = scanner.nextLine().split(", ", 3);
-        books[numberBook] = new Book(strings[0], strings[1], Integer.parseInt(strings[2]));
+    void addBook(Book book) {
+        books[numberBook] = book;
         numberBook++;
     }
 
     //найти книгу
-    void find() {
-        System.out.println("Введите название книги: ");
-        String string = scanner.next();
-        if (string.equals(books[1])) {
-            toString();
+    Book findBook(String bookName) {
+        for (int i = 0; i < numberBook; i++) {
+            if (books[i].toString().equals(bookName)) {
+                return books[i];
+            }
         }
+        return null;
     }
 
     //удалить книгу
-    void delete() {
-
+    void deleteBook(String bookName) {
+        for (int i = 0; i < numberBook; i++) {
+            if (bookName.equals(books[i].toString())) {
+                books[i] = books[numberBook - 1];
+                books[numberBook - 1] = null;
+                numberBook--;
+                break;
+            }
+        }
     }
 
     //очистить полку
@@ -43,29 +46,8 @@ public class Bookshelf {
         return Arrays.copyOf(books, numberBook);
     }
 
-
-
-//        Book b1 = new Book("Name1", "Author1", 1901);
-//        Book b2 = new Book("Name2", "Author2", 1902);
-//        Book b3 = new Book("Name3", "Author3", 1903);
-//        Book b4 = new Book("Name4", "Author4", 1904);
-//        addBook(b1);
-//        addBook(b2);
-//        addBook(b3);
-//        addBook(b4);
-
-//        System.out.println("after adding");
-//        System.out.println(this);
-//        deleteBook(1);
-//        deleteBook(4);
-
-//        System.out.println("after removing");
-//        System.out.println(this);
-
-
-
     //получить количество книг в шкафу
-    int  getNumberBooks() {
+    int getNumberBooks() {
         return numberBook;
     }
 
