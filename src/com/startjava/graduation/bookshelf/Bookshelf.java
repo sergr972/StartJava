@@ -17,7 +17,7 @@ public class Bookshelf {
     //найти книгу
     Book findBook(String bookName) {
         for (int i = 0; i < numberBook; i++) {
-            if (books[i].toString().equals(bookName)) {
+            if (bookName.equals(books[i].title)) {
                 return books[i];
             }
         }
@@ -27,7 +27,7 @@ public class Bookshelf {
     //удалить книгу
     void deleteBook(String bookName) {
         for (int i = 0; i < numberBook; i++) {
-            if (bookName.equals(books[i].toString())) {
+            if (bookName.equals(books[i].title)) {
                 books[i] = books[numberBook - 1];
                 books[numberBook - 1] = null;
                 numberBook--;
@@ -42,7 +42,7 @@ public class Bookshelf {
     }
 
     //получить все книги (только для визуализации шкафа)
-    static Book[] getAll() {
+    Book[] getAll() {
         return Arrays.copyOf(books, numberBook);
     }
 

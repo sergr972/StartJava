@@ -2,17 +2,23 @@ package com.startjava.graduation.bookshelf;
 
 public class Book {
 
-    private final String author;
-    private final String title;
-    private final int publishYear;
+    String author;
+    String title;
+    int publishYear;
 
-    public Book(String author, String title, int publishYear) {
-        this.author = author;
-        this.title = title;
-        this.publishYear = publishYear;
+    public Book(String bookAuthor, String bookName, int year) {
+        author = bookAuthor;
+        title = bookName;
+        publishYear = year;
     }
 
     public String toString() {
-        return "Book [author = " + author + ", publishYear = " + publishYear + ", title = " + title + "]";
+        String str = "|" + author + ", " + title + ", " + publishYear;
+        int position = 35;
+        final StringBuilder buffer = new StringBuilder(position);
+        final int to = position - str.length();
+        buffer.append(str);
+        buffer.append(" ".repeat(Math.max(0, to))).append("|");
+        return buffer.toString();
     }
 }

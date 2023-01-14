@@ -14,33 +14,36 @@ public class MainTest {
         BOOK_SHELF.addBook(b1);
         BOOK_SHELF.addBook(b2);
         BOOK_SHELF.addBook(b3);
-
-        printAll();
-        System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
-        System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves());
-
         BOOK_SHELF.addBook(b4);
+
         printAll();
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves());
+
+//        BOOK_SHELF.addBook(b4);
+//        printAll();
+//        System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
+//        System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves());
 
         System.out.println(BOOK_SHELF.findBook("Name3"));
 
         BOOK_SHELF.deleteBook("Name2");
         System.out.println("после удаления книги 2");
         printAll();
-
-        BOOK_SHELF.clearShelf();
-        System.out.println("после очистки");
-        printAll();
-        System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
-        System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves());
+//
+//        BOOK_SHELF.clearShelf();
+//        System.out.println("после очистки");
+//        printAll();
+//        System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
+//        System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves());
     }
 
     static void printAll() {
+        Book[] all = BOOK_SHELF.getAll();
         System.out.println("\nGet All");
-        for (Book book : BOOK_SHELF.getAll()) {
+        for (Book book : all) {
             System.out.println(book);
+            System.out.println("|----------------------------------|");
         }
     }
 }
