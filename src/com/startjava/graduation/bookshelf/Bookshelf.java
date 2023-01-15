@@ -16,9 +16,9 @@ public class Bookshelf {
 
     //найти книгу
     Book findBook(String bookName) {
-        for (int i = 0; i < numberBook; i++) {
-            if (bookName.equalsIgnoreCase(books[i].title)) {
-                return books[i];
+        for (Book book: books) {
+            if (bookName.equalsIgnoreCase(book.title)) {
+                return book;
             }
         }
         return null;

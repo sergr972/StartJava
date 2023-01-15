@@ -72,12 +72,22 @@ public class BookshelfTest {
         if (all.length == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.");
         } else {
+            int maxSize = String.valueOf(all[0]).length();
+            for (int i = 1; i < all.length; i++) {
+                if (String.valueOf(all[i]).length() > maxSize) {
+                    maxSize = String.valueOf(all[i]).length();
+                }
+            }
             for (Book book : all) {
-                System.out.println(book);
-                System.out.println("|--------------------------------------------|");
+                String str = String.valueOf(book);
+                StringBuilder builder = new StringBuilder(maxSize);
+                int to = maxSize - str.length();
+                builder.append(str);
+                System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
+                System.out.println("|" + "-".repeat(maxSize) + "|");
             }
             if (BOOK_SHELF.getFreeShelves() > 0) {
-                System.out.println("|                                            |");
+                System.out.println("|" + " ".repeat(maxSize) + "|");
             }
         }
     }

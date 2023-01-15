@@ -5,6 +5,7 @@ public class Book {
     String author;
     String title;
     int publishYear;
+    int lenBook;
 
     public Book(String bookAuthor, String bookName, int year) {
         author = bookAuthor;
@@ -13,12 +14,11 @@ public class Book {
     }
 
     public String toString() {
-        String str = "|" + author + ", " + title + ", " + publishYear;
-        int position = 45;
-        final StringBuilder buffer = new StringBuilder(position);
-        final int to = position - str.length();
-        buffer.append(str);
-        buffer.append(" ".repeat(Math.max(0, to))).append("|");
-        return buffer.toString();
+        return author + ", " + title + ", " + publishYear;
+    }
+
+    public int lenBook() {
+        lenBook = toString().length();
+        return lenBook;
     }
 }
