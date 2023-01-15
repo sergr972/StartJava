@@ -26,14 +26,15 @@ public class Bookshelf {
 
     //удалить книгу
     void deleteBook(String bookName) {
+        int index = 0;
         for (int i = 0; i < numberBook; i++) {
             if (bookName.equals(books[i].title)) {
-                books[i] = books[numberBook - 1];
-                books[numberBook - 1] = null;
+                index = i;
                 numberBook--;
                 break;
             }
         }
+        System.arraycopy(books, index + 1, books, index, numberBook - 1);
     }
 
     //очистить полку

@@ -9,7 +9,6 @@ public class BookshelfTest {
         Scanner scanner = new Scanner(System.in);
         Book book;
         String bookName;
-        int input;
 
         printAll();
         while (true) {
@@ -23,7 +22,7 @@ public class BookshelfTest {
                     5. Выход
                     """);
 
-            input = scanner.nextInt();
+            int input = scanner.nextInt();
             switch (input) {
                 case 1 -> {
                     System.out.print("Введите книгу в формате author, title, publishYear: ");
@@ -66,6 +65,9 @@ public class BookshelfTest {
             for (Book book : all) {
                 System.out.println(book);
                 System.out.println("|----------------------------------|");
+            }
+            if (BOOK_SHELF.getFreeShelves() > 0) {
+                System.out.println("|                                  |");
             }
         }
     }
