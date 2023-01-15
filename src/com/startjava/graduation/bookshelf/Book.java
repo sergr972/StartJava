@@ -14,7 +14,7 @@ public class Book {
 
     public String toString() {
         String str = "|" + author + ", " + title + ", " + publishYear;
-        int position = 35;
+        int position = 45;
         final StringBuilder buffer = new StringBuilder(position);
         final int to = position - str.length();
         buffer.append(str);

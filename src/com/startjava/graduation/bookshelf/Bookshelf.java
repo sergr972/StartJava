@@ -17,7 +17,7 @@ public class Bookshelf {
     //найти книгу
     Book findBook(String bookName) {
         for (int i = 0; i < numberBook; i++) {
-            if (bookName.equals(books[i].title)) {
+            if (bookName.equalsIgnoreCase(books[i].title)) {
                 return books[i];
             }
         }
@@ -28,13 +28,13 @@ public class Bookshelf {
     void deleteBook(String bookName) {
         int index = 0;
         for (int i = 0; i < numberBook; i++) {
-            if (bookName.equals(books[i].title)) {
+            if (bookName.equalsIgnoreCase(books[i].title)) {
                 index = i;
                 numberBook--;
                 break;
             }
         }
-        System.arraycopy(books, index + 1, books, index, numberBook - 1);
+        System.arraycopy(books, index + 1, books, index, numberBook);
     }
 
     //очистить полку
