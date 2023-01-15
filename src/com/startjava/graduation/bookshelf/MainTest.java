@@ -47,10 +47,9 @@ public class MainTest {
         Book[] all = BOOK_SHELF.getAll();
         int maxSize = getMaxSize(all);
         for (Book book : all) {
-            String str = String.valueOf(book);
             StringBuilder builder = new StringBuilder(maxSize);
-            int to = maxSize - str.length();
-            builder.append(str);
+            int to = maxSize - book.lenBook();
+            builder.append(book);
             System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
             System.out.println("|" + "-".repeat(maxSize) + "|");
         }
