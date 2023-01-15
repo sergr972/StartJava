@@ -40,7 +40,7 @@ public class BookshelfTest {
                     bookName = scanner.nextLine();
                     System.out.println("Для продолжения нажмите Enter");
                     scanner.nextLine();
-                    System.out.println(BOOK_SHELF.findBook(bookName));
+                    System.out.println("|" + BOOK_SHELF.findBook(bookName) + "|");
                 }
                 case 3 -> {
                     System.out.println("Введите название книги: ");
@@ -72,12 +72,7 @@ public class BookshelfTest {
         if (all.length == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.");
         } else {
-            int maxSize = String.valueOf(all[0]).length();
-            for (int i = 1; i < all.length; i++) {
-                if (String.valueOf(all[i]).length() > maxSize) {
-                    maxSize = String.valueOf(all[i]).length();
-                }
-            }
+            int maxSize = getMaxSize(all);
             for (Book book : all) {
                 String str = String.valueOf(book);
                 StringBuilder builder = new StringBuilder(maxSize);
@@ -90,5 +85,14 @@ public class BookshelfTest {
                 System.out.println("|" + " ".repeat(maxSize) + "|");
             }
         }
+    }
+    private static int getMaxSize(Book[] all) {
+        int maxSize = all[0].lenBook();
+        for (int i = 1; i < all.length; i++) {
+            if (all[i].lenBook() > maxSize) {
+                maxSize = all[i].lenBook();
+            }
+        }
+        return maxSize;
     }
 }

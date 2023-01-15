@@ -18,18 +18,18 @@ public class MainTest {
         BOOK_SHELF.addBook(b3);
         BOOK_SHELF.addBook(b4);
 
-        printAll();
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves());
+        printAll();
 
         System.out.println("\nДобавить книгу 4");
         BOOK_SHELF.addBook(b2);
-        printAll();
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves());
+        printAll();
 
         System.out.println("\nНайти книгу Жажда жизни");
-        System.out.println(BOOK_SHELF.findBook("жажда жизни"));
+        System.out.println("|" + BOOK_SHELF.findBook("жажда жизни") + "|");
 
         System.out.println("\nпосле удаления книги 4");
         BOOK_SHELF.deleteBook("451 градус по Фаренгейту");
@@ -45,12 +45,7 @@ public class MainTest {
     static void printAll() {
         System.out.println("\nGet All");
         Book[] all = BOOK_SHELF.getAll();
-        int maxSize = all[0].lenBook();
-        for (int i = 1; i < all.length; i++) {
-            if (all[i].lenBook() > maxSize) {
-                maxSize = all[i].lenBook();
-            }
-        }
+        int maxSize = getMaxSize(all);
         for (Book book : all) {
             String str = String.valueOf(book);
             StringBuilder builder = new StringBuilder(maxSize);
@@ -62,5 +57,15 @@ public class MainTest {
         if (BOOK_SHELF.getFreeShelves() > 0) {
             System.out.println("|" + " ".repeat(maxSize) + "|");
         }
+    }
+
+    private static int getMaxSize(Book[] all) {
+        int maxSize = all[0].lenBook();
+        for (int i = 1; i < all.length; i++) {
+            if (all[i].lenBook() > maxSize) {
+                maxSize = all[i].lenBook();
+            }
+        }
+        return maxSize;
     }
 }
