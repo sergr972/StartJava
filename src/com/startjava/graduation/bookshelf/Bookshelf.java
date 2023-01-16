@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    private static int numberBook;
-    private static final int BOOKS_LIMIT = 10;
-    private static final Book[] books = new Book[BOOKS_LIMIT];
+    int numberBooks;
+    int BOOKS_LIMIT = 10;
+    Book[] books = new Book[BOOKS_LIMIT];
 
     //добавить книгу
     void addBook(Book book) {
-        books[numberBook] = book;
-        numberBook++;
+        books[numberBooks] = book;
+        numberBooks++;
     }
 
     //найти книгу
@@ -27,33 +27,33 @@ public class Bookshelf {
     //удалить книгу
     void deleteBook(String bookName) {
         int index = 0;
-        for (int i = 0; i < numberBook; i++) {
+        for (int i = 0; i < numberBooks; i++) {
             if (bookName.equalsIgnoreCase(books[i].title)) {
                 index = i;
-                numberBook--;
+                numberBooks--;
                 break;
             }
         }
-        System.arraycopy(books, index + 1, books, index, numberBook);
+        System.arraycopy(books, index + 1, books, index, numberBooks);
     }
 
     //очистить полку
     void clearShelf() {
-        Arrays.fill(books, 0, numberBook, null);
+        Arrays.fill(books, 0, numberBooks, null);
     }
 
     //получить все книги (только для визуализации шкафа)
     Book[] getAll() {
-        return Arrays.copyOf(books, numberBook);
+        return Arrays.copyOf(books, numberBooks);
     }
 
     //получить количество книг в шкафу
-    int getNumberBooks() {
-        return numberBook;
+    int numberBooks() {
+        return numberBooks;
     }
 
     //получить количество свободных полок
-    int getFreeShelves() {
-        return (BOOKS_LIMIT - numberBook);
+    int freeShelves() {
+        return (BOOKS_LIMIT - numberBooks);
     }
 }

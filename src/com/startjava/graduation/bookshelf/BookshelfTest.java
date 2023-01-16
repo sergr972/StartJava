@@ -61,8 +61,8 @@ public class BookshelfTest {
                 }
                 default -> System.out.println("Неверная команда.");
             }
-            System.out.println("\nВ шкафу " + BOOK_SHELF.getNumberBooks() + " книг и свободно "
-                    + BOOK_SHELF.getFreeShelves() + " полок\n");
+            System.out.println("\nВ шкафу " + BOOK_SHELF.numberBooks() + " книг и свободно "
+                    + BOOK_SHELF.freeShelves() + " полок\n");
             printAll();
         }
     }
@@ -80,17 +80,17 @@ public class BookshelfTest {
                 System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
                 System.out.println("|" + "-".repeat(maxSize) + "|");
             }
-            if (BOOK_SHELF.getFreeShelves() > 0) {
+            if (BOOK_SHELF.freeShelves() > 0) {
                 System.out.println("|" + " ".repeat(maxSize) + "|");
             }
         }
     }
 
     private static int getMaxSize(Book[] all) {
-        int maxSize = all[0].lenBook();
-        for (int i = 1; i < all.length; i++) {
-            if (all[i].lenBook() > maxSize) {
-                maxSize = all[i].lenBook();
+        int maxSize = 0;
+        for (Book book : all) {
+            if (book.lenBook() > maxSize) {
+                maxSize = book.lenBook();
             }
         }
         return maxSize;
