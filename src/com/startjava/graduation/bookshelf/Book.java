@@ -5,7 +5,7 @@ public class Book {
     String author;
     String title;
     int publishYear;
-    int lenBook;
+    int bookInfoLength;
 
     public Book(String bookAuthor, String bookName, int year) {
         author = bookAuthor;
@@ -17,8 +17,8 @@ public class Book {
         return author + ", " + title + ", " + publishYear;
     }
 
-    public int lenBook() {
-        lenBook = toString().length();
-        return lenBook;
+    public int bookInfoLength() {
+        bookInfoLength = toString().length();
+        return bookInfoLength;
     }
 }

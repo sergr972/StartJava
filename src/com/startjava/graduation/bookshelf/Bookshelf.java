@@ -4,18 +4,17 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    int numberBooks;
-    int BOOKS_LIMIT = 10;
-//    int maxSize;
-    Book[] books = new Book[BOOKS_LIMIT];
+    public static final int MAX_NUMBER = 10;
+    public static Book[] books = new Book[MAX_NUMBER];
+    int currentNumber = 0;
 
     //добавить книгу
     void addBook(Book book) {
-        books[numberBooks] = book;
-//        if (books[numberBooks].lenBook() > maxSize) {
-//            maxSize = books[numberBooks].lenBook();
+        books[currentNumber] = book;
+//        if (books[currentNumber].bookInfoLength() > 0 || books[currentNumber].bookInfoLength() > books[currentNumber - 1].bookInfoLength()) {
+//            BookshelfTest.maxSize();
 //        }
-        numberBooks++;
+        currentNumber++;
     }
 
     //найти книгу
@@ -31,37 +30,33 @@ public class Bookshelf {
     //удалить книгу
     void deleteBook(String bookName) {
         int index = 0;
-        for (int i = 0; i < numberBooks; i++) {
+        for (int i = 0; i < currentNumber; i++) {
             if (bookName.equalsIgnoreCase(books[i].title)) {
                 index = i;
-                numberBooks--;
+                currentNumber--;
                 break;
             }
         }
-        System.arraycopy(books, index + 1, books, index, numberBooks);
+        System.arraycopy(books, index + 1, books, index, currentNumber);
     }
 
     //очистить полку
     void clearShelf() {
-        Arrays.fill(books, 0, numberBooks, null);
+        Arrays.fill(books, 0, currentNumber, null);
     }
 
     //получить все книги (только для визуализации шкафа)
     Book[] getAll() {
-        return Arrays.copyOf(books, numberBooks);
+        return Arrays.copyOf(books, currentNumber);
     }
 
     //получить количество книг в шкафу
     int numberBooks() {
-        return numberBooks;
+        return currentNumber;
     }
 
     //получить количество свободных полок
     int freeShelves() {
-        return (BOOKS_LIMIT - numberBooks);
+        return (MAX_NUMBER - currentNumber);
     }
-
-//    int maxSize() {
-//        return maxSize;
-//    }
 }

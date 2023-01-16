@@ -3,9 +3,12 @@ package com.startjava.graduation.bookshelf;
 import java.util.Scanner;
 
 public class BookshelfTest {
+
+    static int maxSize;
     private final static Bookshelf BOOK_SHELF = new Bookshelf();
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         Book book;
         String bookName;
@@ -31,6 +34,7 @@ public class BookshelfTest {
                     String[] strings = text.split(", ", 3);
                     book = new Book(strings[0], strings[1], Integer.parseInt(strings[2]));
                     BOOK_SHELF.addBook(book);
+                    maxSize();
                     System.out.println("Для продолжения нажмите Enter");
                     scanner.nextLine();
                 }
@@ -47,6 +51,7 @@ public class BookshelfTest {
                     scanner.nextLine();
                     bookName = scanner.nextLine();
                     BOOK_SHELF.deleteBook(bookName);
+                    maxSize();
                     System.out.println("Для продолжения нажмите Enter");
                     scanner.nextLine();
                 }
@@ -72,27 +77,30 @@ public class BookshelfTest {
         if (all.length == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.");
         } else {
-//            int maxSize = getMaxSize(all);
-//            for (Book book : all) {
-//                StringBuilder builder = new StringBuilder(maxSize);
-//                int to = maxSize - book.lenBook();
-//                builder.append(book);
-//                System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
-//                System.out.println("|" + "-".repeat(maxSize) + "|");
-//            }
-//            if (BOOK_SHELF.freeShelves() > 0) {
-//                System.out.println("|" + " ".repeat(maxSize) + "|");
-//            }
+            for (Book book : all) {
+                if (book != null) {
+                    StringBuilder builder = new StringBuilder(maxSize);
+                    int to = maxSize - book.bookInfoLength();
+                    builder.append(book);
+                    System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
+                    System.out.println("|" + "-".repeat(maxSize) + "|");
+                }
+            }
+            if (BOOK_SHELF.freeShelves() > 0) {
+                System.out.println("|" + " ".repeat(maxSize) + "|");
+            }
         }
     }
 
-//    private static int getMaxSize(Book[] all) {
-//        int maxSize = 0;
-//        for (Book book : all) {
-//            if (book.lenBook() > maxSize) {
-//                maxSize = book.lenBook();
-//            }
-//        }
-//        return maxSize;
-//    }
+    static void maxSize() {
+        maxSize = 0;
+        Book[] all = BOOK_SHELF.getAll();
+        for (Book book : all) {
+            if (book != null) {
+                if (book.bookInfoLength() > maxSize) {
+                    maxSize = book.bookInfoLength();
+                }
+            }
+        }
+    }
 }
