@@ -72,27 +72,27 @@ public class BookshelfTest {
         if (all.length == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.");
         } else {
-            int maxSize = getMaxSize(all);
-            for (Book book : all) {
-                StringBuilder builder = new StringBuilder(maxSize);
-                int to = maxSize - book.lenBook();
-                builder.append(book);
-                System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
-                System.out.println("|" + "-".repeat(maxSize) + "|");
-            }
-            if (BOOK_SHELF.freeShelves() > 0) {
-                System.out.println("|" + " ".repeat(maxSize) + "|");
-            }
+//            int maxSize = getMaxSize(all);
+//            for (Book book : all) {
+//                StringBuilder builder = new StringBuilder(maxSize);
+//                int to = maxSize - book.lenBook();
+//                builder.append(book);
+//                System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
+//                System.out.println("|" + "-".repeat(maxSize) + "|");
+//            }
+//            if (BOOK_SHELF.freeShelves() > 0) {
+//                System.out.println("|" + " ".repeat(maxSize) + "|");
+//            }
         }
     }
 
-    private static int getMaxSize(Book[] all) {
-        int maxSize = 0;
-        for (Book book : all) {
-            if (book.lenBook() > maxSize) {
-                maxSize = book.lenBook();
-            }
-        }
-        return maxSize;
-    }
+//    private static int getMaxSize(Book[] all) {
+//        int maxSize = 0;
+//        for (Book book : all) {
+//            if (book.lenBook() > maxSize) {
+//                maxSize = book.lenBook();
+//            }
+//        }
+//        return maxSize;
+//    }
 }

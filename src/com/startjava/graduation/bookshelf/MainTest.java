@@ -2,7 +2,7 @@ package com.startjava.graduation.bookshelf;
 
 public class MainTest {
     static final Bookshelf BOOK_SHELF = new Bookshelf();
-
+    static int maxSize;
     public static void main(String[] args) {
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves());
@@ -14,9 +14,12 @@ public class MainTest {
 
         System.out.println("Добавить 3 книги");
         BOOK_SHELF.addBook(b1);
+        getMaxSize();
 //        BOOK_SHELF.addBook(b2);
         BOOK_SHELF.addBook(b3);
+        getMaxSize();
         BOOK_SHELF.addBook(b4);
+        getMaxSize();
 
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves());
@@ -24,6 +27,7 @@ public class MainTest {
 
         System.out.println("\nДобавить книгу 4");
         BOOK_SHELF.addBook(b2);
+        getMaxSize();
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves());
         printAll();
@@ -33,6 +37,7 @@ public class MainTest {
 
         System.out.println("\nпосле удаления книги 4");
         BOOK_SHELF.deleteBook("451 градус по Фаренгейту");
+        getMaxSize();
         printAll();
 
 //        System.out.println("после очистки");
@@ -45,7 +50,7 @@ public class MainTest {
     static void printAll() {
         System.out.println("\nСодержимое шкафа");
         Book[] all = BOOK_SHELF.getAll();
-        int maxSize = getMaxSize(all);
+//        int maxSize = BOOK_SHELF.maxSize();
         for (Book book : all) {
             StringBuilder builder = new StringBuilder(maxSize);
             int to = maxSize - book.lenBook();
@@ -58,13 +63,13 @@ public class MainTest {
         }
     }
 
-    private static int getMaxSize(Book[] all) {
-        int maxSize = 0;
+    private static void getMaxSize() {
+        maxSize = 0;
+        Book[] all = BOOK_SHELF.getAll();
         for (Book book : all) {
             if (book.lenBook() > maxSize) {
                 maxSize = book.lenBook();
             }
         }
-        return maxSize;
     }
 }

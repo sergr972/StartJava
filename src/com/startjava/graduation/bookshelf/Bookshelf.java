@@ -6,11 +6,15 @@ public class Bookshelf {
 
     int numberBooks;
     int BOOKS_LIMIT = 10;
+//    int maxSize;
     Book[] books = new Book[BOOKS_LIMIT];
 
     //добавить книгу
     void addBook(Book book) {
         books[numberBooks] = book;
+//        if (books[numberBooks].lenBook() > maxSize) {
+//            maxSize = books[numberBooks].lenBook();
+//        }
         numberBooks++;
     }
 
@@ -56,4 +60,8 @@ public class Bookshelf {
     int freeShelves() {
         return (BOOKS_LIMIT - numberBooks);
     }
+
+//    int maxSize() {
+//        return maxSize;
+//    }
 }
