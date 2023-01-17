@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    public static int MAX_NUMBER = 2;
+    public static int MAX_NUMBER = 10;
     public static Book[] books = new Book[MAX_NUMBER];
     int currentNumber = 0;
     static int maxSize;
+
     //добавить книгу
     void addBook(Book book) {
         books[currentNumber] = book;
@@ -24,19 +25,20 @@ public class Bookshelf {
                 return book;
             }
         }
-        throw new RuntimeException();
+        return null;
     }
 
     //удалить книгу
     void deleteBook(String bookName) {
         for (int i = 0; i < currentNumber; i++) {
             if (bookName.equalsIgnoreCase(books[i].title)) {
+                currentNumber--;
                 System.arraycopy(books, i + 1, books, i, currentNumber);
                 System.out.println("Книга " + bookName + " удалена.");
-                currentNumber--;
                 break;
             }
         }
+        System.out.println("Такой книги нет");
     }
 
     //очистить полку

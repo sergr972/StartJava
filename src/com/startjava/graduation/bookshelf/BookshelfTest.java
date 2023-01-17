@@ -31,10 +31,11 @@ public class BookshelfTest {
                 if (input < 0 || input > 4) {
                     throw new InputMismatchException();
                 }
-            } catch (InputMismatchException e) {
-                System.out.println("Пользователь ввел неподдерживаемый пункт меню. Повторите ввод.");
-                return;
+            } catch (InputMismatchException exc) {
+                System.out.println("Неверный номер операции.");
+                continue;
             }
+
             switch (input) {
                 case 1 -> {
                     try {
@@ -52,13 +53,10 @@ public class BookshelfTest {
                 }
                 case 2 -> {
                     System.out.println("Введите название книги: ");
-                    try {
-                        scanner.nextLine();
-                        bookName = scanner.nextLine();
-                        System.out.println("|" + BOOK_SHELF.findBook(bookName) + "|");
-                    } catch (RuntimeException e) {
-                        System.out.println("Такой книги нет");
-                    }
+                    scanner.nextLine();
+                    bookName = scanner.nextLine();
+                    System.out.println("|" + BOOK_SHELF.findBook(bookName) + "|");
+
                 }
                 case 3 -> {
                     System.out.println("Введите название книги: ");
@@ -79,6 +77,7 @@ public class BookshelfTest {
                     System.out.println("Программа завершена.");
                     return;
                 }
+                default -> System.out.println("Неверная команда.");
             }
             System.out.println("Для продолжения нажмите Enter");
             scanner.nextLine();

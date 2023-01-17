@@ -35,11 +35,11 @@ public class MainTest {
         printAll();
 
         System.out.println("\nНайти книгу Жажда жизни\n");
-        System.out.println("|" + BOOK_SHELF.findBook("жажда жизни") + "|");
+        System.out.println("|" + BOOK_SHELF.findBook("жажда жизн") + "|");
 
 
         System.out.println("\nпосле удаления книги 4\n");
-        BOOK_SHELF.deleteBook(" градус по Фаренгейту");
+        BOOK_SHELF.deleteBook("451 градус по Фаренгейту");
         maxSize();
         printAll();
 
