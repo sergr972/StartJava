@@ -10,85 +10,83 @@ public class BookshelfTest {
 
     public static void main(String[] args) {
         printAll();
-        for (; menu(); ) ;
-    }
 
-    public static boolean menu() {
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            Book book;
+            String bookName;
+            int input;
 
-        Scanner scanner = new Scanner(System.in);
-        Book book;
-        String bookName;
-        int input;
-
-        System.out.println("""
-                                    
-                Введите номер операции:
-                1. Добавить книгу
-                2. Найти книгу
-                3. Удалить книгу
-                4. Очистить шкаф
-                0. Выход
-                """);
-        try {
-            input = scanner.nextInt();
-            if (input < 0 || input > 4) {
-                throw new InputMismatchException();
+            System.out.println("""
+                                        
+                    Введите номер операции:
+                    1. Добавить книгу
+                    2. Найти книгу
+                    3. Удалить книгу
+                    4. Очистить шкаф
+                    0. Выход
+                    """);
+            try {
+                input = scanner.nextInt();
+                if (input < 0 || input > 4) {
+                    throw new InputMismatchException();
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Пользователь ввел неподдерживаемый пункт меню. Повторите ввод.");
+                return;
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Пользователь ввел неподдерживаемый пункт меню. Повторите ввод.");
-            return true;
-        }
-        switch (input) {
-            case 1 -> {
-                try {
-                    if (BOOK_SHELF.freeShelves() == 0) {
-                        throw new RuntimeException();
+            switch (input) {
+                case 1 -> {
+                    try {
+                        if (BOOK_SHELF.freeShelves() == 0) {
+                            throw new RuntimeException();
+                        }
+                        System.out.println("Введите книгу в формате author, title, publishYear: ");
+                        scanner.nextLine();
+                        String[] strings = scanner.nextLine().split(", ", 3);
+                        book = new Book(strings[0], strings[1], Integer.parseInt(strings[2]));
+                        BOOK_SHELF.addBook(book);
+                    } catch (RuntimeException e) {
+                        System.out.println("\nШкаф заполнен.");
                     }
-                    System.out.println("Введите книгу в формате author, title, publishYear: ");
-                    scanner.nextLine();
-                    String[] strings = scanner.nextLine().split(", ", 3);
-                    book = new Book(strings[0], strings[1], Integer.parseInt(strings[2]));
-                    BOOK_SHELF.addBook(book);
-                } catch (RuntimeException e) {
-                    System.out.println("\nШкаф заполнен.");
                 }
-            }
-            case 2 -> {
-                System.out.println("Введите название книги: ");
-                try {
-                    scanner.nextLine();
-                    bookName = scanner.nextLine();
-                    System.out.println("|" + BOOK_SHELF.findBook(bookName) + "|");
-                } catch (RuntimeException e) {
-                    System.out.println("Такой книги нет");
+                case 2 -> {
+                    System.out.println("Введите название книги: ");
+                    try {
+                        scanner.nextLine();
+                        bookName = scanner.nextLine();
+                        System.out.println("|" + BOOK_SHELF.findBook(bookName) + "|");
+                    } catch (RuntimeException e) {
+                        System.out.println("Такой книги нет");
+                    }
                 }
-            }
-            case 3 -> {
-                System.out.println("Введите название книги: ");
-                try {
-                    scanner.nextLine();
-                    bookName = scanner.nextLine();
-                    BOOK_SHELF.deleteBook(bookName);
+                case 3 -> {
+                    System.out.println("Введите название книги: ");
+                    try {
+                        scanner.nextLine();
+                        bookName = scanner.nextLine();
+                        BOOK_SHELF.deleteBook(bookName);
 //                    maxSize();
-                } catch (RuntimeException e) {
-                    System.out.println("Такой книги нет");
+                    } catch (RuntimeException e) {
+                        System.out.println("Книга отсутствует в шкафу.");
+                    }
+                }
+                case 4 -> {
+                    BOOK_SHELF.clearShelf();
+                    System.out.println("Полки очищены.");
+                }
+                case 0 -> {
+                    System.out.println("Программа завершена.");
+                    return;
                 }
             }
-            case 4 -> {
-                BOOK_SHELF.clearShelf();
-                System.out.println("Полки очищены.");
-            }
-            case 0 -> {
-                System.out.println("Программа завершена.");
-                return false;
-            }
+            System.out.println("Для продолжения нажмите Enter");
+            scanner.nextLine();
+            System.out.println("\nВ шкафу " + BOOK_SHELF.numberBooks() + " книг и свободно "
+                    + BOOK_SHELF.freeShelves() + " полок\n");
+            printAll();
         }
-        System.out.println("Для продолжения нажмите Enter");
-        scanner.nextLine();
-        System.out.println("\nВ шкафу " + BOOK_SHELF.numberBooks() + " книг и свободно "
-                + BOOK_SHELF.freeShelves() + " полок\n");
-        printAll();
-        return true;
+
     }
 
     static void printAll() {

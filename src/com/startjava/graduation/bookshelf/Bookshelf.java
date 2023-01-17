@@ -35,8 +35,6 @@ public class Bookshelf {
                 System.out.println("Книга " + bookName + " удалена.");
                 currentNumber--;
                 break;
-            } else {
-                System.out.println("Книга " + bookName + " отсутствует в шкафу.");
             }
         }
     }
