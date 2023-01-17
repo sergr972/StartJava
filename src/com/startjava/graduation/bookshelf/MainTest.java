@@ -4,9 +4,9 @@ public class MainTest {
 
     static int maxSize;
     static final Bookshelf BOOK_SHELF = new Bookshelf();
-//    static Book[] all = BOOK_SHELF.getAll();
 
     public static void main(String[] args) {
+
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves() + "\n");
         Book b1 = new Book("Author3", "Name3", 1903);
@@ -52,7 +52,6 @@ public class MainTest {
     }
 
     static void printAll() {
-//        int maxSize = BookshelfTest.maxSize;
         System.out.println("Содержимое шкафа\n");
         Book[] all = BOOK_SHELF.getAll();
         for (Book book : all) {
@@ -69,7 +68,7 @@ public class MainTest {
         }
     }
 
-    private static void maxSize() {
+    static void maxSize() {
         maxSize = 0;
         Book[] all = BOOK_SHELF.getAll();
         for (Book book : all) {
