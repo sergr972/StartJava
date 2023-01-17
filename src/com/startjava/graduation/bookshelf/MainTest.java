@@ -39,7 +39,7 @@ public class MainTest {
 
 
         System.out.println("\nпосле удаления книги 4\n");
-        BOOK_SHELF.deleteBook("451 градус по Фаренгейту");
+        BOOK_SHELF.deleteBook(" градус по Фаренгейту");
         maxSize();
         printAll();
 

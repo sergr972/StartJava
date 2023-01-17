@@ -4,40 +4,41 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    public static final int MAX_NUMBER = 10;
+    public static int MAX_NUMBER = 2;
     public static Book[] books = new Book[MAX_NUMBER];
     int currentNumber = 0;
-
+    static int maxSize;
     //добавить книгу
     void addBook(Book book) {
         books[currentNumber] = book;
-//        if (books[currentNumber].bookInfoLength() > 0 || books[currentNumber].bookInfoLength() > books[currentNumber - 1].bookInfoLength()) {
-//            BookshelfTest.maxSize();
-//        }
+        if (book.bookInfoLength() > maxSize) {
+            maxSize = book.bookInfoLength;
+        }
         currentNumber++;
     }
 
     //найти книгу
     Book findBook(String bookName) {
-        for (Book book: books) {
+        for (Book book : books) {
             if (bookName.equalsIgnoreCase(book.title)) {
                 return book;
             }
         }
-        return null;
+        throw new RuntimeException();
     }
 
     //удалить книгу
     void deleteBook(String bookName) {
-        int index = 0;
         for (int i = 0; i < currentNumber; i++) {
             if (bookName.equalsIgnoreCase(books[i].title)) {
-                index = i;
+                System.arraycopy(books, i + 1, books, i, currentNumber);
+                System.out.println("Книга " + bookName + " удалена.");
                 currentNumber--;
                 break;
+            } else {
+                System.out.println("Книга " + bookName + " отсутствует в шкафу.");
             }
         }
-        System.arraycopy(books, index + 1, books, index, currentNumber);
     }
 
     //очистить полку

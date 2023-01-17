@@ -17,7 +17,9 @@ public class Book {
         return author + ", " + title + ", " + publishYear;
     }
 
-    public int bookInfoLength() {
+
+
+    int bookInfoLength() {
         bookInfoLength = toString().length();
         return bookInfoLength;
     }
