@@ -4,20 +4,18 @@ public class Book {
 
     String author;
     String title;
-    int publishYear;
+    int year;
     int bookInfoLength;
 
-    public Book(String bookAuthor, String bookName, int year) {
-        author = bookAuthor;
-        title = bookName;
-        publishYear = year;
+    public Book(String author, String title, int year) {
+        this.author = author;
+        this.title = title;
+        this.year = year;
     }
 
     public String toString() {
-        return author + ", " + title + ", " + publishYear;
+        return author + ", " + title + ", " + year;
     }
-
-
 
     int bookInfoLength() {
         bookInfoLength = toString().length();

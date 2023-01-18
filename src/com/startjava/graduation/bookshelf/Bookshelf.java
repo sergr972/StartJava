@@ -4,17 +4,13 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    public static int MAX_NUMBER = 10;
+    int currentNumber;
+    public static int MAX_NUMBER = 2;
     public static Book[] books = new Book[MAX_NUMBER];
-    int currentNumber = 0;
-    static int maxSize;
 
     //добавить книгу
     void addBook(Book book) {
         books[currentNumber] = book;
-        if (book.bookInfoLength() > maxSize) {
-            maxSize = book.bookInfoLength;
-        }
         currentNumber++;
     }
 
@@ -25,7 +21,7 @@ public class Bookshelf {
                 return book;
             }
         }
-        return null;
+        throw new RuntimeException();
     }
 
     //удалить книгу
@@ -34,11 +30,10 @@ public class Bookshelf {
             if (bookName.equalsIgnoreCase(books[i].title)) {
                 currentNumber--;
                 System.arraycopy(books, i + 1, books, i, currentNumber);
-                System.out.println("Книга " + bookName + " удалена.");
-                break;
+                return;
             }
         }
-        System.out.println("Такой книги нет");
+        throw new RuntimeException();
     }
 
     //очистить полку

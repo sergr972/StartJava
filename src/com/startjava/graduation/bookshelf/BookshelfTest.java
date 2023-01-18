@@ -5,17 +5,17 @@ import java.util.Scanner;
 
 public class BookshelfTest {
 
-    static int maxSize = 0;
+    static int maxSize;
+    static String maxLenBook;
     private final static Bookshelf BOOK_SHELF = new Bookshelf();
 
     public static void main(String[] args) {
         printAll();
-
         while (true) {
             Scanner scanner = new Scanner(System.in);
             Book book;
-            String bookName;
             int input;
+            String bookName;
 
             System.out.println("""
                                         
@@ -35,28 +35,36 @@ public class BookshelfTest {
                 System.out.println("Неверный номер операции.");
                 continue;
             }
-
             switch (input) {
                 case 1 -> {
+                    if (BOOK_SHELF.freeShelves() == 0) {
+                        System.out.println("\nШкаф заполнен.");
+                        break;
+                    }
+                    System.out.println("Введите книгу в формате автор, название, год издания: ");
                     try {
-                        if (BOOK_SHELF.freeShelves() == 0) {
-                            throw new RuntimeException();
-                        }
-                        System.out.println("Введите книгу в формате author, title, publishYear: ");
                         scanner.nextLine();
                         String[] strings = scanner.nextLine().split(", ", 3);
                         book = new Book(strings[0], strings[1], Integer.parseInt(strings[2]));
                         BOOK_SHELF.addBook(book);
+                        System.out.println("\nКнига добавлена.");
+                        if (book.bookInfoLength() > maxSize) {
+                            maxSize = book.bookInfoLength;
+                            maxLenBook = book.title;
+                        }
                     } catch (RuntimeException e) {
-                        System.out.println("\nШкаф заполнен.");
+                        System.out.println("\nНеверный ввод данных.");
                     }
                 }
                 case 2 -> {
                     System.out.println("Введите название книги: ");
-                    scanner.nextLine();
-                    bookName = scanner.nextLine();
-                    System.out.println("|" + BOOK_SHELF.findBook(bookName) + "|");
-
+                    try {
+                        scanner.nextLine();
+                        bookName = scanner.nextLine();
+                        System.out.println("|" + BOOK_SHELF.findBook(bookName) + "|");
+                    } catch (RuntimeException e) {
+                        System.out.println("Книга отсутствует в шкафу.");
+                    }
                 }
                 case 3 -> {
                     System.out.println("Введите название книги: ");
@@ -64,7 +72,10 @@ public class BookshelfTest {
                         scanner.nextLine();
                         bookName = scanner.nextLine();
                         BOOK_SHELF.deleteBook(bookName);
-//                    maxSize();
+                        if (bookName.equals(maxLenBook)) {
+                            maxSize();
+                        }
+                        System.out.println("Книга " + bookName + " удалена.");
                     } catch (RuntimeException e) {
                         System.out.println("Книга отсутствует в шкафу.");
                     }
@@ -72,6 +83,7 @@ public class BookshelfTest {
                 case 4 -> {
                     BOOK_SHELF.clearShelf();
                     System.out.println("Полки очищены.");
+                    maxSize = 0;
                 }
                 case 0 -> {
                     System.out.println("Программа завершена.");
@@ -85,7 +97,6 @@ public class BookshelfTest {
                     + BOOK_SHELF.freeShelves() + " полок\n");
             printAll();
         }
-
     }
 
     static void printAll() {
@@ -95,28 +106,29 @@ public class BookshelfTest {
         } else {
             for (Book book : all) {
                 if (book != null) {
-                    StringBuilder builder = new StringBuilder(Bookshelf.maxSize);
-                    int to = Bookshelf.maxSize - book.bookInfoLength();
+                    StringBuilder builder = new StringBuilder(maxSize);
+                    int to = maxSize - book.bookInfoLength();
                     builder.append(book);
                     System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
-                    System.out.println("|" + "-".repeat(Bookshelf.maxSize) + "|");
+                    System.out.println("|" + "-".repeat(maxSize) + "|");
                 }
             }
             if (BOOK_SHELF.freeShelves() > 0) {
-                System.out.println("|" + " ".repeat(Bookshelf.maxSize) + "|");
+                System.out.println("|" + " ".repeat(maxSize) + "|");
             }
         }
     }
 
-//    public static void maxSize() {
-//        maxSize = 0;
-//        Book[] all = BOOK_SHELF.getAll();
-//        for (Book book : all) {
-//            if (book != null) {
-//                if (book.bookInfoLength() > maxSize) {
-//                    maxSize = book.bookInfoLength();
-//                }
-//            }
-//        }
-//    }
+    public static void maxSize() {
+        maxSize = 0;
+        Book[] all = BOOK_SHELF.getAll();
+        for (Book book : all) {
+            if (book != null) {
+                if (book.bookInfoLength() > maxSize) {
+                    maxSize = book.bookInfoLength();
+                    maxLenBook = book.title;
+                }
+            }
+        }
+    }
 }
