@@ -1,7 +1,7 @@
-package Mail;
+package com.Mail;
 
-import static Mail.Test.BANNED_SUBSTANCE;
-import static Mail.Test.WEAPONS;
+import static com.Mail.Test.BANNED_SUBSTANCE;
+import static com.Mail.Test.WEAPONS;
 
 /*
 4) Inspector – Инспектор, который следит за запрещенными и украденными посылками и бьет тревогу в виде исключения,

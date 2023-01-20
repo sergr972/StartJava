@@ -1,4 +1,4 @@
-package Mail;
+package com.Mail;
 
 /*
 3) Thief – вор, который ворует самые ценные посылки и игнорирует все остальное. Вор принимает в конструкторе
@@ -8,7 +8,7 @@ package Mail;
 нулевой ценностью и содержимым посылки "stones instead of {content}".
 */
 public class Thief implements MailService {
-    private int minPrice = 0;
+    private final int minPrice;
     private int stolenPrice = 0;
 
     public Thief(int minPrice) {

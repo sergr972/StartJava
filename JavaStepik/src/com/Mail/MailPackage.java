@@ -1,4 +1,4 @@
-package Mail;
+package com.Mail;
 /*
 Посылка, содержимое которой можно получить с помощью метода `getContent`
 */
@@ -22,9 +22,7 @@ public class MailPackage extends AbstractSendable {
 
         MailPackage that = (MailPackage) o;
 
-        if (!content.equals(that.content)) return false;
-
-        return true;
+        return content.equals(that.content);
     }
 
 }

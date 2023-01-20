@@ -1,8 +1,8 @@
-package Mail;
+package com.Mail;
 
 import java.util.logging.Logger;
 
-import static Mail.Test.AUSTIN_POWERS;
+import static com.Mail.Test.AUSTIN_POWERS;
 
 /*
 2) Spy – шпион, который логгирует о всей почтовой переписке, которая проходит через его руки. Объект конструируется

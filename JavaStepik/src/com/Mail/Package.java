@@ -1,4 +1,4 @@
-package Mail;
+package com.Mail;
 /*
 Класс, который задает посылку. У посылки есть текстовое описание содержимого и целочисленная ценность.
 */
@@ -27,8 +27,6 @@ public class Package {
         Package aPackage = (Package) o;
 
         if (price != aPackage.price) return false;
-        if (!content.equals(aPackage.content)) return false;
-
-        return true;
+        return content.equals(aPackage.content);
     }
 }

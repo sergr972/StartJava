@@ -1,4 +1,4 @@
-package Mail;
+package com.Mail;
 
 /*
 1) UntrustworthyMailWorker – класс, моделирующий ненадежного работника почты, который вместо того, чтобы передать

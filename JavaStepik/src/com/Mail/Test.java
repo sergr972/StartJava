@@ -1,4 +1,4 @@
-package Mail;
+package com.Mail;
 
 import java.util.logging.Logger;
 
