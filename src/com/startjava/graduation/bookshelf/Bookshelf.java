@@ -4,30 +4,27 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    int currentNumber;
-    public static int MAX_NUMBER = 2;
-    public static Book[] books = new Book[MAX_NUMBER];
+    private int currentNumber;
+    public static final int MAX_NUMBER = 10;
+    private final Book[] books = new Book[MAX_NUMBER];
 
-    //добавить книгу
-    void addBook(Book book) {
+    public void add(Book book) {
         books[currentNumber] = book;
         currentNumber++;
     }
 
-    //найти книгу
-    Book findBook(String bookName) {
+    public Book find(String bookName) {
         for (Book book : books) {
-            if (bookName.equalsIgnoreCase(book.title)) {
+            if (bookName.equalsIgnoreCase(book.getTitle())) {
                 return book;
             }
         }
         throw new RuntimeException();
     }
 
-    //удалить книгу
-    void deleteBook(String bookName) {
+    public void delete(String bookName) {
         for (int i = 0; i < currentNumber; i++) {
-            if (bookName.equalsIgnoreCase(books[i].title)) {
+            if (bookName.equalsIgnoreCase(books[i].getTitle())) {
                 currentNumber--;
                 System.arraycopy(books, i + 1, books, i, currentNumber);
                 return;
@@ -36,23 +33,19 @@ public class Bookshelf {
         throw new RuntimeException();
     }
 
-    //очистить полку
-    void clearShelf() {
+    public void clear() {
         Arrays.fill(books, 0, currentNumber, null);
     }
 
-    //получить все книги (только для визуализации шкафа)
     Book[] getAll() {
         return Arrays.copyOf(books, currentNumber);
     }
 
-    //получить количество книг в шкафу
-    int numberBooks() {
+    public int numberBooks() {
         return currentNumber;
     }
 
-    //получить количество свободных полок
-    int freeShelves() {
+    public int freeShelves() {
         return (MAX_NUMBER - currentNumber);
     }
 }

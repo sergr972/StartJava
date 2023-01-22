@@ -16,11 +16,11 @@ public class MainTest {
 
 
         System.out.println("\nДобавить 3 книги\n");
-        BOOK_SHELF.addBook(b1);
+        BOOK_SHELF.add(b1);
         maxSize();
-        BOOK_SHELF.addBook(b2);
+        BOOK_SHELF.add(b2);
         maxSize();
-        BOOK_SHELF.addBook(b3);
+        BOOK_SHELF.add(b3);
         maxSize();
 
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
@@ -28,7 +28,7 @@ public class MainTest {
         printAll();
 
         System.out.println("\nДобавить книгу 4\n");
-        BOOK_SHELF.addBook(b4);
+        BOOK_SHELF.add(b4);
         maxSize();
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves() + "\n");
@@ -39,12 +39,12 @@ public class MainTest {
 
 
         System.out.println("\nпосле удаления книги 4\n");
-        BOOK_SHELF.deleteBook("451 градус по Фаренгейту");
+        BOOK_SHELF.delete("451 градус по Фаренгейту");
         maxSize();
         printAll();
 
         System.out.println("\nпосле очистки\n");
-        BOOK_SHELF.clearShelf();
+        BOOK_SHELF.clear();
         maxSize();
         printAll();
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
@@ -57,7 +57,7 @@ public class MainTest {
         for (Book book : all) {
             if (book != null) {
                 StringBuilder builder = new StringBuilder(maxSize);
-                int to = maxSize - book.bookInfoLength();
+                int to = maxSize - Book.INFO_LENGTH;
                 builder.append(book);
                 System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
                 System.out.println("|" + "-".repeat(maxSize) + "|");
@@ -73,8 +73,8 @@ public class MainTest {
         Book[] all = BOOK_SHELF.getAll();
         for (Book book : all) {
             if (book != null) {
-                if (book.bookInfoLength() > maxSize) {
-                    maxSize = book.bookInfoLength();
+                if (Book.INFO_LENGTH > maxSize) {
+                    maxSize = Book.INFO_LENGTH;
                 }
             }
         }
