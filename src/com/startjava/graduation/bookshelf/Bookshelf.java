@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    public int countBooks;
-    private final static int MAX_NUMBER = 10;
+    private int countBooks;
+    private static final int MAX_NUMBER = 10;
     public Book[] books = new Book[MAX_NUMBER];
 
     public void add(Book book) {
@@ -14,23 +14,24 @@ public class Bookshelf {
     }
 
     public Book find(String title) {
-        for (Book book : books) {
-            if (title.equalsIgnoreCase(book.getTitle())) {
-                return book;
-            }
+        int i = check(title);
+        if (i < countBooks) {
+            return books[i];
+        } else {
+            System.out.println("Книги " + title + " нет!");
         }
-        throw new RuntimeException();
+        return null;
     }
 
     public void delete(String title) {
-        for (int i = 0; i < countBooks; i++) {
-            if (title.equalsIgnoreCase(books[i].getTitle())) {
-                countBooks--;
-                System.arraycopy(books, i + 1, books, i, countBooks - i);
-                return;
-            }
+        int i = check(title);
+        if (i < countBooks) {
+            countBooks--;
+            System.arraycopy(books, i + 1, books, i, countBooks - i);
+            System.out.println("Книга " + title + " удалена!");
+        } else {
+            System.out.println("Книги " + title + " нет!");
         }
-        throw new RuntimeException();
     }
 
     public void clear() {
@@ -47,5 +48,15 @@ public class Bookshelf {
 
     public int getFreeShelves() {
         return (MAX_NUMBER - countBooks);
+    }
+
+    private int check(String title) {
+        int i = 0;
+        for (; i < countBooks; i++) {
+            if (title.equalsIgnoreCase(books[i].getTitle())) {
+                break;
+            }
+        }
+        return i;
     }
 }

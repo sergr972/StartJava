@@ -6,6 +6,7 @@ public class Book {
     private final String title;
     private final int year;
 
+
     public Book(String author, String title, int year) {
         this.author = author;
         this.title = title;
@@ -17,8 +18,7 @@ public class Book {
     }
 
     public int getBookInfoLength() {
-        int bookInfoLength = toString().length();
-        return bookInfoLength;
+        return toString().length();
     }
 
     public String toString() {

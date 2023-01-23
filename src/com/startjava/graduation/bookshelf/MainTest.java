@@ -34,11 +34,11 @@ public class MainTest {
         System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves() + "\n");
         printAll();
 
-//        System.out.println("\nНайти книгу Жажда жизни\n");
-//        System.out.println("|" + BOOK_SHELF.findBook("жажда жизн") + "|");
+        System.out.println("\nНайти книгу Жажда жизни\n");
+        System.out.println("|" + BOOK_SHELF.find("жажда жизни") + "|");
 
 
-        System.out.println("\nпосле удаления книги 4\n");
+        System.out.println("\nУдалить книгу 4\n");
         BOOK_SHELF.delete("451 градус по Фаренгейту");
         maxSize();
         printAll();
