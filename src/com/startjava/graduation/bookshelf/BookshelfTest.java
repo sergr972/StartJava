@@ -37,7 +37,7 @@ public class BookshelfTest {
             }
             switch (input) {
                 case 1 -> {
-                    if (BOOK_SHELF.freeShelves() == 0) {
+                    if (BOOK_SHELF.getFreeShelves() == 0) {
                         System.out.println("\nШкаф заполнен.");
                         break;
                     }
@@ -48,8 +48,8 @@ public class BookshelfTest {
                         book = new Book(strings[0], strings[1], Integer.parseInt(strings[2]));
                         BOOK_SHELF.add(book);
                         System.out.println("\nКнига добавлена.");
-                        if (Book.INFO_LENGTH > maxSize) {
-                            maxSize = Book.INFO_LENGTH;
+                        if (book.getBookInfoLength() > maxSize) {
+                            maxSize = book.getBookInfoLength();
                             maxLenBook = book.getTitle();
                         }
                     } catch (RuntimeException e) {
@@ -93,8 +93,8 @@ public class BookshelfTest {
             }
             System.out.println("Для продолжения нажмите Enter");
             scanner.nextLine();
-            System.out.println("\nВ шкафу " + BOOK_SHELF.numberBooks() + " книг и свободно "
-                    + BOOK_SHELF.freeShelves() + " полок\n");
+            System.out.println("\nВ шкафу " + BOOK_SHELF.getNumberBooks() + " книг и свободно "
+                    + BOOK_SHELF.getFreeShelves() + " полок\n");
             printAll();
         }
     }
@@ -107,13 +107,13 @@ public class BookshelfTest {
             for (Book book : all) {
                 if (book != null) {
                     StringBuilder builder = new StringBuilder(maxSize);
-                    int to = maxSize - Book.INFO_LENGTH;
+                    int to = maxSize - book.getBookInfoLength();
                     builder.append(book);
                     System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
                     System.out.println("|" + "-".repeat(maxSize) + "|");
                 }
             }
-            if (BOOK_SHELF.freeShelves() > 0) {
+            if (BOOK_SHELF.getFreeShelves() > 0) {
                 System.out.println("|" + " ".repeat(maxSize) + "|");
             }
         }
@@ -124,8 +124,8 @@ public class BookshelfTest {
         Book[] all = BOOK_SHELF.getAll();
         for (Book book : all) {
             if (book != null) {
-                if (Book.INFO_LENGTH > maxSize) {
-                    maxSize = Book.INFO_LENGTH;
+                if (book.getBookInfoLength() > maxSize) {
+                    maxSize = book.getBookInfoLength();
                     maxLenBook = book.getTitle();
                 }
             }

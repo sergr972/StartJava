@@ -7,8 +7,8 @@ public class MainTest {
 
     public static void main(String[] args) {
 
-        System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
-        System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves() + "\n");
+        System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
+        System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves() + "\n");
         Book b1 = new Book("Author3", "Name3", 1903);
         Book b2 = new Book("Ирвинг Стоун", "Жажда жизни", 1973);
         Book b3 = new Book("Author4", "Name4", 1904);
@@ -23,15 +23,15 @@ public class MainTest {
         BOOK_SHELF.add(b3);
         maxSize();
 
-        System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
-        System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves() + "\n");
+        System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
+        System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves() + "\n");
         printAll();
 
         System.out.println("\nДобавить книгу 4\n");
         BOOK_SHELF.add(b4);
         maxSize();
-        System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
-        System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves() + "\n");
+        System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
+        System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves() + "\n");
         printAll();
 
 //        System.out.println("\nНайти книгу Жажда жизни\n");
@@ -47,8 +47,8 @@ public class MainTest {
         BOOK_SHELF.clear();
         maxSize();
         printAll();
-        System.out.println("количество книг в шкафу: " + BOOK_SHELF.numberBooks());
-        System.out.println("количество свободных полок: " + BOOK_SHELF.freeShelves() + "\n");
+        System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
+        System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves() + "\n");
     }
 
     static void printAll() {
@@ -57,13 +57,13 @@ public class MainTest {
         for (Book book : all) {
             if (book != null) {
                 StringBuilder builder = new StringBuilder(maxSize);
-                int to = maxSize - Book.INFO_LENGTH;
+                int to = maxSize - book.getBookInfoLength();
                 builder.append(book);
                 System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
                 System.out.println("|" + "-".repeat(maxSize) + "|");
             }
         }
-        if (BOOK_SHELF.freeShelves() > 0) {
+        if (BOOK_SHELF.getFreeShelves() > 0) {
             System.out.println("|" + " ".repeat(maxSize) + "|");
         }
     }
@@ -73,8 +73,8 @@ public class MainTest {
         Book[] all = BOOK_SHELF.getAll();
         for (Book book : all) {
             if (book != null) {
-                if (Book.INFO_LENGTH > maxSize) {
-                    maxSize = Book.INFO_LENGTH;
+                if (book.getBookInfoLength() > maxSize) {
+                    maxSize = book.getBookInfoLength();
                 }
             }
         }

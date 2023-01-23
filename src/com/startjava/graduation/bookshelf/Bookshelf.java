@@ -4,29 +4,29 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    private int currentNumber;
-    public static final int MAX_NUMBER = 10;
-    private final Book[] books = new Book[MAX_NUMBER];
+    public int countBooks;
+    private final static int MAX_NUMBER = 10;
+    public Book[] books = new Book[MAX_NUMBER];
 
     public void add(Book book) {
-        books[currentNumber] = book;
-        currentNumber++;
+        books[countBooks] = book;
+        countBooks++;
     }
 
-    public Book find(String bookName) {
+    public Book find(String title) {
         for (Book book : books) {
-            if (bookName.equalsIgnoreCase(book.getTitle())) {
+            if (title.equalsIgnoreCase(book.getTitle())) {
                 return book;
             }
         }
         throw new RuntimeException();
     }
 
-    public void delete(String bookName) {
-        for (int i = 0; i < currentNumber; i++) {
-            if (bookName.equalsIgnoreCase(books[i].getTitle())) {
-                currentNumber--;
-                System.arraycopy(books, i + 1, books, i, currentNumber);
+    public void delete(String title) {
+        for (int i = 0; i < countBooks; i++) {
+            if (title.equalsIgnoreCase(books[i].getTitle())) {
+                countBooks--;
+                System.arraycopy(books, i + 1, books, i, countBooks - i);
                 return;
             }
         }
@@ -34,18 +34,18 @@ public class Bookshelf {
     }
 
     public void clear() {
-        Arrays.fill(books, 0, currentNumber, null);
+        Arrays.fill(books, 0, countBooks, null);
     }
 
-    Book[] getAll() {
-        return Arrays.copyOf(books, currentNumber);
+    public Book[] getAll() {
+        return Arrays.copyOf(books, countBooks);
     }
 
-    public int numberBooks() {
-        return currentNumber;
+    public int getNumberBooks() {
+        return countBooks;
     }
 
-    public int freeShelves() {
-        return (MAX_NUMBER - currentNumber);
+    public int getFreeShelves() {
+        return (MAX_NUMBER - countBooks);
     }
 }
