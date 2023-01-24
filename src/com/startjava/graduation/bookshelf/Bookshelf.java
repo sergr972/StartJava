@@ -14,23 +14,18 @@ public class Bookshelf {
     }
 
     public Book find(String title) {
-        int i = check(title);
-        if (i < countBooks) {
-            return books[i];
-        } else {
-            System.out.println("Книги " + title + " нет!");
+        int index = getIndex(title);
+        if (index != -1) {
+            return books[index];
         }
         return null;
     }
 
     public void delete(String title) {
-        int i = check(title);
-        if (i < countBooks) {
+        int index = getIndex(title);
+        if (index != -1) {
+            System.arraycopy(books, index + 1, books, index, countBooks - index);
             countBooks--;
-            System.arraycopy(books, i + 1, books, i, countBooks - i);
-            System.out.println("Книга " + title + " удалена!");
-        } else {
-            System.out.println("Книги " + title + " нет!");
         }
     }
 
@@ -50,13 +45,12 @@ public class Bookshelf {
         return (MAX_NUMBER - countBooks);
     }
 
-    private int check(String title) {
-        int i = 0;
-        for (; i < countBooks; i++) {
+    private int getIndex(String title) {
+        for (int i = 0; i < countBooks; i++) {
             if (title.equalsIgnoreCase(books[i].getTitle())) {
-                break;
+                return i;
             }
         }
-        return i;
+        return -1;
     }
 }

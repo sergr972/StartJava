@@ -58,25 +58,24 @@ public class BookshelfTest {
                 }
                 case 2 -> {
                     System.out.println("Введите название книги: ");
-                    try {
-                        scanner.nextLine();
-                        bookName = scanner.nextLine();
-                        System.out.println("|" + BOOK_SHELF.find(bookName) + "|");
-                    } catch (RuntimeException e) {
+                    scanner.nextLine();
+                    bookName = scanner.nextLine();
+                    if (BOOK_SHELF.find(bookName) == null) {
                         System.out.println("Книга отсутствует в шкафу.");
+                    } else {
+                        System.out.println("|" + BOOK_SHELF.find(bookName) + "|");
                     }
                 }
                 case 3 -> {
                     System.out.println("Введите название книги: ");
-                    try {
-                        scanner.nextLine();
-                        bookName = scanner.nextLine();
-                        BOOK_SHELF.delete(bookName);
-                        if (bookName.equals(maxLenBook)) {
-                            maxSize();
-                        }
+
+                    scanner.nextLine();
+                    bookName = scanner.nextLine();
+                    BOOK_SHELF.delete(bookName);
+                    if (bookName.equals(maxLenBook)) {
+                        maxSize();
                         System.out.println("Книга " + bookName + " удалена.");
-                    } catch (RuntimeException e) {
+                    } else {
                         System.out.println("Книга отсутствует в шкафу.");
                     }
                 }

@@ -34,16 +34,21 @@ public class MainTest {
         System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves() + "\n");
         printAll();
 
-        System.out.println("\nНайти книгу Жажда жизни\n");
+        System.out.println("\nНайти книгу Жажда жизни");
         System.out.println("|" + BOOK_SHELF.find("жажда жизни") + "|");
 
-
-        System.out.println("\nУдалить книгу 4\n");
+        System.out.println("\nУдалить книгу 4");
         BOOK_SHELF.delete("451 градус по Фаренгейту");
         maxSize();
         printAll();
 
-        System.out.println("\nпосле очистки\n");
+        System.out.println("\nУдалить книгу 2");
+        BOOK_SHELF.delete("Жажда жизни");
+        maxSize();
+        printAll();
+
+
+        System.out.println("\nпосле очистки");
         BOOK_SHELF.clear();
         maxSize();
         printAll();
@@ -52,7 +57,7 @@ public class MainTest {
     }
 
     static void printAll() {
-        System.out.println("Содержимое шкафа\n");
+        System.out.println("\nСодержимое шкафа");
         Book[] all = BOOK_SHELF.getAll();
         for (Book book : all) {
             if (book != null) {
