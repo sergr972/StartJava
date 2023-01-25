@@ -5,20 +5,21 @@ public class Book {
     private final String author;
     private final String title;
     private final int year;
-
+    private final int infoLength;
 
     public Book(String author, String title, int year) {
         this.author = author;
         this.title = title;
         this.year = year;
+        infoLength = toString().length();
     }
 
     public String getTitle() {
         return title;
     }
 
-    public int getBookInfoLength() {
-        return toString().length();
+    public int getInfoLength() {
+        return infoLength;
     }
 
     public String toString() {

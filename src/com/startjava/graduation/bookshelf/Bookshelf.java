@@ -21,16 +21,20 @@ public class Bookshelf {
         return null;
     }
 
-    public void delete(String title) {
+    public boolean delete(String title) {
         int index = getIndex(title);
         if (index != -1) {
-            System.arraycopy(books, index + 1, books, index, countBooks - index);
+            System.arraycopy(books, index + 1, books, index, countBooks - index - 1);
+            books[countBooks - 1] = null;
             countBooks--;
+            return true;
         }
+        return false;
     }
 
     public void clear() {
         Arrays.fill(books, 0, countBooks, null);
+        countBooks = 0;
     }
 
     public Book[] getAll() {

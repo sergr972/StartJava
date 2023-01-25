@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class BookshelfTest {
 
-    static int maxSize;
-    static String maxLenBook;
+    private static int maxSize;
+    private static String maxLenBook;
     private final static Bookshelf BOOK_SHELF = new Bookshelf();
 
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class BookshelfTest {
             Scanner scanner = new Scanner(System.in);
             Book book;
             int input;
-            String bookName;
+            String title;
 
             System.out.println("""
                                         
@@ -48,8 +48,8 @@ public class BookshelfTest {
                         book = new Book(strings[0], strings[1], Integer.parseInt(strings[2]));
                         BOOK_SHELF.add(book);
                         System.out.println("\nКнига добавлена.");
-                        if (book.getBookInfoLength() > maxSize) {
-                            maxSize = book.getBookInfoLength();
+                        if (book.getInfoLength() > maxSize) {
+                            maxSize = book.getInfoLength();
                             maxLenBook = book.getTitle();
                         }
                     } catch (RuntimeException e) {
@@ -59,22 +59,22 @@ public class BookshelfTest {
                 case 2 -> {
                     System.out.println("Введите название книги: ");
                     scanner.nextLine();
-                    bookName = scanner.nextLine();
-                    if (BOOK_SHELF.find(bookName) == null) {
+                    title = scanner.nextLine();
+                    if (BOOK_SHELF.find(title) == null) {
                         System.out.println("Книга отсутствует в шкафу.");
                     } else {
-                        System.out.println("|" + BOOK_SHELF.find(bookName) + "|");
+                        System.out.println("|" + BOOK_SHELF.find(title) + "|");
                     }
                 }
                 case 3 -> {
                     System.out.println("Введите название книги: ");
-
                     scanner.nextLine();
-                    bookName = scanner.nextLine();
-                    BOOK_SHELF.delete(bookName);
-                    if (bookName.equals(maxLenBook)) {
-                        maxSize();
-                        System.out.println("Книга " + bookName + " удалена.");
+                    title = scanner.nextLine();
+                    if (BOOK_SHELF.delete(title)) {
+                        System.out.println("Книга " + title + " удалена.");
+                        if (title.equals(maxLenBook)) {
+                            maxSize();
+                        }
                     } else {
                         System.out.println("Книга отсутствует в шкафу.");
                     }
@@ -98,7 +98,7 @@ public class BookshelfTest {
         }
     }
 
-    static void printAll() {
+    private static void printAll() {
         Book[] all = BOOK_SHELF.getAll();
         if (all.length == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.");
@@ -106,7 +106,7 @@ public class BookshelfTest {
             for (Book book : all) {
                 if (book != null) {
                     StringBuilder builder = new StringBuilder(maxSize);
-                    int to = maxSize - book.getBookInfoLength();
+                    int to = maxSize - book.getInfoLength();
                     builder.append(book);
                     System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
                     System.out.println("|" + "-".repeat(maxSize) + "|");
@@ -118,13 +118,13 @@ public class BookshelfTest {
         }
     }
 
-    public static void maxSize() {
+    private static void maxSize() {
         maxSize = 0;
         Book[] all = BOOK_SHELF.getAll();
         for (Book book : all) {
             if (book != null) {
-                if (book.getBookInfoLength() > maxSize) {
-                    maxSize = book.getBookInfoLength();
+                if (book.getInfoLength() > maxSize) {
+                    maxSize = book.getInfoLength();
                     maxLenBook = book.getTitle();
                 }
             }
