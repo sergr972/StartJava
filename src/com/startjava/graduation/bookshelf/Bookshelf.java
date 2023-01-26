@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class Bookshelf {
 
     private int countBooks;
-    private static final int MAX_NUMBER = 10;
-    public Book[] books = new Book[MAX_NUMBER];
+    private static final int CAPACITY = 10;
+    public Book[] books = new Book[CAPACITY];
 
     public void add(Book book) {
         books[countBooks] = book;
@@ -14,15 +14,12 @@ public class Bookshelf {
     }
 
     public Book find(String title) {
-        int index = getIndex(title);
-        if (index != -1) {
-            return books[index];
-        }
-        return null;
+        int index = searchBook(title);
+        return ((index != -1)? books[index] : null);
     }
 
     public boolean delete(String title) {
-        int index = getIndex(title);
+        int index = searchBook(title);
         if (index != -1) {
             System.arraycopy(books, index + 1, books, index, countBooks - index - 1);
             books[countBooks - 1] = null;
@@ -46,10 +43,10 @@ public class Bookshelf {
     }
 
     public int getFreeShelves() {
-        return (MAX_NUMBER - countBooks);
+        return (CAPACITY - countBooks);
     }
 
-    private int getIndex(String title) {
+    private int searchBook(String title) {
         for (int i = 0; i < countBooks; i++) {
             if (title.equalsIgnoreCase(books[i].getTitle())) {
                 return i;
