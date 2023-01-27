@@ -6,36 +6,47 @@ public class Bookshelf {
 
     private int countBooks;
     private static final int CAPACITY = 10;
-    public Book[] books = new Book[CAPACITY];
+    private static final Book[] BOOKS = new Book[CAPACITY];
+
+    static int maxSize;
+    static String maxLenBook;
 
     public void add(Book book) {
-        books[countBooks] = book;
+        BOOKS[countBooks] = book;
         countBooks++;
+        if (book.getInfoLength() > maxSize) {
+            maxSize = book.getInfoLength();
+            maxLenBook = book.getTitle();
+        }
     }
 
     public Book find(String title) {
-        int index = searchBook(title);
-        return ((index != -1)? books[index] : null);
+        int index = findIndex(title);
+        return ((index != -1)? BOOKS[index] : null);
     }
 
     public boolean delete(String title) {
-        int index = searchBook(title);
+        int index = findIndex(title);
         if (index != -1) {
-            System.arraycopy(books, index + 1, books, index, countBooks - index - 1);
-            books[countBooks - 1] = null;
+            System.arraycopy(BOOKS, index + 1, BOOKS, index, countBooks - index - 1);
+            BOOKS[countBooks - 1] = null;
             countBooks--;
+            if (title.equals(maxLenBook)) {
+                maxSize();
+            }
             return true;
         }
         return false;
     }
 
     public void clear() {
-        Arrays.fill(books, 0, countBooks, null);
+        Arrays.fill(BOOKS, 0, countBooks, null);
         countBooks = 0;
+        maxSize = 0;
     }
 
     public Book[] getAll() {
-        return Arrays.copyOf(books, countBooks);
+        return Arrays.copyOf(BOOKS, countBooks);
     }
 
     public int getNumberBooks() {
@@ -46,12 +57,25 @@ public class Bookshelf {
         return (CAPACITY - countBooks);
     }
 
-    private int searchBook(String title) {
+    private int findIndex(String title) {
         for (int i = 0; i < countBooks; i++) {
-            if (title.equalsIgnoreCase(books[i].getTitle())) {
+            if (title.equalsIgnoreCase(BOOKS[i].getTitle())) {
                 return i;
             }
         }
         return -1;
     }
+
+    private static void maxSize() {
+        maxSize = 0;
+        for (Book book : BOOKS) {
+            if (book != null) {
+                if (book.getInfoLength() > maxSize) {
+                    maxSize = book.getInfoLength();
+                    maxLenBook = book.getTitle();
+                }
+            }
+        }
+    }
+
 }

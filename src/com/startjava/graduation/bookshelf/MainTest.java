@@ -4,7 +4,7 @@ public class MainTest {
 
     static int maxSize;
 
-    static final Bookshelf BOOK_SHELF = new Bookshelf();
+    private static final Bookshelf BOOK_SHELF = new Bookshelf();
 
     public static void main(String[] args) {
 
