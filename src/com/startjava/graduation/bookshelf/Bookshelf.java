@@ -22,7 +22,7 @@ public class Bookshelf {
 
     public Book find(String title) {
         int index = findIndex(title);
-        return ((index != -1)? BOOKS[index] : null);
+        return ((index != -1) ? BOOKS[index] : null);
     }
 
     public boolean delete(String title) {
@@ -77,5 +77,4 @@ public class Bookshelf {
             }
         }
     }
-
 }

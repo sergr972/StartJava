@@ -55,13 +55,14 @@ public class MainTest {
         System.out.println("\nСодержимое шкафа");
         maxSize();
         Book[] all = BOOK_SHELF.getAll();
+        StringBuilder builder = new StringBuilder(maxSize);
         for (Book book : all) {
             if (book != null) {
-                StringBuilder builder = new StringBuilder(maxSize);
                 int to = maxSize - book.getInfoLength();
-                builder.append(book);
-                System.out.println("|" + builder.append(" ".repeat(to)).append("|"));
-                System.out.println("|" + "-".repeat(maxSize) + "|");
+                System.out.println(builder.append("|").append(book).append(" ".repeat(to)).append("|"));
+                builder.setLength(0);
+                System.out.println(builder.append("|").append("-".repeat(maxSize)).append("|"));
+                builder.setLength(0);
             }
         }
         if (BOOK_SHELF.getFreeShelves() > 0) {
