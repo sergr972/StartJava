@@ -91,7 +91,7 @@ public class BookshelfTest {
         if (all.length == 0) {
             System.out.println("Шкаф пуст. Вы можете добавить в него первую книгу.");
         } else {
-            int maxSize = Bookshelf.maxSize;
+            int maxSize = Bookshelf.getMaxLenBook();
             StringBuilder builder = new StringBuilder(maxSize);
             for (Book book : all) {
                 if (book != null) {
