@@ -2,8 +2,6 @@ package com.startjava.graduation.bookshelf;
 
 public class MainTest {
 
-    static int maxSize;
-
     private static final Bookshelf BOOK_SHELF = new Bookshelf();
 
     public static void main(String[] args) {
@@ -45,7 +43,6 @@ public class MainTest {
 
         System.out.println("\nпосле очистки");
         BOOK_SHELF.clear();
-        maxSize();
         printAll();
         System.out.println("количество книг в шкафу: " + BOOK_SHELF.getNumberBooks());
         System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves() + "\n");
@@ -53,7 +50,7 @@ public class MainTest {
 
     private static void printAll() {
         System.out.println("\nСодержимое шкафа");
-        maxSize();
+        int maxSize = Bookshelf.getMaxLenBook();
         Book[] all = BOOK_SHELF.getAll();
         StringBuilder builder = new StringBuilder(maxSize);
         for (Book book : all) {
@@ -67,18 +64,6 @@ public class MainTest {
         }
         if (BOOK_SHELF.getFreeShelves() > 0) {
             System.out.println("|" + " ".repeat(maxSize) + "|");
-        }
-    }
-
-    private static void maxSize() {
-        maxSize = 0;
-        Book[] all = BOOK_SHELF.getAll();
-        for (Book book : all) {
-            if (book != null) {
-                if (book.getInfoLength() > maxSize) {
-                    maxSize = book.getInfoLength();
-                }
-            }
         }
     }
 }
