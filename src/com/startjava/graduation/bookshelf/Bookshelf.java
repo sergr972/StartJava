@@ -29,13 +29,12 @@ public class Bookshelf {
     public boolean delete(String title) {
         int index = findIndex(title);
         if (index != -1) {
-            int lenBook = books[index].getInfoLength();
+            if (books[index].getInfoLength() == maxLenBook) {
+                calcLength(index);
+            }
             countBooks--;
             System.arraycopy(books, index + 1, books, index, countBooks - index);
             books[countBooks] = null;
-            if (lenBook == maxLenBook) {
-                calcLength();
-            }
             return true;
         }
         return false;
@@ -68,10 +67,10 @@ public class Bookshelf {
         return -1;
     }
 
-    private void calcLength() {
+    private void calcLength(int index) {
         maxLenBook = 0;
         for (int i = 0; i < countBooks; i++) {
-            if (books[i].getInfoLength() > maxLenBook) {
+            if (i != index && books[i].getInfoLength() > maxLenBook) {
                 maxLenBook = books[i].getInfoLength();
             }
         }

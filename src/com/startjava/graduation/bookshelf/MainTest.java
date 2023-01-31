@@ -10,8 +10,8 @@ public class MainTest {
         System.out.println("количество свободных полок: " + BOOK_SHELF.getFreeShelves() + "\n");
         Book b1 = new Book("Author3", "Name3", 1903);
         Book b2 = new Book("Ирвинг Стоун", "Жажда жизни", 1973);
-        Book b3 = new Book("Author4", "Name4", 1904);
-        Book b4 = new Book("Рэй Брэдбери", "451 градус по Фаренгейту", 1980);
+        Book b3 = new Book("Рэй Брэдбери", "451 градус по Фаренгейту", 1980);
+        Book b4 = new Book("Author4", "Name4", 1904);
 
 
         System.out.println("\nДобавить 3 книги\n");
@@ -33,12 +33,12 @@ public class MainTest {
         System.out.println("\nНайти книгу Жажда жизни");
         System.out.println("|" + BOOK_SHELF.find("жажда жизни") + "|");
 
-        System.out.println("\nУдалить книгу 2");
-        BOOK_SHELF.delete("Жажда жизни");
+        System.out.println("\nУдалить книгу 3");
+        BOOK_SHELF.delete("451 градус по Фаренгейту");
         printAll();
 
-        System.out.println("\nУдалить книгу 4");
-        BOOK_SHELF.delete("451 градус по Фаренгейту");
+        System.out.println("\nУдалить книгу 2");
+        BOOK_SHELF.delete("Жажда жизни");
         printAll();
 
         System.out.println("\nпосле очистки");
